@@ -1,0 +1,274 @@
+{
+  "universities": [
+    {
+      "id": "qmul_cs",
+      "name": "Queen Mary University of London",
+      "program": "Computer Science BSc (Hons)",
+      "url": "https://www.qmul.ac.uk/undergraduate/coursefinder/courses/2025/computer-science/",
+      "country": "UK",
+      "field": "Computer Science",
+      "city": "London"
+    },
+    {
+      "id": "newcastle_cs",
+      "name": "Newcastle University",
+      "program": "Computer Science BSc Honours",
+      "url": "https://www.ncl.ac.uk/undergraduate/degrees/g400/",
+      "country": "UK",
+      "field": "Computer Science",
+      "city": "Newcastle"
+    },
+    {
+      "id": "city_cs",
+      "name": "City University of London",
+      "program": "Computer Science BSc (Hons)",
+      "url": "https://www.city.ac.uk/prospective-students/courses/undergraduate/computer-science",
+      "country": "UK",
+      "field": "Computer Science",
+      "city": "London"
+    },
+    {
+      "id": "nottingham_cs",
+      "name": "University of Nottingham",
+      "program": "Computer Science BSc",
+      "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/courses/UG/Computer-Science-BSc-Hons-U6UCMPSC.html",
+      "country": "UK",
+      "field": "Computer Science",
+      "city": "Nottingham"
+    },
+    {
+      "id": "york_cs",
+      "name": "University of York",
+      "program": "BSc (Hons) Computer Science",
+      "url": "https://www.york.ac.uk/study/undergraduate/courses/bsc-computer-science/",
+      "country": "UK",
+      "field": "Computer Science",
+      "city": "York"
+    },
+    {
+      "id": "birmingham_cs",
+      "name": "University of Birmingham",
+      "program": "Computer Science BSc",
+      "url": "https://www.birmingham.ac.uk/undergraduate/courses/computer-science/computer-science",
+      "country": "UK",
+      "field": "Computer Science",
+      "city": "Birmingham"
+    },
+    {
+      "id": "essex_cs",
+      "name": "University of Essex",
+      "program": "BSc Computer Science",
+      "url": "https://www.essex.ac.uk/subjects/computer-science",
+      "country": "UK",
+      "field": "Computer Science",
+      "city": "Colchester"
+    },
+    {
+      "id": "manchester_cs",
+      "name": "University of Manchester",
+      "program": "Computer Science BSc (Hons)",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2025/00560/bsc-computer-science/",
+      "country": "UK",
+      "field": "Computer Science",
+      "city": "Manchester"
+    },
+    {
+      "id": "leeds_cs",
+      "name": "University of Leeds",
+      "program": "Computer Science BSc",
+      "url": "https://courses.leeds.ac.uk/g400/computer-science-bsc",
+      "country": "UK",
+      "field": "Computer Science",
+      "city": "Leeds"
+    },
+    {
+      "id": "sheffield_cs",
+      "name": "University of Sheffield",
+      "program": "Computer Science BSc (Hons)",
+      "url": "https://www.sheffield.ac.uk/undergraduate/courses/2025/computer-science-bsc",
+      "country": "UK",
+      "field": "Computer Science",
+      "city": "Sheffield"
+    },
+    {
+      "id": "exeter_cs",
+      "name": "University of Exeter",
+      "program": "Computer Science BSc (Hons)",
+      "url": "https://www.exeter.ac.uk/undergraduate/courses/computerscience/compsci-bsc/",
+      "country": "UK",
+      "field": "Computer Science",
+      "city": "Exeter"
+    },
+    {
+      "id": "kent_cs",
+      "name": "University of Kent",
+      "program": "Computer Science BSc (Hons)",
+      "url": "https://www.kent.ac.uk/courses/undergraduate/357/computer-science",
+      "country": "UK",
+      "field": "Computer Science",
+      "city": "Canterbury"
+    },
+    {
+      "id": "surrey_cs",
+      "name": "University of Surrey",
+      "program": "Computer Science BSc (Hons)",
+      "url": "https://www.surrey.ac.uk/undergraduate/computer-science",
+      "country": "UK",
+      "field": "Computer Science",
+      "city": "Guildford"
+    },
+    {
+      "id": "reading_cs",
+      "name": "University of Reading",
+      "program": "Computer Science BSc",
+      "url": "https://www.reading.ac.uk/computer-science/ug/bsc-computer-science",
+      "country": "UK",
+      "field": "Computer Science",
+      "city": "Reading"
+    },
+    {
+      "id": "brunel_cs",
+      "name": "Brunel University London",
+      "program": "Computer Science BSc (Hons)",
+      "url": "https://www.brunel.ac.uk/computer-science/undergraduate-study/bsc-computer-science",
+      "country": "UK",
+      "field": "Computer Science",
+      "city": "London"
+    },
+    {
+      "id": "kcl_business",
+      "name": "King's College London",
+      "program": "Business Management BSc (Hons)",
+      "url": "https://www.kcl.ac.uk/business/study/undergraduate/business-management-bsc",
+      "country": "UK",
+      "field": "Business",
+      "city": "London"
+    },
+    {
+      "id": "lse_management",
+      "name": "London School of Economics",
+      "program": "Management BSc",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/degree-programmes/bsc-management",
+      "country": "UK",
+      "field": "Business",
+      "city": "London"
+    },
+    {
+      "id": "warwick_business",
+      "name": "University of Warwick",
+      "program": "Business Studies BSc (Hons)",
+      "url": "https://warwick.ac.uk/fac/soc/wbs/bsc",
+      "country": "UK",
+      "field": "Business",
+      "city": "Coventry"
+    },
+    {
+      "id": "bath_business",
+      "name": "University of Bath",
+      "program": "Business Administration BSc (Hons)",
+      "url": "https://www.bath.ac.uk/courses/undergraduate/business-economics/business-administration/",
+      "country": "UK",
+      "field": "Business",
+      "city": "Bath"
+    },
+    {
+      "id": "bristol_economics",
+      "name": "University of Bristol",
+      "program": "Economics BSc (Hons)",
+      "url": "https://www.bristol.ac.uk/study/undergraduate/2025/economics/bsc-economics/",
+      "country": "UK",
+      "field": "Economics",
+      "city": "Bristol"
+    },
+    {
+      "id": "ucl_economics",
+      "name": "University College London",
+      "program": "Economics BSc",
+      "url": "https://www.ucl.ac.uk/prospective-students/undergraduate/programmes/economics-bsc",
+      "country": "UK",
+      "field": "Economics",
+      "city": "London"
+    },
+    {
+      "id": "edinburgh_engineering",
+      "name": "University of Edinburgh",
+      "program": "Engineering (Mechanical) BEng (Hons)",
+      "url": "https://www.ed.ac.uk/studying/undergraduate/degrees/index.php?action=programme&code=H300",
+      "country": "UK",
+      "field": "Engineering",
+      "city": "Edinburgh"
+    },
+    {
+      "id": "imperial_engineering",
+      "name": "Imperial College London",
+      "program": "Mechanical Engineering BEng (Hons)",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/mechanical-engineering-beng/",
+      "country": "UK",
+      "field": "Engineering",
+      "city": "London"
+    },
+    {
+      "id": "cardiff_architecture",
+      "name": "Cardiff University",
+      "program": "Architecture BSc (Hons)",
+      "url": "https://www.cardiff.ac.uk/study/undergraduate/courses/course/architecture-bsc-hons",
+      "country": "UK",
+      "field": "Architecture",
+      "city": "Cardiff"
+    },
+    {
+      "id": "ucl_architecture",
+      "name": "University College London",
+      "program": "Architecture (Architectural Studies) BSc",
+      "url": "https://www.ucl.ac.uk/prospective-students/undergraduate/programmes/architecture-architectural-studies-bsc",
+      "country": "UK",
+      "field": "Architecture",
+      "city": "London"
+    },
+    {
+      "id": "manchester_psychology",
+      "name": "University of Manchester",
+      "program": "Psychology BSc (Hons)",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2025/00671/bsc-psychology/",
+      "country": "UK",
+      "field": "Psychology",
+      "city": "Manchester"
+    },
+    {
+      "id": "bath_psychology",
+      "name": "University of Bath",
+      "program": "Psychology BSc (Hons)",
+      "url": "https://www.bath.ac.uk/courses/undergraduate/psychology/psychology/",
+      "country": "UK",
+      "field": "Psychology",
+      "city": "Bath"
+    },
+    {
+      "id": "kcl_law",
+      "name": "King's College London",
+      "program": "Law LLB",
+      "url": "https://www.kcl.ac.uk/law/study/undergraduate/llb-law",
+      "country": "UK",
+      "field": "Law",
+      "city": "London"
+    },
+    {
+      "id": "bristol_law",
+      "name": "University of Bristol",
+      "program": "Law LLB",
+      "url": "https://www.bristol.ac.uk/study/undergraduate/2025/law/llb-law/",
+      "country": "UK",
+      "field": "Law",
+      "city": "Bristol"
+    },
+    {
+      "id": "glasgow_medicine",
+      "name": "University of Glasgow",
+      "program": "Medicine MBChB",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/medicine/",
+      "country": "UK",
+      "field": "Medicine",
+      "city": "Glasgow"
+    }
+  ]
+}

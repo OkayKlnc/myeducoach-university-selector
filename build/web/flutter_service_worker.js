@@ -3,7 +3,7 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 
-const RESOURCES = {"flutter_bootstrap.js": "2977efb67071302223fd28be39df55b9",
+const RESOURCES = {"flutter_bootstrap.js": "655fe894d13eb1e9d3abef36e1e4270d",
 "version.json": "4dc029b1993bd1f98083414a7889d7bd",
 "index.html": "be5b09908af86dceb1d69d745bb50b97",
 "/": "be5b09908af86dceb1d69d745bb50b97",
@@ -23,7 +23,7 @@ const RESOURCES = {"flutter_bootstrap.js": "2977efb67071302223fd28be39df55b9",
 "assets/shaders/stretch_effect.frag": "40d68efbbf360632f614c731219e95f0",
 "assets/AssetManifest.bin": "5e525f9b8293702abf107733a679036d",
 "assets/fonts/MaterialIcons-Regular.otf": "76c72394647a8ef5c59e8f6f56a562c3",
-"assets/assets/data/universities.json": "614e1a088596bf344898aeda4ce582ff",
+"assets/assets/data/universities.json": "73007ac31a95bee7eece1cbb09215911",
 "canvaskit/skwasm.js": "8060d46e9a4901ca9991edd3a26be4f0",
 "canvaskit/skwasm_heavy.js": "740d43a6b8240ef9e23eed8c48840da4",
 "canvaskit/skwasm.js.symbols": "3a4aadf4e8141f284bd524976b1d6bdc",

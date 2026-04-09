@@ -1,6 +1,706 @@
 {
     "universities": [
         {
+            "id": "liverpool_aerospace",
+            "name": "University of Liverpool",
+            "program": "Aerospace Engineering BEng (Hons)",
+            "url": "https://www.liverpool.ac.uk/courses/2025/aerospace-engineering-beng-hons",
+            "country": "UK",
+            "field": "Aerospace Engineering",
+            "city": "Liverpool",
+            "level": "Lisans"
+        },
+        {
+            "id": "manchester_aerospace",
+            "name": "University of Manchester",
+            "program": "BEng Aerospace Engineering",
+            "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2025/03333/beng-aerospace-engineering/",
+            "country": "UK",
+            "field": "Aerospace Engineering",
+            "city": "Manchester",
+            "level": "Lisans"
+        },
+        {
+            "id": "birmingham_aerospace",
+            "name": "University of Birmingham",
+            "program": "Aerospace Engineering BEng",
+            "url": "https://www.birmingham.ac.uk/undergraduate/courses/metallurgy-materials/aerospace-engineering-beng",
+            "country": "UK",
+            "field": "Aerospace Engineering",
+            "city": "Birmingham",
+            "level": "Lisans"
+        },
+        {
+            "id": "bristol_aerospace",
+            "name": "University of Bristol",
+            "program": "BEng Aerospace Engineering",
+            "url": "https://www.bristol.ac.uk/study/undergraduate/2025/aerospace/beng-aerospace-engineering/",
+            "country": "UK",
+            "field": "Aerospace Engineering",
+            "city": "Bristol",
+            "level": "Lisans"
+        },
+        {
+            "id": "nottingham_aerospace",
+            "name": "University of Nottingham",
+            "program": "Aerospace Engineering BEng",
+            "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/courses/UG/Aerospace-Engineering-BEng-Hons-U6UAERSE.html",
+            "country": "UK",
+            "field": "Aerospace Engineering",
+            "city": "Nottingham",
+            "level": "Lisans"
+        },
+        {
+            "id": "surrey_aerospace",
+            "name": "University of Surrey",
+            "program": "Aerospace Engineering",
+            "url": "https://www.surrey.ac.uk/undergraduate/aerospace-engineering",
+            "country": "UK",
+            "field": "Aerospace Engineering",
+            "city": "Guildford",
+            "level": "Lisans"
+        },
+        {
+            "id": "kingston_animation",
+            "name": "Kingston University",
+            "program": "Illustration Animation BA (Hons)",
+            "url": "https://www.kingston.ac.uk/undergraduate/courses/illustration-animation/",
+            "country": "UK",
+            "field": "Animation",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "brighton_animation",
+            "name": "University of Brighton",
+            "program": "Animation BA (Hons)",
+            "url": "https://www.brighton.ac.uk/courses/study/animation-ba-hons.aspx",
+            "country": "UK",
+            "field": "Animation",
+            "city": "Brighton",
+            "level": "Lisans"
+        },
+        {
+            "id": "bournemouth_animation",
+            "name": "Bournemouth University",
+            "program": "BA (Hons) Computer Animation & Visual Effects",
+            "url": "https://www.bournemouth.ac.uk/study/courses/ba-hons-computer-animation-visual-effects",
+            "country": "UK",
+            "field": "Animation",
+            "city": "Bournemouth",
+            "level": "Lisans"
+        },
+        {
+            "id": "uca_animation",
+            "name": "University for the Creative Arts",
+            "program": "BA (Hons) Animation",
+            "url": "https://www.uca.ac.uk/study/courses/ba-animation/",
+            "country": "UK",
+            "field": "Animation",
+            "city": "Farnham",
+            "level": "Lisans"
+        },
+        {
+            "id": "uca_theatre_screen",
+            "name": "University for the Creative Arts",
+            "program": "BA (Hons) Design for Theatre & Screen",
+            "url": "https://www.uca.ac.uk/study/courses/ba-design-for-theatre-screen/",
+            "country": "UK",
+            "field": "Animation",
+            "city": "Farnham",
+            "level": "Lisans"
+        },
+        {
+            "id": "portsmouth_animation",
+            "name": "University of Portsmouth",
+            "program": "Animation BA (Hons)",
+            "url": "https://www.port.ac.uk/study/courses/undergraduate/ba-hons-animation",
+            "country": "UK",
+            "field": "Animation",
+            "city": "Portsmouth",
+            "level": "Lisans"
+        },
+        {
+            "id": "newcastle_arch",
+            "name": "Newcastle University",
+            "program": "Architecture BA",
+            "url": "https://www.ncl.ac.uk/undergraduate/degrees/k100/",
+            "country": "UK",
+            "field": "Architecture",
+            "city": "Newcastle",
+            "level": "Lisans"
+        },
+        {
+            "id": "newcastle_arch_urban",
+            "name": "Newcastle University",
+            "program": "Architecture and Urban Planning BA Honours",
+            "url": "https://www.ncl.ac.uk/undergraduate/degrees/k190/",
+            "country": "UK",
+            "field": "Architecture",
+            "city": "Newcastle",
+            "level": "Lisans"
+        },
+        {
+            "id": "nottingham_arch",
+            "name": "University of Nottingham",
+            "program": "Architecture BArch",
+            "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/courses/UG/Architecture-BArch-Hons-U6UATTRE.html",
+            "country": "UK",
+            "field": "Architecture",
+            "city": "Nottingham",
+            "level": "Lisans"
+        },
+        {
+            "id": "liverpool_arch",
+            "name": "University of Liverpool",
+            "program": "BA (Hons) Architecture",
+            "url": "https://www.liverpool.ac.uk/courses/architecture-ba-hons",
+            "country": "UK",
+            "field": "Architecture",
+            "city": "Liverpool",
+            "level": "Lisans"
+        },
+        {
+            "id": "york_arch",
+            "name": "University of York",
+            "program": "BA (Hons) Architecture",
+            "url": "https://www.york.ac.uk/study/undergraduate/courses/ba-architecture/",
+            "country": "UK",
+            "field": "Architecture",
+            "city": "York",
+            "level": "Lisans"
+        },
+        {
+            "id": "marangoni_interior",
+            "name": "Istituto Marangoni",
+            "program": "Interior Design",
+            "url": "https://www.istitutomarangoni.com/en/design-courses/interior-design",
+            "country": "UK",
+            "field": "Architecture",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "bradford_arch_tech",
+            "name": "University of Bradford",
+            "program": "Architectural Technology BSc (Hons)",
+            "url": "https://www.bradford.ac.uk/courses/ug/architectural-technology-bsc/",
+            "country": "UK",
+            "field": "Architecture",
+            "city": "Bradford",
+            "level": "Lisans"
+        },
+        {
+            "id": "nottingham_ai",
+            "name": "University of Nottingham",
+            "program": "Computer Science with Artificial Intelligence BSc",
+            "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/courses/UG/Computer-Science-with-Artificial-Intelligence-BSc-Hons-U6UCMPAI.html",
+            "country": "UK",
+            "field": "Artificial Intelligence",
+            "city": "Nottingham",
+            "level": "Lisans"
+        },
+        {
+            "id": "birmingham_ai",
+            "name": "University of Birmingham",
+            "program": "Artificial Intelligence (AI) and Computer Science BSc",
+            "url": "https://www.birmingham.ac.uk/undergraduate/subjects/computer-science-courses/artificial-intelligence-ai-computer-science-bsc",
+            "country": "UK",
+            "field": "Artificial Intelligence",
+            "city": "Birmingham",
+            "level": "Lisans"
+        },
+        {
+            "id": "liverpool_cs",
+            "name": "University of Liverpool",
+            "program": "Computer Science BSc (Hons)",
+            "url": "https://www.liverpool.ac.uk/courses/computer-science-bsc-hons",
+            "country": "UK",
+            "field": "Artificial Intelligence",
+            "city": "Liverpool",
+            "level": "Lisans"
+        },
+        {
+            "id": "bristol_ai",
+            "name": "University of Bristol",
+            "program": "BEng Artificial Intelligence (G164)",
+            "url": "https://www.bristol.ac.uk/study/undergraduate/2025/artificial-intelligence/beng-artificial-intelligence/",
+            "country": "UK",
+            "field": "Artificial Intelligence",
+            "city": "Bristol",
+            "level": "Lisans"
+        },
+        {
+            "id": "kent_cs_ai",
+            "name": "University of Kent",
+            "program": "BSc (Hons) Computer Science (Artificial Intelligence)",
+            "url": "https://www.kent.ac.uk/courses/undergraduate/631/computer-science-artificial-intelligence",
+            "country": "UK",
+            "field": "Artificial Intelligence",
+            "city": "Canterbury",
+            "level": "Lisans"
+        },
+        {
+            "id": "essex_ai",
+            "name": "University of Essex",
+            "program": "BSc Artificial Intelligence",
+            "url": "https://www.essex.ac.uk/courses/UG01499/1/BSc-Artificial-Intelligence",
+            "country": "UK",
+            "field": "Artificial Intelligence",
+            "city": "Colchester",
+            "level": "Lisans"
+        },
+        {
+            "id": "portsmouth_robotics",
+            "name": "University of Portsmouth",
+            "program": "Robotics and Artificial Intelligence BEng (Hons)",
+            "url": "https://www.port.ac.uk/study/courses/undergraduate/beng-hons-robotics-and-artificial-intelligence",
+            "country": "UK",
+            "field": "Artificial Intelligence",
+            "city": "Portsmouth",
+            "level": "Lisans"
+        },
+        {
+            "id": "kingston_ai",
+            "name": "University of Kingston",
+            "program": "Computer Science and Artificial Intelligence BSc (Hons)",
+            "url": "https://www.kingston.ac.uk/undergraduate/courses/computer-science-and-artificial-intelligence-bsc-hons",
+            "country": "UK",
+            "field": "Artificial Intelligence",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "wales_automotive",
+            "name": "University of Wales (Trinity Saint David)",
+            "program": "Automotive and Transport Design BA (Hons)",
+            "url": "https://www.uwtsd.ac.uk/programme-courses/undergraduate/art-design-and-photography/automotive-and-transport-design-full",
+            "country": "UK",
+            "field": "Automotive and Transport Design",
+            "city": "Swansea",
+            "level": "Lisans"
+        },
+        {
+            "id": "uca_automotive",
+            "name": "University for the Creative Arts",
+            "program": "Automotive and Transport Design BSc (Hons)",
+            "url": "https://www.uca.ac.uk/study/courses/bsc-automotive-transport-design/",
+            "country": "UK",
+            "field": "Automotive and Transport Design",
+            "city": "Farnham",
+            "level": "Lisans"
+        },
+        {
+            "id": "coventry_automotive",
+            "name": "Coventry University",
+            "program": "Automotive and Transport Design BA (Hons)",
+            "url": "https://www.coventry.ac.uk/course-structure/ug/fah/automotive-and-transport-design-mdesba-hons/",
+            "country": "UK",
+            "field": "Automotive and Transport Design",
+            "city": "Coventry",
+            "level": "Lisans"
+        },
+        {
+            "id": "staffs_automotive",
+            "name": "University of Staffordshire",
+            "program": "Automotive and Transport Design BA (Hons)",
+            "url": "https://www.staffs.ac.uk/course/automotive-transport-design-ba",
+            "country": "UK",
+            "field": "Automotive and Transport Design",
+            "city": "Staffordshire",
+            "level": "Lisans"
+        },
+        {
+            "id": "newcastle_bioinformatics_msc",
+            "name": "University of Newcastle",
+            "program": "Bioinformatics MSc",
+            "url": "https://www.ncl.ac.uk/postgraduate/degrees/5198f/",
+            "country": "UK",
+            "field": "Bioinformatics",
+            "city": "Newcastle",
+            "level": "Yüksek Lisans"
+        },
+        {
+            "id": "nottingham_bioinformatics_msc",
+            "name": "University of Nottingham",
+            "program": "MSc Bioinformatics",
+            "url": "https://www.nottingham.ac.uk/pgstudy/course/taught/bioinformatics-msc",
+            "country": "UK",
+            "field": "Bioinformatics",
+            "city": "Nottingham",
+            "level": "Yüksek Lisans"
+        },
+        {
+            "id": "york_bioinformatics_msc",
+            "name": "University of York",
+            "program": "MSc Bioinformatics",
+            "url": "https://www.york.ac.uk/study/postgraduate-taught/courses/msc-bioinformatics/",
+            "country": "UK",
+            "field": "Bioinformatics",
+            "city": "York",
+            "level": "Yüksek Lisans"
+        },
+        {
+            "id": "york_biomedical_msc",
+            "name": "University of York",
+            "program": "MSc Biomedical Sciences",
+            "url": "https://www.york.ac.uk/study/postgraduate-taught/courses/msc-biomedical-sciences/",
+            "country": "UK",
+            "field": "Bioinformatics",
+            "city": "York",
+            "level": "Yüksek Lisans"
+        },
+        {
+            "id": "york_biotech_msc",
+            "name": "University of York",
+            "program": "MSc Biotechnology",
+            "url": "https://www.york.ac.uk/study/postgraduate-taught/courses/msc-biotechnology/",
+            "country": "UK",
+            "field": "Bioinformatics",
+            "city": "York",
+            "level": "Yüksek Lisans"
+        },
+        {
+            "id": "kent_biotech_msc",
+            "name": "University of Kent",
+            "program": "MSc Biotechnology and Bioengineering",
+            "url": "https://www.kent.ac.uk/courses/postgraduate/213/biotechnology-and-bioengineering",
+            "country": "UK",
+            "field": "Bioinformatics",
+            "city": "Canterbury",
+            "level": "Yüksek Lisans"
+        },
+        {
+            "id": "portsmouth_biotech_msc",
+            "name": "University of Portsmouth",
+            "program": "Biotechnology MSc",
+            "url": "https://www.port.ac.uk/study/courses/postgraduate-taught/msc-biotechnology",
+            "country": "UK",
+            "field": "Bioinformatics",
+            "city": "Portsmouth",
+            "level": "Yüksek Lisans"
+        },
+        {
+            "id": "cranfield_bioinformatics_msc",
+            "name": "Cranfield University",
+            "program": "Applied Bioinformatics MSc",
+            "url": "https://www.cranfield.ac.uk/courses/taught/applied-bioinformatics",
+            "country": "UK",
+            "field": "Bioinformatics",
+            "city": "Cranfield",
+            "level": "Yüksek Lisans"
+        },
+        {
+            "id": "leicester_bioinformatics_msc",
+            "name": "University of Leicester",
+            "program": "Bioinformatics MSc",
+            "url": "https://le.ac.uk/courses/bioinformatics-msc/2025",
+            "country": "UK",
+            "field": "Bioinformatics",
+            "city": "Leicester",
+            "level": "Yüksek Lisans"
+        },
+        {
+            "id": "qmul_biology",
+            "name": "Queen Mary University of London",
+            "program": "Biology",
+            "url": "https://www.qmul.ac.uk/undergraduate/coursefinder/courses/2025/biology/",
+            "country": "UK",
+            "field": "Biology",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "nottingham_biology",
+            "name": "University of Nottingham",
+            "program": "Biology BSc",
+            "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/courses/UG/Biology-BSc-Hons-U6UBOLGY.html",
+            "country": "UK",
+            "field": "Biology",
+            "city": "Nottingham",
+            "level": "Lisans"
+        },
+        {
+            "id": "birmingham_biology",
+            "name": "University of Birmingham",
+            "program": "Biological Sciences BSc",
+            "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/biosciences-courses/biological-sciences-bsc",
+            "country": "UK",
+            "field": "Biology",
+            "city": "Birmingham",
+            "level": "Lisans"
+        },
+        {
+            "id": "newcastle_biology",
+            "name": "Newcastle University",
+            "program": "Biology BSc Honours",
+            "url": "https://www.ncl.ac.uk/undergraduate/degrees/c100/",
+            "country": "UK",
+            "field": "Biology",
+            "city": "Newcastle",
+            "level": "Lisans"
+        },
+        {
+            "id": "york_biology",
+            "name": "University of York",
+            "program": "BSc (Hons) Biology",
+            "url": "https://www.york.ac.uk/study/undergraduate/courses/bsc-biology/",
+            "country": "UK",
+            "field": "Biology",
+            "city": "York",
+            "level": "Lisans"
+        },
+        {
+            "id": "chester_biology",
+            "name": "University of Chester",
+            "program": "BSc Biology",
+            "url": "https://www.chester.ac.uk/study/course-search/biology-bsc-hons/?studyMode=102272",
+            "country": "UK",
+            "field": "Biology",
+            "city": "Chester",
+            "level": "Lisans"
+        },
+        {
+            "id": "bristol_biology",
+            "name": "University of Bristol",
+            "program": "BSc Biology",
+            "url": "https://www.bristol.ac.uk/study/undergraduate/2025/biological-sciences/bsc-biology/",
+            "country": "UK",
+            "field": "Biology",
+            "city": "Bristol",
+            "level": "Lisans"
+        },
+        {
+            "id": "southampton_biology",
+            "name": "University of Southampton",
+            "program": "Biology BSc",
+            "url": "https://www.southampton.ac.uk/courses/biology-degree-bsc",
+            "country": "UK",
+            "field": "Biology",
+            "city": "Southampton",
+            "level": "Lisans"
+        },
+        {
+            "id": "nottingham_biotech",
+            "name": "University of Nottingham",
+            "program": "Biotechnology BSc",
+            "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/courses/UG/Biotechnology-BSc-Hons-U6UBTECH.html",
+            "country": "UK",
+            "field": "Biotechnology",
+            "city": "Nottingham",
+            "level": "Lisans"
+        },
+        {
+            "id": "birmingham_biotech",
+            "name": "University of Birmingham",
+            "program": "BSc Biotechnology",
+            "url": "https://www.birmingham.ac.uk/undergraduate/courses/biosciences/biotechnology",
+            "country": "UK",
+            "field": "Biotechnology",
+            "city": "Birmingham",
+            "level": "Lisans"
+        },
+        {
+            "id": "manchester_biotech",
+            "name": "University of Manchester",
+            "program": "BSc Biotechnology",
+            "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2025/08662/bsc-biotechnology/",
+            "country": "UK",
+            "field": "Biotechnology",
+            "city": "Manchester",
+            "level": "Lisans"
+        },
+        {
+            "id": "york_biotech",
+            "name": "University of York",
+            "program": "BSc (Hons) Biotechnology",
+            "url": "https://www.york.ac.uk/study/undergraduate/courses/bsc-biotechnology/",
+            "country": "UK",
+            "field": "Biotechnology",
+            "city": "York",
+            "level": "Lisans"
+        },
+        {
+            "id": "essex_biotech",
+            "name": "University of Essex",
+            "program": "BSc Biotechnology",
+            "url": "https://www.essex.ac.uk/courses/UG01128/1/BSc-Biotechnology",
+            "country": "UK",
+            "field": "Biotechnology",
+            "city": "Colchester",
+            "level": "Lisans"
+        },
+        {
+            "id": "bangor_biotech",
+            "name": "Bangor University",
+            "program": "Biology with Biotechnology BSc (Hons)",
+            "url": "https://www.bangor.ac.uk/courses/undergraduate/c511-biology-with-biotechnology-bsc-hons",
+            "country": "UK",
+            "field": "Biotechnology",
+            "city": "Bangor",
+            "level": "Lisans"
+        },
+        {
+            "id": "hult_business",
+            "name": "Hult Business School",
+            "program": "Business",
+            "url": "https://www.hult.edu/campuses/london/",
+            "country": "UK",
+            "field": "Business and Management",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "qmul_int_business",
+            "name": "Queen Mary University of London",
+            "program": "International Business Analytics",
+            "url": "https://www.qmul.ac.uk/undergraduate/coursefinder/courses/2026/international-business-analytics/",
+            "country": "UK",
+            "field": "Business and Management",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "qmul_business_mgmt",
+            "name": "Queen Mary University of London",
+            "program": "Business Management",
+            "url": "https://www.qmul.ac.uk/undergraduate/coursefinder/courses/2025/business-management/",
+            "country": "UK",
+            "field": "Business and Management",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "qmul_env_business",
+            "name": "Queen Mary University of London",
+            "program": "Environmental Science with Business Management",
+            "url": "https://www.qmul.ac.uk/undergraduate/coursefinder/courses/2025/environmental-science-with-business-management/",
+            "country": "UK",
+            "field": "Business and Management",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "qmul_politics_business",
+            "name": "Queen Mary University of London",
+            "program": "Politics with Business Management",
+            "url": "https://www.qmul.ac.uk/undergraduate/coursefinder/courses/2025/politics-with-business-management/",
+            "country": "UK",
+            "field": "Business and Management",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "newcastle_business",
+            "name": "Newcastle University",
+            "program": "Business Management BA Honours",
+            "url": "https://www.ncl.ac.uk/undergraduate/degrees/n200/",
+            "country": "UK",
+            "field": "Business and Management",
+            "city": "Newcastle",
+            "level": "Lisans"
+        },
+        {
+            "id": "regents_business",
+            "name": "Regent's University London",
+            "program": "Business and Management",
+            "url": "https://www.regents.ac.uk/undergraduate/business/ba-hons-business-and-management-new-model",
+            "country": "UK",
+            "field": "Business and Management",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "city_business_mgmt",
+            "name": "City, University of London",
+            "program": "Business Management BSc (Hons)",
+            "url": "https://www.bayes.city.ac.uk/study/undergraduate/courses/business-management",
+            "country": "UK",
+            "field": "Business and Management",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "city_business_analytics",
+            "name": "City, University of London",
+            "program": "Business Analytics BSc (Hons)",
+            "url": "https://www.bayes.citystgeorges.ac.uk/study/undergraduate/courses/business-analytics",
+            "country": "UK",
+            "field": "Business and Management",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "nottingham_business",
+            "name": "University of Nottingham",
+            "program": "Business and Management BSc",
+            "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/courses/UG/Business-and-Management-BSc-Hons-U6UBSMGT.html",
+            "country": "UK",
+            "field": "Business and Management",
+            "city": "Nottingham",
+            "level": "Lisans"
+        },
+        {
+            "id": "birmingham_civil",
+            "name": "University of Birmingham",
+            "program": "Civil Engineering BEng",
+            "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/civil-engineering-courses/civil-engineering-beng",
+            "country": "UK",
+            "field": "Civil Engineering",
+            "city": "Birmingham",
+            "level": "Lisans"
+        },
+        {
+            "id": "portsmouth_civil",
+            "name": "University of Portsmouth",
+            "program": "Civil Engineering BEng",
+            "url": "https://www.port.ac.uk/study/courses/undergraduate/beng-meng-civil-engineering",
+            "country": "UK",
+            "field": "Civil Engineering",
+            "city": "Portsmouth",
+            "level": "Lisans"
+        },
+        {
+            "id": "bristol_civil",
+            "name": "University of Bristol",
+            "program": "Civil Engineering BEng",
+            "url": "https://www.bristol.ac.uk/study/undergraduate/2025/civil-engineering/beng-civil-engineering/",
+            "country": "UK",
+            "field": "Civil Engineering",
+            "city": "Bristol",
+            "level": "Lisans"
+        },
+        {
+            "id": "brighton_civil",
+            "name": "University of Brighton",
+            "program": "Civil Engineering BEng",
+            "url": "https://www.brighton.ac.uk/studying-here/subject-areas/architecture-technology-engineering/civil-engineering/index.aspx",
+            "country": "UK",
+            "field": "Civil Engineering",
+            "city": "Brighton",
+            "level": "Lisans"
+        },
+        {
+            "id": "greenwich_civil",
+            "name": "University of Greenwich",
+            "program": "Civil Engineering BEng",
+            "url": "https://www.gre.ac.uk/undergraduate-courses/engsci/civil-engineering-beng-hons",
+            "country": "UK",
+            "field": "Civil Engineering",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "nottingham_civil",
+            "name": "University of Nottingham",
+            "program": "Civil Engineering BEng",
+            "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/courses/UG/Civil-Engineering-BEng-Hons-U6UCVENG.html",
+            "country": "UK",
+            "field": "Civil Engineering",
+            "city": "Nottingham",
+            "level": "Lisans"
+        },
+        {
             "id": "qmul_cs",
             "name": "Queen Mary University of London",
             "program": "Computer Science BSc (Hons)",
@@ -71,129 +771,29 @@
             "level": "Lisans"
         },
         {
-            "id": "manchester_cs",
-            "name": "University of Manchester",
-            "program": "Computer Science BSc (Hons)",
-            "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2025/00560/bsc-computer-science/",
+            "id": "qmul_economics",
+            "name": "Queen Mary University of London",
+            "program": "Economics",
+            "url": "https://www.qmul.ac.uk/undergraduate/coursefinder/courses/2025/economics/",
             "country": "UK",
-            "field": "Computer Science",
-            "city": "Manchester",
-            "level": "Lisans"
-        },
-        {
-            "id": "leeds_cs",
-            "name": "University of Leeds",
-            "program": "Computer Science BSc",
-            "url": "https://courses.leeds.ac.uk/g400/computer-science-bsc",
-            "country": "UK",
-            "field": "Computer Science",
-            "city": "Leeds",
-            "level": "Lisans"
-        },
-        {
-            "id": "sheffield_cs",
-            "name": "University of Sheffield",
-            "program": "Computer Science BSc (Hons)",
-            "url": "https://www.sheffield.ac.uk/undergraduate/courses/2025/computer-science-bsc",
-            "country": "UK",
-            "field": "Computer Science",
-            "city": "Sheffield",
-            "level": "Lisans"
-        },
-        {
-            "id": "exeter_cs",
-            "name": "University of Exeter",
-            "program": "Computer Science BSc (Hons)",
-            "url": "https://www.exeter.ac.uk/undergraduate/courses/computerscience/compsci-bsc/",
-            "country": "UK",
-            "field": "Computer Science",
-            "city": "Exeter",
-            "level": "Lisans"
-        },
-        {
-            "id": "kent_cs",
-            "name": "University of Kent",
-            "program": "Computer Science BSc (Hons)",
-            "url": "https://www.kent.ac.uk/courses/undergraduate/357/computer-science",
-            "country": "UK",
-            "field": "Computer Science",
-            "city": "Canterbury",
-            "level": "Lisans"
-        },
-        {
-            "id": "surrey_cs",
-            "name": "University of Surrey",
-            "program": "Computer Science BSc (Hons)",
-            "url": "https://www.surrey.ac.uk/undergraduate/computer-science",
-            "country": "UK",
-            "field": "Computer Science",
-            "city": "Guildford",
-            "level": "Lisans"
-        },
-        {
-            "id": "reading_cs",
-            "name": "University of Reading",
-            "program": "Computer Science BSc",
-            "url": "https://www.reading.ac.uk/computer-science/ug/bsc-computer-science",
-            "country": "UK",
-            "field": "Computer Science",
-            "city": "Reading",
-            "level": "Lisans"
-        },
-        {
-            "id": "brunel_cs",
-            "name": "Brunel University London",
-            "program": "Computer Science BSc (Hons)",
-            "url": "https://www.brunel.ac.uk/computer-science/undergraduate-study/bsc-computer-science",
-            "country": "UK",
-            "field": "Computer Science",
+            "field": "Economics",
             "city": "London",
             "level": "Lisans"
         },
         {
-            "id": "kcl_business",
-            "name": "King's College London",
-            "program": "Business Management BSc (Hons)",
-            "url": "https://www.kcl.ac.uk/business/study/undergraduate/business-management-bsc",
+            "id": "nottingham_economics",
+            "name": "University of Nottingham",
+            "program": "Economics BSc",
+            "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/courses/UG/Economics-BSc-Hons-U6UECNOM.html",
             "country": "UK",
-            "field": "Business",
-            "city": "London",
-            "level": "Lisans"
-        },
-        {
-            "id": "lse_management",
-            "name": "London School of Economics",
-            "program": "Management BSc",
-            "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/degree-programmes/bsc-management",
-            "country": "UK",
-            "field": "Business",
-            "city": "London",
-            "level": "Lisans"
-        },
-        {
-            "id": "warwick_business",
-            "name": "University of Warwick",
-            "program": "Business Studies BSc (Hons)",
-            "url": "https://warwick.ac.uk/fac/soc/wbs/bsc",
-            "country": "UK",
-            "field": "Business",
-            "city": "Coventry",
-            "level": "Lisans"
-        },
-        {
-            "id": "bath_business",
-            "name": "University of Bath",
-            "program": "Business Administration BSc (Hons)",
-            "url": "https://www.bath.ac.uk/courses/undergraduate/business-economics/business-administration/",
-            "country": "UK",
-            "field": "Business",
-            "city": "Bath",
+            "field": "Economics",
+            "city": "Nottingham",
             "level": "Lisans"
         },
         {
             "id": "bristol_economics",
             "name": "University of Bristol",
-            "program": "Economics BSc (Hons)",
+            "program": "BSc Economics",
             "url": "https://www.bristol.ac.uk/study/undergraduate/2025/economics/bsc-economics/",
             "country": "UK",
             "field": "Economics",
@@ -201,103 +801,1853 @@
             "level": "Lisans"
         },
         {
-            "id": "ucl_economics",
-            "name": "University College London",
+            "id": "kent_economics",
+            "name": "University of Kent",
             "program": "Economics BSc",
-            "url": "https://www.ucl.ac.uk/prospective-students/undergraduate/programmes/economics-bsc",
+            "url": "https://www.kent.ac.uk/courses/undergraduate/109/economics",
+            "country": "UK",
+            "field": "Economics",
+            "city": "Canterbury",
+            "level": "Lisans"
+        },
+        {
+            "id": "portsmouth_economics",
+            "name": "University of Portsmouth",
+            "program": "Economics BSc (Econ)",
+            "url": "https://www.port.ac.uk/study/courses/undergraduate/bsc-econ-hons-economics",
+            "country": "UK",
+            "field": "Economics",
+            "city": "Portsmouth",
+            "level": "Lisans"
+        },
+        {
+            "id": "greenwich_economics",
+            "name": "University of Greenwich",
+            "program": "Economics BSc",
+            "url": "https://www.gre.ac.uk/undergraduate-courses/business-school/economics-bsc-hons",
             "country": "UK",
             "field": "Economics",
             "city": "London",
             "level": "Lisans"
         },
         {
-            "id": "edinburgh_engineering",
-            "name": "University of Edinburgh",
-            "program": "Engineering (Mechanical) BEng (Hons)",
-            "url": "https://www.ed.ac.uk/studying/undergraduate/degrees/index.php?action=programme&code=H300",
+            "id": "uwe_economics",
+            "name": "UWE Bristol",
+            "program": "Economics BA",
+            "url": "https://courses.uwe.ac.uk/L100/economics",
             "country": "UK",
-            "field": "Engineering",
-            "city": "Edinburgh",
-            "level": "Lisans"
-        },
-        {
-            "id": "imperial_engineering",
-            "name": "Imperial College London",
-            "program": "Mechanical Engineering BEng (Hons)",
-            "url": "https://www.imperial.ac.uk/study/courses/undergraduate/mechanical-engineering-beng/",
-            "country": "UK",
-            "field": "Engineering",
-            "city": "London",
-            "level": "Lisans"
-        },
-        {
-            "id": "cardiff_architecture",
-            "name": "Cardiff University",
-            "program": "Architecture BSc (Hons)",
-            "url": "https://www.cardiff.ac.uk/study/undergraduate/courses/course/architecture-bsc-hons",
-            "country": "UK",
-            "field": "Architecture",
-            "city": "Cardiff",
-            "level": "Lisans"
-        },
-        {
-            "id": "ucl_architecture",
-            "name": "University College London",
-            "program": "Architecture (Architectural Studies) BSc",
-            "url": "https://www.ucl.ac.uk/prospective-students/undergraduate/programmes/architecture-architectural-studies-bsc",
-            "country": "UK",
-            "field": "Architecture",
-            "city": "London",
-            "level": "Lisans"
-        },
-        {
-            "id": "manchester_psychology",
-            "name": "University of Manchester",
-            "program": "Psychology BSc (Hons)",
-            "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2025/00671/bsc-psychology/",
-            "country": "UK",
-            "field": "Psychology",
-            "city": "Manchester",
-            "level": "Lisans"
-        },
-        {
-            "id": "bath_psychology",
-            "name": "University of Bath",
-            "program": "Psychology BSc (Hons)",
-            "url": "https://www.bath.ac.uk/courses/undergraduate/psychology/psychology/",
-            "country": "UK",
-            "field": "Psychology",
-            "city": "Bath",
-            "level": "Lisans"
-        },
-        {
-            "id": "kcl_law",
-            "name": "King's College London",
-            "program": "Law LLB",
-            "url": "https://www.kcl.ac.uk/law/study/undergraduate/llb-law",
-            "country": "UK",
-            "field": "Law",
-            "city": "London",
-            "level": "Lisans"
-        },
-        {
-            "id": "bristol_law",
-            "name": "University of Bristol",
-            "program": "Law LLB",
-            "url": "https://www.bristol.ac.uk/study/undergraduate/2025/law/llb-law/",
-            "country": "UK",
-            "field": "Law",
+            "field": "Economics",
             "city": "Bristol",
             "level": "Lisans"
         },
         {
-            "id": "glasgow_medicine",
-            "name": "University of Glasgow",
-            "program": "Medicine MBChB",
-            "url": "https://www.gla.ac.uk/undergraduate/degrees/medicine/",
+            "id": "newcastle_economics",
+            "name": "Newcastle University",
+            "program": "Economics BSc",
+            "url": "https://www.ncl.ac.uk/undergraduate/degrees/l100/",
+            "country": "UK",
+            "field": "Economics",
+            "city": "Newcastle",
+            "level": "Lisans"
+        },
+        {
+            "id": "qmul_eee",
+            "name": "Queen Mary University of London",
+            "program": "Electrical and Electronic Engineering BEng (Hons)",
+            "url": "https://www.qmul.ac.uk/undergraduate/coursefinder/courses/2025/electrical-and-electronic-engineering/",
+            "country": "UK",
+            "field": "Electrical and Electronic Engineering",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "nottingham_eee",
+            "name": "University of Nottingham",
+            "program": "Electrical and Electronic Engineering BEng",
+            "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/courses/UG/Electrical-and-Electronic-Engineering-BEng-Hons-U6UEEEENG.html",
+            "country": "UK",
+            "field": "Electrical and Electronic Engineering",
+            "city": "Nottingham",
+            "level": "Lisans"
+        },
+        {
+            "id": "liverpool_eee",
+            "name": "University of Liverpool",
+            "program": "BEng (Hons) Electrical and Electronic Engineering",
+            "url": "https://www.liverpool.ac.uk/courses/electrical-and-electronic-engineering-beng-hons",
+            "country": "UK",
+            "field": "Electrical and Electronic Engineering",
+            "city": "Liverpool",
+            "level": "Lisans"
+        },
+        {
+            "id": "newcastle_eee",
+            "name": "Newcastle University",
+            "program": "Electrical and Electronic Engineering BEng (Hons)",
+            "url": "https://www.ncl.ac.uk/undergraduate/degrees/h607/",
+            "country": "UK",
+            "field": "Electrical and Electronic Engineering",
+            "city": "Newcastle",
+            "level": "Lisans"
+        },
+        {
+            "id": "birmingham_eee",
+            "name": "University of Birmingham",
+            "program": "Electronic and Electrical Engineering BEng",
+            "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/electronic-electrical-and-systems-engineering-courses/electronic-electrical-engineering-beng",
+            "country": "UK",
+            "field": "Electrical and Electronic Engineering",
+            "city": "Birmingham",
+            "level": "Lisans"
+        },
+        {
+            "id": "bristol_eee",
+            "name": "University of Bristol",
+            "program": "BEng Electrical and Electronic Engineering",
+            "url": "https://www.bristol.ac.uk/study/undergraduate/2025/electrical-electronic-engineering/beng-electrical-and-electronic-engineering/",
+            "country": "UK",
+            "field": "Electrical and Electronic Engineering",
+            "city": "Bristol",
+            "level": "Lisans"
+        },
+        {
+            "id": "kent_eee",
+            "name": "University of Kent",
+            "program": "BEng (Hons) Electrical and Electronic Engineering",
+            "url": "https://www.kent.ac.uk/courses/undergraduate/6499/electrical-and-electronic-engineering-beng",
+            "country": "UK",
+            "field": "Electrical and Electronic Engineering",
+            "city": "Canterbury",
+            "level": "Lisans"
+        },
+        {
+            "id": "nottingham_eng_mfg",
+            "name": "University of Nottingham",
+            "program": "Mechanical Engineering with Manufacturing BEng Hons",
+            "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/courses/UG2026/Mechanical-Engineering-with-Manufacturing-BEng-Hons.html",
+            "country": "UK",
+            "field": "Engineering Management",
+            "city": "Nottingham",
+            "level": "Lisans"
+        },
+        {
+            "id": "birmingham_eng",
+            "name": "University of Birmingham",
+            "program": "Engineering BEng",
+            "url": "https://www.birmingham.ac.uk/undergraduate/courses/engineering/engineering-beng",
+            "country": "UK",
+            "field": "Engineering Management",
+            "city": "Birmingham",
+            "level": "Lisans"
+        },
+        {
+            "id": "exeter_eng_mgmt",
+            "name": "University of Exeter",
+            "program": "BEng Engineering and Management",
+            "url": "https://www.exeter.ac.uk/undergraduate-degrees/beng-engineering-and-management/",
+            "country": "UK",
+            "field": "Engineering Management",
+            "city": "Exeter",
+            "level": "Lisans"
+        },
+        {
+            "id": "portsmouth_mech_mfg",
+            "name": "University of Portsmouth",
+            "program": "Mechanical and Manufacturing Engineering BEng",
+            "url": "https://www.port.ac.uk/study/courses/undergraduate/beng-hons-mechanical-and-manufacturing-engineering",
+            "country": "UK",
+            "field": "Engineering Management",
+            "city": "Portsmouth",
+            "level": "Lisans"
+        },
+        {
+            "id": "bangor_eng",
+            "name": "Bangor University",
+            "program": "Engineering BEng",
+            "url": "https://www.bangor.ac.uk/courses/undergraduate/h607-engineering-beng",
+            "country": "UK",
+            "field": "Engineering Management",
+            "city": "Bangor",
+            "level": "Lisans"
+        },
+        {
+            "id": "greenwich_eng_mgmt",
+            "name": "University of Greenwich",
+            "program": "Engineering Management BEng Hons",
+            "url": "https://www.gre.ac.uk/undergraduate-courses/engsci/engineering-management-beng-hons",
+            "country": "UK",
+            "field": "Engineering Management",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "city_eng_business",
+            "name": "City, University of London",
+            "program": "Engineering with Business BEng (Hons)",
+            "url": "https://www.citystgeorges.ac.uk/prospective-students/courses/undergraduate/engineering-with-business",
+            "country": "UK",
+            "field": "Engineering Management",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "nottingham_english",
+            "name": "University of Nottingham",
+            "program": "English BA",
+            "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/courses/UG/2026/English-BA-Hons-U6UENGLS.html",
+            "country": "UK",
+            "field": "English Language",
+            "city": "Nottingham",
+            "level": "Lisans"
+        },
+        {
+            "id": "birmingham_eng_lit",
+            "name": "University of Birmingham",
+            "program": "English Language and Literature BA",
+            "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/english-language-and-linguistics-courses/english-language-and-literature-ba",
+            "country": "UK",
+            "field": "English Language",
+            "city": "Birmingham",
+            "level": "Lisans"
+        },
+        {
+            "id": "birmingham_english_lit",
+            "name": "University of Birmingham",
+            "program": "English Literature BA",
+            "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/english-literature-courses/english-literature-ba",
+            "country": "UK",
+            "field": "English Language",
+            "city": "Birmingham",
+            "level": "Lisans"
+        },
+        {
+            "id": "liverpool_english",
+            "name": "University of Liverpool",
+            "program": "BA (Hons) English Language",
+            "url": "https://www.liverpool.ac.uk/courses/english-language-ba-hons",
+            "country": "UK",
+            "field": "English Language",
+            "city": "Liverpool",
+            "level": "Lisans"
+        },
+        {
+            "id": "newcastle_english",
+            "name": "University of Newcastle",
+            "program": "English Language BA Honours",
+            "url": "https://www.ncl.ac.uk/undergraduate/degrees/q302/",
+            "country": "UK",
+            "field": "English Language",
+            "city": "Newcastle",
+            "level": "Lisans"
+        },
+        {
+            "id": "newcastle_eng_lit",
+            "name": "University of Newcastle",
+            "program": "English Language and Literature BA Honours",
+            "url": "https://www.ncl.ac.uk/undergraduate/degrees/q300/",
+            "country": "UK",
+            "field": "English Language",
+            "city": "Newcastle",
+            "level": "Lisans"
+        },
+        {
+            "id": "kent_english",
+            "name": "University of Kent",
+            "program": "BA (Hons) English Language, Linguistics and World Literature",
+            "url": "https://www.kent.ac.uk/courses/undergraduate/88/english-language-and-literatures",
+            "country": "UK",
+            "field": "English Language",
+            "city": "Canterbury",
+            "level": "Lisans"
+        },
+        {
+            "id": "essex_eng_lit",
+            "name": "University of Essex",
+            "program": "BA English Language and Literature",
+            "url": "https://www.essex.ac.uk/courses/UG00132/1/BA-English-Language-and-Literature",
+            "country": "UK",
+            "field": "English Language",
+            "city": "Colchester",
+            "level": "Lisans"
+        },
+        {
+            "id": "essex_eng_ling",
+            "name": "University of Essex",
+            "program": "BA English Language and Linguistics",
+            "url": "https://www.essex.ac.uk/courses/UG00131/1/BA-English-Language-and-Linguistics",
+            "country": "UK",
+            "field": "English Language",
+            "city": "Colchester",
+            "level": "Lisans"
+        },
+        {
+            "id": "city_english",
+            "name": "City, University of London",
+            "program": "English BA (Hons)",
+            "url": "https://www.citystgeorges.ac.uk/prospective-students/courses/undergraduate/english",
+            "country": "UK",
+            "field": "English Language",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "kingston_fashion",
+            "name": "University of Kingston",
+            "program": "Fashion BA (Hons)",
+            "url": "https://www.kingston.ac.uk/study/undergraduate/fashion-ba-hons",
+            "country": "UK",
+            "field": "Fashion Design",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "brighton_fashion",
+            "name": "University of Brighton",
+            "program": "Fashion Design with Business Studies BA (Hons)",
+            "url": "https://www.brighton.ac.uk/courses/study/fashion-design-with-business-studies-ba-hons.aspx",
+            "country": "UK",
+            "field": "Fashion Design",
+            "city": "Brighton",
+            "level": "Lisans"
+        },
+        {
+            "id": "aub_fashion",
+            "name": "Arts University Bournemouth",
+            "program": "BA (Hons) Fashion",
+            "url": "https://aub.ac.uk/course/ba-hons-fashion#tab-4851388-course-content",
+            "country": "UK",
+            "field": "Fashion Design",
+            "city": "Bournemouth",
+            "level": "Lisans"
+        },
+        {
+            "id": "ntu_fashion",
+            "name": "Nottingham Trent University",
+            "program": "Fashion Design BA (Hons)",
+            "url": "https://www.ntu.ac.uk/course/art-and-design/ug/ba-hons-fashion-design",
+            "country": "UK",
+            "field": "Fashion Design",
+            "city": "Nottingham",
+            "level": "Lisans"
+        },
+        {
+            "id": "marangoni_fashion",
+            "name": "Istituto Marangoni",
+            "program": "Fashion Design",
+            "url": "https://www.istitutomarangoni.com/en/fashion-courses/fashion-design/fashion-design",
+            "country": "UK",
+            "field": "Fashion Design",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "dmu_fashion",
+            "name": "De Montfort University",
+            "program": "Fashion Design BA (Hons)",
+            "url": "https://www.dmu.ac.uk/study/courses/undergraduate-courses/fashion-design-ba-degree/fashion-design-ba-degree.aspx",
+            "country": "UK",
+            "field": "Fashion Design",
+            "city": "Leicester",
+            "level": "Lisans"
+        },
+        {
+            "id": "portsmouth_fashion",
+            "name": "University of Portsmouth",
+            "program": "Fashion Design BA (Hons)",
+            "url": "https://www.port.ac.uk/study/courses/undergraduate/ba-hons-fashion-design",
+            "country": "UK",
+            "field": "Fashion Design",
+            "city": "Portsmouth",
+            "level": "Lisans"
+        },
+        {
+            "id": "chester_fashion",
+            "name": "University of Chester",
+            "program": "Fashion Design BA (Hons)",
+            "url": "https://www.chester.ac.uk/study/course-search/fashion-design-ba-hons/",
+            "country": "UK",
+            "field": "Fashion Design",
+            "city": "Chester",
+            "level": "Lisans"
+        },
+        {
+            "id": "qmul_econ_finance",
+            "name": "Queen Mary University of London",
+            "program": "Economics and Finance BSc (Hons)",
+            "url": "https://www.qmul.ac.uk/undergraduate/coursefinder/courses/2015/economics-and-finance/",
+            "country": "UK",
+            "field": "Finance",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "qmul_acc_finance",
+            "name": "Queen Mary University of London",
+            "program": "Accounting and Finance BSc (Hons)",
+            "url": "https://www.qmul.ac.uk/undergraduate/coursefinder/courses/2015/accounting-and-finance/",
+            "country": "UK",
+            "field": "Finance",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "newcastle_finance",
+            "name": "Newcastle University",
+            "program": "Finance BSc Honours",
+            "url": "https://www.ncl.ac.uk/undergraduate/degrees/n300/",
+            "country": "UK",
+            "field": "Finance",
+            "city": "Newcastle",
+            "level": "Lisans"
+        },
+        {
+            "id": "newcastle_acc_finance",
+            "name": "Newcastle University",
+            "program": "Accounting and Finance BSc Honours",
+            "url": "https://www.ncl.ac.uk/undergraduate/degrees/n400/",
+            "country": "UK",
+            "field": "Finance",
+            "city": "Newcastle",
+            "level": "Lisans"
+        },
+        {
+            "id": "regents_finance",
+            "name": "Regent's University London",
+            "program": "Business and Finance BA (Hons)",
+            "url": "https://www.regents.ac.uk/undergraduate/business/ba-hons-business-and-finance-new-model",
+            "country": "UK",
+            "field": "Finance",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "nottingham_finance",
+            "name": "University of Nottingham",
+            "program": "Finance, Accounting and Management BSc",
+            "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/courses/UG/Finance-Accounting-and-Management-BSc-Hons-U6UFAMGT.html",
+            "country": "UK",
+            "field": "Finance",
+            "city": "Nottingham",
+            "level": "Lisans"
+        },
+        {
+            "id": "york_finance",
+            "name": "University of York",
+            "program": "BSc (Hons) Accounting and Finance",
+            "url": "https://www.york.ac.uk/study/undergraduate/courses/bsc-accounting-finance/",
+            "country": "UK",
+            "field": "Finance",
+            "city": "York",
+            "level": "Lisans"
+        },
+        {
+            "id": "birmingham_finance",
+            "name": "University of Birmingham",
+            "program": "Accounting and Finance BSc",
+            "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/accounting-and-finance-courses/accounting-and-finance-bsc",
+            "country": "UK",
+            "field": "Finance",
+            "city": "Birmingham",
+            "level": "Lisans"
+        },
+        {
+            "id": "birmingham_banking",
+            "name": "University of Birmingham",
+            "program": "Money, Banking and Finance BSc",
+            "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/economics-courses/money-banking-and-finance-bsc",
+            "country": "UK",
+            "field": "Finance",
+            "city": "Birmingham",
+            "level": "Lisans"
+        },
+        {
+            "id": "westminster_fineart",
+            "name": "University of Westminster",
+            "program": "Fine Art Mixed Media BA Honours",
+            "url": "https://www.westminster.ac.uk/art-design-and-visual-culture-courses/2023-24/september/full-time/fine-art-mixed-media-ba-honours",
+            "country": "UK",
+            "field": "Fine Arts",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "dmu_fineart",
+            "name": "De Montfort University",
+            "program": "Fine Art BA",
+            "url": "https://www.dmu.ac.uk/study/courses/undergraduate-courses/fine-art-ba-degree/fine-art-ba-degree.aspx",
+            "country": "UK",
+            "field": "Fine Arts",
+            "city": "Leicester",
+            "level": "Lisans"
+        },
+        {
+            "id": "uwe_fineart",
+            "name": "UWE Bristol",
+            "program": "Fine Art BA (Hons)",
+            "url": "https://courses.uwe.ac.uk/W101/fine-art",
+            "country": "UK",
+            "field": "Fine Arts",
+            "city": "Bristol",
+            "level": "Lisans"
+        },
+        {
+            "id": "solent_fineart",
+            "name": "Solent University Southampton",
+            "program": "Fine Art BA",
+            "url": "https://www.solent.ac.uk/courses/undergraduate/fine-art-ba/2024",
+            "country": "UK",
+            "field": "Fine Arts",
+            "city": "Southampton",
+            "level": "Lisans"
+        },
+        {
+            "id": "chester_fineart",
+            "name": "University of Chester",
+            "program": "Fine Art BA",
+            "url": "https://www1.chester.ac.uk/study/undergraduate/fine-art",
+            "country": "UK",
+            "field": "Fine Arts",
+            "city": "Chester",
+            "level": "Lisans"
+        },
+        {
+            "id": "leicester_criminology",
+            "name": "University of Leicester",
+            "program": "Criminology BSc",
+            "url": "https://le.ac.uk/courses/criminology-bsc/2025",
+            "country": "UK",
+            "field": "Forensic Science and Criminology",
+            "city": "Leicester",
+            "level": "Lisans"
+        },
+        {
+            "id": "manchester_criminology",
+            "name": "University of Manchester",
+            "program": "BA Criminology",
+            "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2025/07052/ba-criminology/",
+            "country": "UK",
+            "field": "Forensic Science and Criminology",
+            "city": "Manchester",
+            "level": "Lisans"
+        },
+        {
+            "id": "birmingham_criminology",
+            "name": "University of Birmingham",
+            "program": "Criminology BA",
+            "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/social-policy-sociology-and-criminology-courses/criminology-ba",
+            "country": "UK",
+            "field": "Forensic Science and Criminology",
+            "city": "Birmingham",
+            "level": "Lisans"
+        },
+        {
+            "id": "kent_forensic",
+            "name": "University of Kent",
+            "program": "BSc Forensic Science",
+            "url": "https://www.kent.ac.uk/courses/undergraduate/73/forensic-science-bsc",
+            "country": "UK",
+            "field": "Forensic Science and Criminology",
+            "city": "Canterbury",
+            "level": "Lisans"
+        },
+        {
+            "id": "essex_criminology",
+            "name": "University of Essex",
+            "program": "BA Criminology",
+            "url": "https://www.essex.ac.uk/courses/UG00089/1/BA-Criminology",
+            "country": "UK",
+            "field": "Forensic Science and Criminology",
+            "city": "Colchester",
+            "level": "Lisans"
+        },
+        {
+            "id": "dmu_forensic",
+            "name": "De Montfort University",
+            "program": "Forensic Science BSc (Hons)",
+            "url": "https://www.dmu.ac.uk/study/courses/undergraduate-courses/forensic-science/forensic-science-bsc-msci-degree.aspx",
+            "country": "UK",
+            "field": "Forensic Science and Criminology",
+            "city": "Leicester",
+            "level": "Lisans"
+        },
+        {
+            "id": "uwe_forensic",
+            "name": "UWE Bristol",
+            "program": "Forensic Science",
+            "url": "https://courses.uwe.ac.uk/F410/forensic-science",
+            "country": "UK",
+            "field": "Forensic Science and Criminology",
+            "city": "Bristol",
+            "level": "Lisans"
+        },
+        {
+            "id": "qmul_genetics",
+            "name": "Queen Mary University of London",
+            "program": "Medical Genetics",
+            "url": "https://www.qmul.ac.uk/undergraduate/coursefinder/courses/2026/medical-genetics/",
+            "country": "UK",
+            "field": "Genetics",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "newcastle_genetics",
+            "name": "Newcastle University",
+            "program": "Biomedical Genetics BSc Honours",
+            "url": "https://www.ncl.ac.uk/undergraduate/degrees/b901/",
+            "country": "UK",
+            "field": "Genetics",
+            "city": "Newcastle",
+            "level": "Lisans"
+        },
+        {
+            "id": "york_genetics",
+            "name": "University of York",
+            "program": "BSc (Hons) Genetics",
+            "url": "https://www.york.ac.uk/study/undergraduate/courses/bsc-genetics/",
+            "country": "UK",
+            "field": "Genetics",
+            "city": "York",
+            "level": "Lisans"
+        },
+        {
+            "id": "essex_genetics",
+            "name": "University of Essex",
+            "program": "BSc Genetics",
+            "url": "https://www.essex.ac.uk/courses/ug00178/1/bsc-genetics",
+            "country": "UK",
+            "field": "Genetics",
+            "city": "Colchester",
+            "level": "Lisans"
+        },
+        {
+            "id": "rhul_genetics",
+            "name": "Royal Holloway University of London",
+            "program": "Genetics BSc",
+            "url": "https://www.royalholloway.ac.uk/studying-here/undergraduate/biological-sciences/genetics/",
+            "country": "UK",
+            "field": "Genetics",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "brighton_bioscience",
+            "name": "University of Brighton",
+            "program": "Biological Sciences BSc (Hons)",
+            "url": "https://www.brighton.ac.uk/courses/study/biological-sciences-bsc-hons.aspx",
+            "country": "UK",
+            "field": "Genetics",
+            "city": "Brighton",
+            "level": "Lisans"
+        },
+        {
+            "id": "bangor_biology",
+            "name": "Bangor University",
+            "program": "Biology BSc (Hons)",
+            "url": "https://www.bangor.ac.uk/courses/undergraduate/c100-biology-bsc-hons",
+            "country": "UK",
+            "field": "Genetics",
+            "city": "Bangor",
+            "level": "Lisans"
+        },
+        {
+            "id": "liverpool_bioscience",
+            "name": "University of Liverpool",
+            "program": "BSc (Hons) Biological Sciences",
+            "url": "https://www.liverpool.ac.uk/courses/biological-sciences-bsc-hons",
+            "country": "UK",
+            "field": "Genetics",
+            "city": "Liverpool",
+            "level": "Lisans"
+        },
+        {
+            "id": "aub_graphic",
+            "name": "Arts University Bournemouth",
+            "program": "Graphic Design",
+            "url": "https://aub.ac.uk/study-abroad-exchange/ba-study-abroad-courses/graphic-design",
+            "country": "UK",
+            "field": "Graphic Design",
+            "city": "Bournemouth",
+            "level": "Lisans"
+        },
+        {
+            "id": "bcu_graphic",
+            "name": "Birmingham City University",
+            "program": "Graphic Design BA",
+            "url": "https://www.bcu.ac.uk/courses/graphic-design-ba-hons-2025-26",
+            "country": "UK",
+            "field": "Graphic Design",
+            "city": "Birmingham",
+            "level": "Lisans"
+        },
+        {
+            "id": "brighton_graphic",
+            "name": "University of Brighton",
+            "program": "Graphic Design BA",
+            "url": "https://www.brighton.ac.uk/courses/study/graphic-design-ba-hons.aspx",
+            "country": "UK",
+            "field": "Graphic Design",
+            "city": "Brighton",
+            "level": "Lisans"
+        },
+        {
+            "id": "uwe_graphic",
+            "name": "UWE Bristol",
+            "program": "Graphic Design",
+            "url": "https://courses.uwe.ac.uk/W211/graphic-design",
+            "country": "UK",
+            "field": "Graphic Design",
+            "city": "Bristol",
+            "level": "Lisans"
+        },
+        {
+            "id": "chester_graphic",
+            "name": "University of Chester",
+            "program": "Graphic Design BA",
+            "url": "https://www.chester.ac.uk/study/course-search/graphic-design-ba-hons/",
+            "country": "UK",
+            "field": "Graphic Design",
+            "city": "Chester",
+            "level": "Lisans"
+        },
+        {
+            "id": "dmu_graphic",
+            "name": "De Montfort University",
+            "program": "Graphic Design BA",
+            "url": "https://www.dmu.ac.uk/study/courses/undergraduate-courses/graphic-design-degree/graphic-design-ba-degree.aspx",
+            "country": "UK",
+            "field": "Graphic Design",
+            "city": "Leicester",
+            "level": "Lisans"
+        },
+        {
+            "id": "nottingham_product",
+            "name": "University of Nottingham",
+            "program": "Product Design and Manufacture BEng",
+            "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/courses/UG/Product-Design-and-Manufacture-BEng-Hons-U6UPDMAN.html",
+            "country": "UK",
+            "field": "Industrial Design and Engineering",
+            "city": "Nottingham",
+            "level": "Lisans"
+        },
+        {
+            "id": "brunel_industrial",
+            "name": "Brunel University London",
+            "program": "Industrial Design BA",
+            "url": "https://www.brunel.ac.uk/study/courses/industrial-design-ba",
+            "country": "UK",
+            "field": "Industrial Design and Engineering",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "ual_product",
+            "name": "University of the Arts London",
+            "program": "BA (Hons) Product and Industrial Design",
+            "url": "https://www.arts.ac.uk/subjects/3d-design-and-product-design/undergraduate/ba-hons-product-and-industrial-design-csm",
+            "country": "UK",
+            "field": "Industrial Design and Engineering",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "portsmouth_product",
+            "name": "University of Portsmouth",
+            "program": "Product Design and Innovation BSc (Hons)",
+            "url": "https://www.port.ac.uk/study/courses/undergraduate/bsc-hons-product-design-and-innovation",
+            "country": "UK",
+            "field": "Industrial Design and Engineering",
+            "city": "Portsmouth",
+            "level": "Lisans"
+        },
+        {
+            "id": "brighton_design_eng",
+            "name": "University of Brighton",
+            "program": "Design Engineering BEng (Hons)",
+            "url": "https://www.brighton.ac.uk/courses/study/design-engineering-beng-hons.aspx",
+            "country": "UK",
+            "field": "Industrial Design and Engineering",
+            "city": "Brighton",
+            "level": "Lisans"
+        },
+        {
+            "id": "bristol_design_eng",
+            "name": "University of Bristol",
+            "program": "Design Engineering",
+            "url": "https://www.bristol.ac.uk/study/undergraduate/2025/design-engineering/",
+            "country": "UK",
+            "field": "Industrial Design and Engineering",
+            "city": "Bristol",
+            "level": "Lisans"
+        },
+        {
+            "id": "brighton_interior",
+            "name": "University of Brighton",
+            "program": "Interior Architecture BA (Hons)",
+            "url": "https://www.brighton.ac.uk/courses/study/interior-architecture-ba-hons.aspx",
+            "country": "UK",
+            "field": "Interior Design",
+            "city": "Brighton",
+            "level": "Lisans"
+        },
+        {
+            "id": "chester_interior",
+            "name": "University of Chester",
+            "program": "Interior Design BA (Hons)",
+            "url": "https://www.chester.ac.uk/study/course-search/interior-design-ba-hons/",
+            "country": "UK",
+            "field": "Interior Design",
+            "city": "Chester",
+            "level": "Lisans"
+        },
+        {
+            "id": "uca_interior",
+            "name": "University for the Creative Arts",
+            "program": "BA (Hons) Interior Design",
+            "url": "https://www.uca.ac.uk/study/courses/ba-interior-design/",
+            "country": "UK",
+            "field": "Interior Design",
+            "city": "Farnham",
+            "level": "Lisans"
+        },
+        {
+            "id": "dmu_interior",
+            "name": "De Montfort University",
+            "program": "Interior Design BA (Hons)",
+            "url": "https://www.dmu.ac.uk/study/courses/undergraduate-courses/interior-design-ba-degree/interior-design-ba-degree.aspx",
+            "country": "UK",
+            "field": "Interior Design",
+            "city": "Leicester",
+            "level": "Lisans"
+        },
+        {
+            "id": "portsmouth_interior",
+            "name": "University of Portsmouth",
+            "program": "Interior Architecture and Design BA (Hons)",
+            "url": "https://www.port.ac.uk/study/courses/undergraduate/ba-hons-interior-architecture-and-design",
+            "country": "UK",
+            "field": "Interior Design",
+            "city": "Portsmouth",
+            "level": "Lisans"
+        },
+        {
+            "id": "qmul_ir",
+            "name": "Queen Mary University of London",
+            "program": "International Relations",
+            "url": "https://www.qmul.ac.uk/undergraduate/coursefinder/courses/2026/international-relations/",
+            "country": "UK",
+            "field": "International Relations",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "qmul_politics_ir",
+            "name": "Queen Mary University of London",
+            "program": "Politics and International Relations",
+            "url": "https://www.qmul.ac.uk/undergraduate/coursefinder/courses/2025/politics-and-international-relations/",
+            "country": "UK",
+            "field": "International Relations",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "newcastle_politics_ir",
+            "name": "Newcastle University",
+            "program": "Politics and International Relations BA Honours",
+            "url": "https://www.ncl.ac.uk/undergraduate/degrees/l290/",
+            "country": "UK",
+            "field": "International Relations",
+            "city": "Newcastle",
+            "level": "Lisans"
+        },
+        {
+            "id": "newcastle_ir",
+            "name": "Newcastle University",
+            "program": "International Relations BA Honours",
+            "url": "https://www.ncl.ac.uk/undergraduate/degrees/l250/",
+            "country": "UK",
+            "field": "International Relations",
+            "city": "Newcastle",
+            "level": "Lisans"
+        },
+        {
+            "id": "regents_ir",
+            "name": "Regent's University London",
+            "program": "International Relations BA (Hons)",
+            "url": "https://www.regents.ac.uk/undergraduate/liberal-arts/ba-hons-international-relations-new-model",
+            "country": "UK",
+            "field": "International Relations",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "city_int_politics",
+            "name": "City, University of London",
+            "program": "International Politics BSc (Hons)",
+            "url": "https://www.citystgeorges.ac.uk/prospective-students/courses/undergraduate/international-politics",
+            "country": "UK",
+            "field": "International Relations",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "nottingham_politics_ir",
+            "name": "University of Nottingham",
+            "program": "Politics and International Relations BA",
+            "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/courses/UG/Politics-and-International-Relations-BA-Hons-U6UPLTIR.html",
+            "country": "UK",
+            "field": "International Relations",
+            "city": "Nottingham",
+            "level": "Lisans"
+        },
+        {
+            "id": "liverpool_ir",
+            "name": "University of Liverpool",
+            "program": "BA (Hons) in International Relations",
+            "url": "https://www.liverpool.ac.uk/courses/international-relations-ba-hons",
+            "country": "UK",
+            "field": "International Relations",
+            "city": "Liverpool",
+            "level": "Lisans"
+        },
+        {
+            "id": "birmingham_politics_ir",
+            "name": "University of Birmingham",
+            "program": "Politics and International Relations BA",
+            "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/politics-international-relations-and-development-courses/politics-and-international-relations-ba",
+            "country": "UK",
+            "field": "International Relations",
+            "city": "Birmingham",
+            "level": "Lisans"
+        },
+        {
+            "id": "nottingham_law",
+            "name": "University of Nottingham",
+            "program": "Law LLB",
+            "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/courses/UG/Law-LLB-Hons-U6ULAWLB.html",
+            "country": "UK",
+            "field": "Law",
+            "city": "Nottingham",
+            "level": "Lisans"
+        },
+        {
+            "id": "birmingham_law",
+            "name": "University of Birmingham",
+            "program": "Law LLB",
+            "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/law-courses/law-llb",
+            "country": "UK",
+            "field": "Law",
+            "city": "Birmingham",
+            "level": "Lisans"
+        },
+        {
+            "id": "qmul_law",
+            "name": "Queen Mary University of London",
+            "program": "LLB Law",
+            "url": "https://www.qmul.ac.uk/law/undergraduate/courses/",
+            "country": "UK",
+            "field": "Law",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "uol_law",
+            "name": "The University of Law",
+            "program": "LLB Law",
+            "url": "https://www.law.ac.uk/study/undergraduate/law/llb-hons-law/",
+            "country": "UK",
+            "field": "Law",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "newcastle_law",
+            "name": "Newcastle University",
+            "program": "Law LLB Honours",
+            "url": "https://www.ncl.ac.uk/undergraduate/degrees/m101/",
+            "country": "UK",
+            "field": "Law",
+            "city": "Newcastle",
+            "level": "Lisans"
+        },
+        {
+            "id": "kent_law",
+            "name": "University of Kent",
+            "program": "Law LLB",
+            "url": "https://www.kent.ac.uk/courses/undergraduate/177/law",
+            "country": "UK",
+            "field": "Law",
+            "city": "Canterbury",
+            "level": "Lisans"
+        },
+        {
+            "id": "manchester_law",
+            "name": "University of Manchester",
+            "program": "LLB Law",
+            "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2025/12446/llb-law/",
+            "country": "UK",
+            "field": "Law",
+            "city": "Manchester",
+            "level": "Lisans"
+        },
+        {
+            "id": "liverpool_law",
+            "name": "University of Liverpool",
+            "program": "Law LLB",
+            "url": "https://www.liverpool.ac.uk/courses/2025/law-llb-hons",
+            "country": "UK",
+            "field": "Law",
+            "city": "Liverpool",
+            "level": "Lisans"
+        },
+        {
+            "id": "essex_law",
+            "name": "University of Essex",
+            "program": "Law LLB",
+            "url": "https://online.essex.ac.uk/courses/llb-hons-law/",
+            "country": "UK",
+            "field": "Law",
+            "city": "Colchester",
+            "level": "Lisans"
+        },
+        {
+            "id": "uws_law",
+            "name": "University of West of Scotland",
+            "program": "Law BA",
+            "url": "https://www.uws.ac.uk/study/undergraduate/undergraduate-course-search/law/",
+            "country": "UK",
+            "field": "Law",
+            "city": "Paisley",
+            "level": "Lisans"
+        },
+        {
+            "id": "qmul_marketing",
+            "name": "Queen Mary University of London",
+            "program": "Marketing and Management",
+            "url": "https://www.qmul.ac.uk/undergraduate/coursefinder/courses/2025/marketing-and-management/",
+            "country": "UK",
+            "field": "Marketing",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "newcastle_marketing",
+            "name": "Newcastle University",
+            "program": "Marketing BSc Honours",
+            "url": "https://www.ncl.ac.uk/undergraduate/degrees/n500/",
+            "country": "UK",
+            "field": "Marketing",
+            "city": "Newcastle",
+            "level": "Lisans"
+        },
+        {
+            "id": "newcastle_marketing_mgmt",
+            "name": "Newcastle University",
+            "program": "Marketing and Management BSc Honours",
+            "url": "https://www.ncl.ac.uk/undergraduate/degrees/n5p3/",
+            "country": "UK",
+            "field": "Marketing",
+            "city": "Newcastle",
+            "level": "Lisans"
+        },
+        {
+            "id": "liverpool_marketing",
+            "name": "University of Liverpool",
+            "program": "BA (Hons) Marketing",
+            "url": "https://www.liverpool.ac.uk/courses/marketing-ba-hons",
+            "country": "UK",
+            "field": "Marketing",
+            "city": "Liverpool",
+            "level": "Lisans"
+        },
+        {
+            "id": "regents_marketing",
+            "name": "Regent's University London",
+            "program": "Business and Marketing BA (Hons)",
+            "url": "https://www.regents.ac.uk/undergraduate/business/ba-hons-business-and-marketing-new-model",
+            "country": "UK",
+            "field": "Marketing",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "regents_digital_marketing",
+            "name": "Regent's University London",
+            "program": "Digital Marketing and Analytics BSc (Hons)",
+            "url": "https://www.regents.ac.uk/undergraduate/bsc-hons-digital-marketing-and-analytics",
+            "country": "UK",
+            "field": "Marketing",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "city_marketing",
+            "name": "City, University of London",
+            "program": "Business with Marketing BSc (Hons)",
+            "url": "https://www.bayes.citystgeorges.ac.uk/study/undergraduate/courses/business-with-marketing",
+            "country": "UK",
+            "field": "Marketing",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "york_marketing",
+            "name": "University of York",
+            "program": "BSc (Hons) Marketing",
+            "url": "https://www.york.ac.uk/study/undergraduate/courses/bsc-marketing/",
+            "country": "UK",
+            "field": "Marketing",
+            "city": "York",
+            "level": "Lisans"
+        },
+        {
+            "id": "nottingham_mech",
+            "name": "University of Nottingham",
+            "program": "Mechanical Engineering with Manufacturing BEng",
+            "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/courses/UG/Mechanical-Engineering-with-Manufacturing-BEng-Hons-U6UMEMAN.html",
+            "country": "UK",
+            "field": "Mechanical Engineering",
+            "city": "Nottingham",
+            "level": "Lisans"
+        },
+        {
+            "id": "kent_mech",
+            "name": "University of Kent",
+            "program": "Mechanical Engineering BEng",
+            "url": "https://www.kent.ac.uk/courses/undergraduate/3738/mechanical-engineering-beng",
+            "country": "UK",
+            "field": "Mechanical Engineering",
+            "city": "Canterbury",
+            "level": "Lisans"
+        },
+        {
+            "id": "portsmouth_mech",
+            "name": "University of Portsmouth",
+            "program": "Mechanical Engineering BEng (Hons) / MEng",
+            "url": "https://www.port.ac.uk/study/courses/undergraduate/beng-meng-mechanical-engineering",
+            "country": "UK",
+            "field": "Mechanical Engineering",
+            "city": "Portsmouth",
+            "level": "Lisans"
+        },
+        {
+            "id": "greenwich_mech",
+            "name": "University of Greenwich",
+            "program": "Mechanical Engineering BEng",
+            "url": "https://www.gre.ac.uk/undergraduate-courses/engsci/mechanical-engineering-beng-hons",
+            "country": "UK",
+            "field": "Mechanical Engineering",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "bradford_mech",
+            "name": "University of Bradford",
+            "program": "Mechanical Engineering BEng (Hons)",
+            "url": "https://www.bradford.ac.uk/courses/ug/mechanical-engineering-beng/",
+            "country": "UK",
+            "field": "Mechanical Engineering",
+            "city": "Bradford",
+            "level": "Lisans"
+        },
+        {
+            "id": "kingston_mech",
+            "name": "University of Kingston",
+            "program": "Mechanical Engineering BEng (Hons) / MEng",
+            "url": "https://www.kingston.ac.uk/undergraduate/courses/mechanical-engineering-beng/",
+            "country": "UK",
+            "field": "Mechanical Engineering",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "brighton_mech",
+            "name": "University of Brighton",
+            "program": "Mechanical Engineering BEng Hons",
+            "url": "https://www.brighton.ac.uk/courses/study/mechanical-engineering-beng-hons.aspx",
+            "country": "UK",
+            "field": "Mechanical Engineering",
+            "city": "Brighton",
+            "level": "Lisans"
+        },
+        {
+            "id": "nottingham_medicine",
+            "name": "University of Nottingham",
+            "program": "Medicine BMBS",
+            "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/courses/UG/Medicine-BMBS-U6UBMBSC3.html",
             "country": "UK",
             "field": "Medicine",
+            "city": "Nottingham",
+            "level": "Lisans"
+        },
+        {
+            "id": "birmingham_medicine",
+            "name": "University of Birmingham",
+            "program": "Medicine and Surgery MBChB",
+            "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/medicine-courses/medicine-and-surgery-mbchb",
+            "country": "UK",
+            "field": "Medicine",
+            "city": "Birmingham",
+            "level": "Lisans"
+        },
+        {
+            "id": "liverpool_medicine",
+            "name": "University of Liverpool",
+            "program": "MBChB Medicine and Surgery",
+            "url": "https://www.liverpool.ac.uk/courses/medicine-and-surgery-mbchb",
+            "country": "UK",
+            "field": "Medicine",
+            "city": "Liverpool",
+            "level": "Lisans"
+        },
+        {
+            "id": "kcl_medicine",
+            "name": "King's College London",
+            "program": "Medicine MBBS",
+            "url": "https://www.kcl.ac.uk/study/courses/medicine-mbbs",
+            "country": "UK",
+            "field": "Medicine",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "newcastle_medicine",
+            "name": "University of Newcastle",
+            "program": "Medicine and Surgery MB BS",
+            "url": "https://www.ncl.ac.uk/undergraduate/degrees/a100/",
+            "country": "UK",
+            "field": "Medicine",
+            "city": "Newcastle",
+            "level": "Lisans"
+        },
+        {
+            "id": "kent_medicine",
+            "name": "University of Kent",
+            "program": "BM BS Medicine",
+            "url": "https://www.kent.ac.uk/courses/undergraduate/3737/medicine",
+            "country": "UK",
+            "field": "Medicine",
+            "city": "Canterbury",
+            "level": "Lisans"
+        },
+        {
+            "id": "chester_medicine",
+            "name": "University of Chester",
+            "program": "Graduate Entry Medicine MBChB",
+            "url": "https://www.chester.ac.uk/study/course-search/graduate-entry-medicine-mbchb/",
+            "country": "UK",
+            "field": "Medicine",
+            "city": "Chester",
+            "level": "Lisans"
+        },
+        {
+            "id": "westminster_medical",
+            "name": "University of Westminster",
+            "program": "Medical Sciences BSc Honours",
+            "url": "https://www.westminster.ac.uk/biological-and-biomedical-sciences-courses/2025-26/september/full-time/medical-sciences-bsc-honours",
+            "country": "UK",
+            "field": "Medicine",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "brighton_medicine",
+            "name": "University of Brighton",
+            "program": "Medicine BM BS",
+            "url": "https://www.brighton.ac.uk/courses/study/medicine-bm-bs.aspx",
+            "country": "UK",
+            "field": "Medicine",
+            "city": "Brighton",
+            "level": "Lisans"
+        },
+        {
+            "id": "portsmouth_musical",
+            "name": "University of Portsmouth",
+            "program": "Musical Theatre BA (Hons)",
+            "url": "https://www.port.ac.uk/study/courses/undergraduate/ba-hons-musical-theatre",
+            "country": "UK",
+            "field": "Musical Theatre",
+            "city": "Portsmouth",
+            "level": "Lisans"
+        },
+        {
+            "id": "kent_drama",
+            "name": "University of Kent",
+            "program": "Drama and Theatre",
+            "url": "https://www.kent.ac.uk/arts/subjects/drama-and-theatre",
+            "country": "UK",
+            "field": "Musical Theatre",
+            "city": "Canterbury",
+            "level": "Lisans"
+        },
+        {
+            "id": "dmu_drama",
+            "name": "De Montfort University",
+            "program": "Drama and Theatre Arts BA (Hons)",
+            "url": "https://www.dmu.ac.uk/study/courses/undergraduate-courses/drama-ba-degree/drama-ba-degree.aspx",
+            "country": "UK",
+            "field": "Musical Theatre",
+            "city": "Leicester",
+            "level": "Lisans"
+        },
+        {
+            "id": "chester_musical",
+            "name": "University of Chester",
+            "program": "Musical Theatre Performance (The Hammond)",
+            "url": "https://www.chester.ac.uk/study/course-search/musical-theatre-performance-ba-hons/",
+            "country": "UK",
+            "field": "Musical Theatre",
+            "city": "Chester",
+            "level": "Lisans"
+        },
+        {
+            "id": "solent_musical",
+            "name": "Southampton Solent University",
+            "program": "Musical Theatre BA (Hons)",
+            "url": "https://www.solent.ac.uk/courses/undergraduate/musical-theatre-ba",
+            "country": "UK",
+            "field": "Musical Theatre",
+            "city": "Southampton",
+            "level": "Lisans"
+        },
+        {
+            "id": "uws_performance",
+            "name": "University of The West of Scotland",
+            "program": "Performance",
+            "url": "https://www.uws.ac.uk/study/undergraduate/undergraduate-course-search/performance/",
+            "country": "UK",
+            "field": "Musical Theatre",
+            "city": "Paisley",
+            "level": "Lisans"
+        },
+        {
+            "id": "canterbury_theatre",
+            "name": "Canterbury Christ Church University",
+            "program": "BA (Hons) Theatre and Performance",
+            "url": "https://www.canterbury.ac.uk/study-here/courses/theatre-and-performance",
+            "country": "UK",
+            "field": "Musical Theatre",
+            "city": "Canterbury",
+            "level": "Lisans"
+        },
+        {
+            "id": "uca_performing",
+            "name": "University for the Creative Arts",
+            "program": "Performing Arts",
+            "url": "https://www.uca.ac.uk/study/subject/performing-arts/",
+            "country": "UK",
+            "field": "Musical Theatre",
+            "city": "Farnham",
+            "level": "Lisans"
+        },
+        {
+            "id": "birmingham_drama",
+            "name": "University of Birmingham",
+            "program": "Drama and Theatre Arts",
+            "url": "https://www.birmingham.ac.uk/schools/edacs/departments/drama",
+            "country": "UK",
+            "field": "Musical Theatre",
+            "city": "Birmingham",
+            "level": "Lisans"
+        },
+        {
+            "id": "nottingham_nursing",
+            "name": "University of Nottingham",
+            "program": "Nursing (Adult) BSc Hons",
+            "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/courses/UG/Nursing-Adult-BSc-Hons-U6UNURSE.html",
+            "country": "UK",
+            "field": "Nursing",
+            "city": "Nottingham",
+            "level": "Lisans"
+        },
+        {
+            "id": "liverpool_nursing",
+            "name": "University of Liverpool",
+            "program": "Nursing BN (Hons)",
+            "url": "https://www.liverpool.ac.uk/courses/nursing-bn-hons",
+            "country": "UK",
+            "field": "Nursing",
+            "city": "Liverpool",
+            "level": "Lisans"
+        },
+        {
+            "id": "greenwich_nursing_adult",
+            "name": "University of Greenwich",
+            "program": "Adult Nursing",
+            "url": "https://www.gre.ac.uk/undergraduate-courses/eduhea/adult-nursing-bsc-hons",
+            "country": "UK",
+            "field": "Nursing",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "greenwich_nursing_child",
+            "name": "University of Greenwich",
+            "program": "Children's Nursing",
+            "url": "https://www.gre.ac.uk/undergraduate-courses/eduhea/childrens-nursing-bsc-hons",
+            "country": "UK",
+            "field": "Nursing",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "essex_nursing",
+            "name": "University of Essex",
+            "program": "BSc Nursing",
+            "url": "https://www.essex.ac.uk/courses/ug00315/1/bsc-nursing-(adult)",
+            "country": "UK",
+            "field": "Nursing",
+            "city": "Colchester",
+            "level": "Lisans"
+        },
+        {
+            "id": "dmu_nursing",
+            "name": "De Montfort University",
+            "program": "Adult Nursing with NMC Registration",
+            "url": "https://www.dmu.ac.uk/study/courses/undergraduate-courses/nursing-with-registration-adult-nursing-degree/nursing-with-registration-adult-nursing-bsc-hons.aspx",
+            "country": "UK",
+            "field": "Nursing",
+            "city": "Leicester",
+            "level": "Lisans"
+        },
+        {
+            "id": "chester_nursing",
+            "name": "University of Chester",
+            "program": "Adult Nursing BN Hons",
+            "url": "https://www.chester.ac.uk/study/course-search/adult-nursing-bn-hons-full-time/",
+            "country": "UK",
+            "field": "Nursing",
+            "city": "Chester",
+            "level": "Lisans"
+        },
+        {
+            "id": "nottingham_pharmacy",
+            "name": "University of Nottingham",
+            "program": "Pharmacy MPharm",
+            "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/courses/UG/Pharmacy-MPharm-U7UPHRCY.html",
+            "country": "UK",
+            "field": "Pharmacy",
+            "city": "Nottingham",
+            "level": "Lisans"
+        },
+        {
+            "id": "birmingham_pharmacy",
+            "name": "University of Birmingham",
+            "program": "Pharmacy MPharm",
+            "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/medicine-courses/mpharm-pharmacy-4-year",
+            "country": "UK",
+            "field": "Pharmacy",
+            "city": "Birmingham",
+            "level": "Lisans"
+        },
+        {
+            "id": "liverpool_pharmacology",
+            "name": "University of Liverpool",
+            "program": "BSc (Hons) Pharmacology",
+            "url": "https://www.liverpool.ac.uk/courses/pharmacology-bsc-hons",
+            "country": "UK",
+            "field": "Pharmacy",
+            "city": "Liverpool",
+            "level": "Lisans"
+        },
+        {
+            "id": "kent_pharmacy",
+            "name": "University of Kent",
+            "program": "MPharm Pharmacy",
+            "url": "https://www.kent.ac.uk/courses/undergraduate/18/pharmacy",
+            "country": "UK",
+            "field": "Pharmacy",
+            "city": "Canterbury",
+            "level": "Lisans"
+        },
+        {
+            "id": "westminster_pharmacology",
+            "name": "University of Westminster",
+            "program": "Pharmacology and Physiology BSc Honours",
+            "url": "https://www.westminster.ac.uk/biological-and-biomedical-sciences-courses/2025-26/september/full-time/pharmacology-and-physiology-bsc-honours",
+            "country": "UK",
+            "field": "Pharmacy",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "brighton_pharmacy",
+            "name": "University of Brighton",
+            "program": "Pharmacy MPharm",
+            "url": "https://www.brighton.ac.uk/courses/study/pharmacy-mpharm.aspx",
+            "country": "UK",
+            "field": "Pharmacy",
+            "city": "Brighton",
+            "level": "Lisans"
+        },
+        {
+            "id": "brighton_photo",
+            "name": "University of Brighton",
+            "program": "Photography",
+            "url": "https://www.brighton.ac.uk/courses/study/photography-ba-hons.aspx",
+            "country": "UK",
+            "field": "Photography",
+            "city": "Brighton",
+            "level": "Lisans"
+        },
+        {
+            "id": "bournemouth_photo",
+            "name": "Bournemouth University",
+            "program": "Photography",
+            "url": "https://www.bournemouth.ac.uk/study/courses/ba-hons-photography-2",
+            "country": "UK",
+            "field": "Photography",
+            "city": "Bournemouth",
+            "level": "Lisans"
+        },
+        {
+            "id": "uwe_photo",
+            "name": "UWE Bristol",
+            "program": "Photography",
+            "url": "https://courses.uwe.ac.uk/W640/photography",
+            "country": "UK",
+            "field": "Photography",
+            "city": "Bristol",
+            "level": "Lisans"
+        },
+        {
+            "id": "chester_photo",
+            "name": "University of Chester",
+            "program": "Photography",
+            "url": "https://www.chester.ac.uk/study/course-search/photography-ba-hons/",
+            "country": "UK",
+            "field": "Photography",
+            "city": "Chester",
+            "level": "Lisans"
+        },
+        {
+            "id": "uca_photo",
+            "name": "University for the Creative Arts",
+            "program": "Photography",
+            "url": "https://www.uca.ac.uk/study/courses/ba-photography-farnham/",
+            "country": "UK",
+            "field": "Photography",
+            "city": "Farnham",
+            "level": "Lisans"
+        },
+        {
+            "id": "kingston_photo",
+            "name": "Kingston University",
+            "program": "Photography",
+            "url": "https://www.kingston.ac.uk/undergraduate/courses/photography/",
+            "country": "UK",
+            "field": "Photography",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "nottingham_physio",
+            "name": "University of Nottingham",
+            "program": "Physiotherapy BSc Hons",
+            "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/courses/UG/Physiotherapy-BSc-Hons.html",
+            "country": "UK",
+            "field": "Physiotherapy",
+            "city": "Nottingham",
+            "level": "Lisans"
+        },
+        {
+            "id": "essex_physio",
+            "name": "University of Essex",
+            "program": "BSc Hons Physiotherapy",
+            "url": "https://www.essex.ac.uk/courses/ug00339/2/bsc-physiotherapy",
+            "country": "UK",
+            "field": "Physiotherapy",
+            "city": "Colchester",
+            "level": "Lisans"
+        },
+        {
+            "id": "uwe_physio",
+            "name": "UWE Bristol",
+            "program": "BSc (Hons) Physiotherapy",
+            "url": "https://courses.uwe.ac.uk/B160/physiotherapy",
+            "country": "UK",
+            "field": "Physiotherapy",
+            "city": "Bristol",
+            "level": "Lisans"
+        },
+        {
+            "id": "brighton_physio",
+            "name": "University of Brighton",
+            "program": "Physiotherapy BSc Hons",
+            "url": "https://www.brighton.ac.uk/courses/study/physiotherapy-bsc-hons.aspx",
+            "country": "UK",
+            "field": "Physiotherapy",
+            "city": "Brighton",
+            "level": "Lisans"
+        },
+        {
+            "id": "greenwich_physio",
+            "name": "University of Greenwich",
+            "program": "Physiotherapy BSc Hons",
+            "url": "https://www.gre.ac.uk/undergraduate-courses/eduhea/physiotherapy-bsc-hons",
+            "country": "UK",
+            "field": "Physiotherapy",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "qmul_psychology",
+            "name": "Queen Mary University of London",
+            "program": "Psychology BSc (Hons)",
+            "url": "https://www.qmul.ac.uk/undergraduate/coursefinder/courses/2026/psychology/",
+            "country": "UK",
+            "field": "Psychology",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "newcastle_psychology",
+            "name": "Newcastle University",
+            "program": "Psychology BSc Honours",
+            "url": "https://www.ncl.ac.uk/undergraduate/degrees/c800/",
+            "country": "UK",
+            "field": "Psychology",
+            "city": "Newcastle",
+            "level": "Lisans"
+        },
+        {
+            "id": "city_psychology",
+            "name": "City, University of London",
+            "program": "Psychology BSc (Hons)",
+            "url": "https://www.citystgeorges.ac.uk/prospective-students/courses/undergraduate/psychology",
+            "country": "UK",
+            "field": "Psychology",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "nottingham_psychology",
+            "name": "University of Nottingham",
+            "program": "Psychology BSc (Hons)",
+            "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/courses/UG/Psychology-BSc-Hons-U6UPSYCH.html",
+            "country": "UK",
+            "field": "Psychology",
+            "city": "Nottingham",
+            "level": "Lisans"
+        },
+        {
+            "id": "york_psychology",
+            "name": "University of York",
+            "program": "BSc (Hons) Psychology",
+            "url": "https://www.york.ac.uk/study/undergraduate/courses/bsc-psychology/",
+            "country": "UK",
+            "field": "Psychology",
+            "city": "York",
+            "level": "Lisans"
+        },
+        {
+            "id": "birmingham_psychology",
+            "name": "University of Birmingham",
+            "program": "BSc Psychology",
+            "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/psychology-and-neuroscience-courses/psychology-bsc",
+            "country": "UK",
+            "field": "Psychology",
+            "city": "Birmingham",
+            "level": "Lisans"
+        },
+        {
+            "id": "essex_psychology",
+            "name": "University of Essex",
+            "program": "BSc Psychology",
+            "url": "https://www.essex.ac.uk/subjects/psychology",
+            "country": "UK",
+            "field": "Psychology",
+            "city": "Colchester",
+            "level": "Lisans"
+        },
+        {
+            "id": "glasgow_software",
+            "name": "University of Glasgow",
+            "program": "Software Engineering BSc/MSci",
+            "url": "https://www.gla.ac.uk/undergraduate/degrees/softwareengineering/",
+            "country": "UK",
+            "field": "Software Engineering",
             "city": "Glasgow",
+            "level": "Lisans"
+        },
+        {
+            "id": "liverpool_software",
+            "name": "University of Liverpool",
+            "program": "BSc (Hons) Computer Science with Software Development",
+            "url": "https://www.liverpool.ac.uk/courses/computer-science-with-software-development-bsc-hons",
+            "country": "UK",
+            "field": "Software Engineering",
+            "city": "Liverpool",
+            "level": "Lisans"
+        },
+        {
+            "id": "kent_software",
+            "name": "University of Kent",
+            "program": "BSc (Hons) Software Engineering",
+            "url": "https://www.kent.ac.uk/courses/undergraduate/319/software-engineering",
+            "country": "UK",
+            "field": "Software Engineering",
+            "city": "Canterbury",
+            "level": "Lisans"
+        },
+        {
+            "id": "uwe_software",
+            "name": "UWE Bristol",
+            "program": "BSc (Hons) Software Engineering",
+            "url": "https://courses.uwe.ac.uk/6F3B/software-engineering-for-business",
+            "country": "UK",
+            "field": "Software Engineering",
+            "city": "Bristol",
+            "level": "Lisans"
+        },
+        {
+            "id": "chester_software",
+            "name": "University of Chester",
+            "program": "Software Engineering BSc (Hons)",
+            "url": "https://www.chester.ac.uk/study/course-search/software-engineering-bsc-hons/",
+            "country": "UK",
+            "field": "Software Engineering",
+            "city": "Chester",
+            "level": "Lisans"
+        },
+        {
+            "id": "greenwich_software",
+            "name": "University of Greenwich",
+            "program": "Software Engineering BEng Hons",
+            "url": "https://www.gre.ac.uk/undergraduate-courses/engsci/software-engineering-beng-hons",
+            "country": "UK",
+            "field": "Software Engineering",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "dmu_software",
+            "name": "De Montfort University",
+            "program": "Software Engineering BSc (Hons)",
+            "url": "https://www.dmu.ac.uk/study/courses/undergraduate-courses/software-engineering-bsc-degree/software-engineering-bsc-degree.aspx",
+            "country": "UK",
+            "field": "Software Engineering",
+            "city": "Leicester",
+            "level": "Lisans"
+        },
+        {
+            "id": "bournemouth_software",
+            "name": "Bournemouth University",
+            "program": "BSc (Hons) Software Engineering",
+            "url": "https://www.bournemouth.ac.uk/study/courses/bsc-hons-software-engineering",
+            "country": "UK",
+            "field": "Software Engineering",
+            "city": "Bournemouth",
+            "level": "Lisans"
+        },
+        {
+            "id": "newcastle_sports_msc",
+            "name": "Newcastle University",
+            "program": "Sport and Exercise Psychology MSc",
+            "url": "https://www.ncl.ac.uk/postgraduate/degrees/5417f/",
+            "country": "UK",
+            "field": "Sports Psychology",
+            "city": "Newcastle",
+            "level": "Yüksek Lisans"
+        },
+        {
+            "id": "kent_sports_msc",
+            "name": "University of Kent",
+            "program": "Sport and Exercise Science (by Research and Thesis)",
+            "url": "https://www.kent.ac.uk/courses/postgraduate/2196/sport-and-exercise-science",
+            "country": "UK",
+            "field": "Sports Psychology",
+            "city": "Canterbury",
+            "level": "Yüksek Lisans"
+        },
+        {
+            "id": "ntu_sports_msc",
+            "name": "Nottingham Trent University",
+            "program": "Sport Psychology MSc",
+            "url": "https://www.ntu.ac.uk/course/science-and-technology/pg/sport-psychology",
+            "country": "UK",
+            "field": "Sports Psychology",
+            "city": "Nottingham",
+            "level": "Yüksek Lisans"
+        },
+        {
+            "id": "brighton_sports_msc",
+            "name": "University of Brighton",
+            "program": "Applied Sport Physiology MSc",
+            "url": "https://www.brighton.ac.uk/courses/study/applied-sport-physiology-msc-pgcert-pgdip.aspx",
+            "country": "UK",
+            "field": "Sports Psychology",
+            "city": "Brighton",
+            "level": "Yüksek Lisans"
+        },
+        {
+            "id": "portsmouth_sports_msc",
+            "name": "University of Portsmouth",
+            "program": "Applied Sport and Exercise Performance MSc",
+            "url": "https://www.port.ac.uk/study/courses/postgraduate-taught/msc-applied-sport-and-exercise-performance",
+            "country": "UK",
+            "field": "Sports Psychology",
+            "city": "Portsmouth",
+            "level": "Yüksek Lisans"
+        },
+        {
+            "id": "greenwich_tourism",
+            "name": "University of Greenwich",
+            "program": "Tourism Management BA Hons",
+            "url": "https://www.gre.ac.uk/undergraduate-courses/business-school/tourism-management-ba-hons",
+            "country": "UK",
+            "field": "Tourism Management",
+            "city": "London",
+            "level": "Lisans"
+        },
+        {
+            "id": "brighton_tourism",
+            "name": "University of Brighton",
+            "program": "Business Management with Tourism BSc",
+            "url": "https://www.brighton.ac.uk/courses/study/business-management-with-tourism-bsc-hons.aspx",
+            "country": "UK",
+            "field": "Tourism Management",
+            "city": "Brighton",
+            "level": "Lisans"
+        },
+        {
+            "id": "chester_tourism",
+            "name": "University of Chester",
+            "program": "International Tourism Management BA Hons",
+            "url": "https://www.chester.ac.uk/study/course-search/international-tourism-management-ba-hons/",
+            "country": "UK",
+            "field": "Tourism Management",
+            "city": "Chester",
+            "level": "Lisans"
+        },
+        {
+            "id": "chester_tourism_business",
+            "name": "University of Chester",
+            "program": "Business and International Tourism Management BA Hons",
+            "url": "https://www.chester.ac.uk/study/course-search/business-and-international-tourism-management-ba-hons/",
+            "country": "UK",
+            "field": "Tourism Management",
+            "city": "Chester",
+            "level": "Lisans"
+        },
+        {
+            "id": "northumbria_tourism",
+            "name": "Northumbria University",
+            "program": "Tourism and Events Management BA Hons",
+            "url": "https://www.northumbria.ac.uk/study-at-northumbria/courses/ba-hons-tourism-and-events-management-uusten1/",
+            "country": "UK",
+            "field": "Tourism Management",
+            "city": "Newcastle",
+            "level": "Lisans"
+        },
+        {
+            "id": "dmu_tourism",
+            "name": "De Montfort University",
+            "program": "International Tourism and Hospitality Management BA Hons",
+            "url": "https://www.dmu.ac.uk/study/courses/undergraduate-courses/international-tourism-and-hospitality-management/international-tourism-hospitality-management.aspx",
+            "country": "UK",
+            "field": "Tourism Management",
+            "city": "Leicester",
             "level": "Lisans"
         }
     ]

@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: myeducoach-university
+    env: static
+    staticPublishPath: build/web
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html

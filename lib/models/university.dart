@@ -6,6 +6,7 @@ class University {
   final String country;
   final String field;
   final String city;
+  final String level; // "Lisans" veya "Yüksek Lisans"
 
   University({
     required this.id,
@@ -15,6 +16,7 @@ class University {
     required this.country,
     required this.field,
     required this.city,
+    required this.level,
   });
 
   factory University.fromJson(Map<String, dynamic> json) {
@@ -26,6 +28,7 @@ class University {
       country: json['country'] as String,
       field: json['field'] as String,
       city: json['city'] as String,
+      level: json['level'] as String? ?? 'Lisans',
     );
   }
 }

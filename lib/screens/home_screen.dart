@@ -12,7 +12,8 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends State<HomeScreen>
+    with SingleTickerProviderStateMixin {
   // ─── Renkler ───────────────────────────────────────────────
   static const _navy = Color(0xFF1E3A6E);
   static const _red = Color(0xFFB71C1C);
@@ -25,29 +26,48 @@ class _HomeScreenState extends State<HomeScreen> {
   String _selectedField = 'Tümü';
   List<String> _fields = [];
   bool _loading = true;
+  late TabController _tabController;
 
   final TextEditingController _searchController = TextEditingController();
+
+  String get _activeLevel =>
+      _tabController.index == 0 ? 'Lisans' : 'Yüksek Lisans';
 
   @override
   void initState() {
     super.initState();
+    _tabController = TabController(length: 2, vsync: this)
+      ..addListener(() {
+        _selectedField = 'Tümü';
+        _applyFilter();
+      });
     _load();
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    _searchController.dispose();
+    super.dispose();
   }
 
   Future<void> _load() async {
     final unis = await DataService.loadUniversities();
-    final fields = ['Tümü', ...DataService.extractFields(unis)];
     setState(() {
       _allUniversities = unis;
-      _fields = fields;
       _loading = false;
       _applyFilter();
     });
   }
 
   void _applyFilter() {
+    final levelUnis =
+        _allUniversities.where((u) => u.level == _activeLevel).toList();
+    final fields = ['Tümü', ...DataService.extractFields(levelUnis)];
     setState(() {
-      _filtered = _allUniversities.where((u) {
+      _fields = fields;
+      if (!_fields.contains(_selectedField)) _selectedField = 'Tümü';
+      _filtered = levelUnis.where((u) {
         final matchesSearch = _searchQuery.isEmpty ||
             u.name.toLowerCase().contains(_searchQuery.toLowerCase()) ||
             u.program.toLowerCase().contains(_searchQuery.toLowerCase()) ||
@@ -154,15 +174,31 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: _buildAppBar(),
       body: _loading
           ? const Center(child: CircularProgressIndicator())
-          : Column(
-              children: [
-                _buildSearchBar(),
-                _buildFieldFilters(),
-                _buildResultCount(),
-                Expanded(child: _buildList()),
-              ],
-            ),
+          : _buildTabBody(),
       bottomNavigationBar: _buildBottomBar(),
+    );
+  }
+
+  // tab değişimini body'e yansıt
+  Widget _buildTabBody() {
+    return TabBarView(
+      controller: _tabController,
+      physics: const NeverScrollableScrollPhysics(),
+      children: [
+        _buildBodyContent(),
+        _buildBodyContent(),
+      ],
+    );
+  }
+
+  Widget _buildBodyContent() {
+    return Column(
+      children: [
+        _buildSearchBar(),
+        _buildFieldFilters(),
+        _buildResultCount(),
+        Expanded(child: _buildList()),
+      ],
     );
   }
 
@@ -182,6 +218,19 @@ class _HomeScreenState extends State<HomeScreen> {
             label: const Text('Temizle', style: TextStyle(color: Colors.white70)),
           ),
       ],
+      bottom: TabBar(
+        controller: _tabController,
+        indicatorColor: Colors.white,
+        indicatorWeight: 3,
+        labelStyle: GoogleFonts.roboto(fontWeight: FontWeight.bold, fontSize: 14),
+        unselectedLabelStyle: GoogleFonts.roboto(fontSize: 14),
+        labelColor: Colors.white,
+        unselectedLabelColor: Colors.white60,
+        tabs: const [
+          Tab(text: '🎓  Lisans'),
+          Tab(text: '📚  Yüksek Lisans'),
+        ],
+      ),
     );
   }
 

@@ -8,21 +8,24 @@ import '../services/pdf_service.dart';
 
 // ─── Brand ───────────────────────────────────────────────────────────────────
 class _B {
-  static const navy    = Color(0xFF0D1F3C);
-  static const navyMid = Color(0xFF1A3A6B);
-  static const crimson = Color(0xFF8B1A4A);
-  static const cream   = Color(0xFFF8F6F2);
-  static const smoke   = Color(0xFFF0EDE8);
-  static const border  = Color(0xFFE0DBD3);
-  static const dim     = Color(0xFF9A9390);
-  static const white   = Colors.white;
+  // Core
+  static const navy      = Color(0xFF0F2057);
+  static const navyLight = Color(0xFF1A3A6B);
+  static const orange    = Color(0xFFE87040);
+  static const orangeLight = Color(0xFFF4A27A);
+  static const bg        = Color(0xFFF5F7FA);
+  static const white     = Colors.white;
+  static const textDark  = Color(0xFF1A1A2E);
+  static const textMid   = Color(0xFF6B7280);
+  static const textLight = Color(0xFFB0B8C8);
+  static const border    = Color(0xFFE8ECF2);
 
-  // Alan renk paleti — editorial renkler
+  // Field colour palette — vivid but not garish
   static const _palette = [
-    Color(0xFF0D47A1), Color(0xFF6A1B9A), Color(0xFF37474F),
-    Color(0xFF00695C), Color(0xFF1565C0), Color(0xFF4E342E),
-    Color(0xFF283593), Color(0xFF558B2F), Color(0xFF00838F),
-    Color(0xFF4527A0), Color(0xFF0277BD), Color(0xFF2E7D32),
+    Color(0xFF3B5BDB), Color(0xFF7950F2), Color(0xFF0CA678),
+    Color(0xFF1098AD), Color(0xFFE64980), Color(0xFFF76707),
+    Color(0xFF2B8A3E), Color(0xFFD6336C), Color(0xFF0B7285),
+    Color(0xFF5C7CFA), Color(0xFF20C997), Color(0xFFFF922B),
   ];
 
   static Color fieldColor(String field) {
@@ -65,7 +68,9 @@ class _HomeScreenState extends State<HomeScreen>
   Future<void> _loadLogo() async {
     try {
       await rootBundle.load('assets/images/logo.png');
-      if (mounted) setState(() => _logo = Image.asset('assets/images/logo.png', fit: BoxFit.contain));
+      if (mounted) {
+        setState(() => _logo = Image.asset('assets/images/logo.png', fit: BoxFit.contain));
+      }
     } catch (_) {}
   }
 
@@ -111,10 +116,10 @@ class _HomeScreenState extends State<HomeScreen>
   void _snack(String msg) {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       behavior: SnackBarBehavior.floating,
-      margin: const EdgeInsets.all(16),
-      backgroundColor: _B.navy,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-      content: Text(msg, style: const TextStyle(color: Colors.white)),
+      margin: const EdgeInsets.all(20),
+      backgroundColor: _B.textDark,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      content: Text(msg, style: GoogleFonts.poppins(color: Colors.white, fontSize: 13)),
       duration: const Duration(seconds: 2),
     ));
   }
@@ -137,86 +142,100 @@ class _HomeScreenState extends State<HomeScreen>
     final ctrl = TextEditingController();
     return showDialog<String>(
       context: context,
-      barrierColor: _B.navy.withValues(alpha: 0.6),
+      barrierColor: _B.navy.withValues(alpha: 0.5),
       builder: (ctx) => Dialog(
         backgroundColor: Colors.transparent,
         child: Container(
-          width: 380,
-          padding: const EdgeInsets.all(0),
+          width: 400,
           decoration: BoxDecoration(
             color: _B.white,
-            borderRadius: BorderRadius.circular(20),
-            boxShadow: [BoxShadow(color: _B.navy.withValues(alpha: 0.2), blurRadius: 50, offset: const Offset(0, 20))],
+            borderRadius: BorderRadius.circular(24),
+            boxShadow: [
+              BoxShadow(color: Colors.black.withValues(alpha: 0.15), blurRadius: 60, offset: const Offset(0, 24)),
+            ],
           ),
           child: Column(mainAxisSize: MainAxisSize.min, children: [
-            // Dialog header
+            // Dialog header — gradient
             Container(
-              padding: const EdgeInsets.fromLTRB(28, 24, 28, 20),
+              padding: const EdgeInsets.fromLTRB(28, 28, 28, 24),
               decoration: const BoxDecoration(
-                gradient: LinearGradient(colors: [_B.navy, _B.navyMid], begin: Alignment.topLeft, end: Alignment.bottomRight),
-                borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+                gradient: LinearGradient(
+                  colors: [_B.navy, _B.orange],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
+                borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
               ),
               child: Row(children: [
                 Container(
-                  width: 38, height: 38,
-                  decoration: BoxDecoration(color: Colors.white.withValues(alpha: 0.12), borderRadius: BorderRadius.circular(10)),
-                  child: const Icon(Icons.person_outline_rounded, color: Colors.white70, size: 20),
+                  width: 44, height: 44,
+                  decoration: BoxDecoration(
+                    color: Colors.white.withValues(alpha: 0.15),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: const Icon(Icons.person_outline_rounded, color: Colors.white, size: 22),
                 ),
-                const SizedBox(width: 14),
+                const SizedBox(width: 16),
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                  Text('PDF Raporu',
-                    style: GoogleFonts.playfairDisplay(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
-                  Text('Öğrenci adını girin',
-                    style: GoogleFonts.roboto(color: Colors.white54, fontSize: 12)),
+                  Text('PDF Raporu', style: GoogleFonts.poppins(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
+                  Text('Öğrenci adını girin', style: GoogleFonts.poppins(color: Colors.white70, fontSize: 12)),
                 ]),
               ]),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(28, 24, 28, 28),
+              padding: const EdgeInsets.fromLTRB(28, 28, 28, 28),
               child: Column(children: [
                 TextField(
                   controller: ctrl,
                   autofocus: true,
-                  style: GoogleFonts.roboto(fontSize: 15, color: _B.navy),
+                  style: GoogleFonts.poppins(fontSize: 14, color: _B.textDark),
                   decoration: InputDecoration(
                     labelText: 'Ad Soyad',
-                    labelStyle: GoogleFonts.roboto(color: _B.dim, fontSize: 13),
+                    labelStyle: GoogleFonts.poppins(color: _B.textMid, fontSize: 13),
                     hintText: 'Örn: Ahmet Yılmaz',
-                    hintStyle: GoogleFonts.roboto(color: _B.border),
+                    hintStyle: GoogleFonts.poppins(color: _B.textLight),
                     filled: true,
-                    fillColor: _B.cream,
-                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: const BorderSide(color: _B.border)),
-                    enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: const BorderSide(color: _B.border)),
-                    focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: const BorderSide(color: _B.navyMid, width: 2)),
-                    prefixIcon: const Icon(Icons.badge_outlined, size: 18, color: _B.dim),
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                    fillColor: _B.bg,
+                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(14), borderSide: const BorderSide(color: _B.border)),
+                    enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(14), borderSide: const BorderSide(color: _B.border)),
+                    focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(14), borderSide: const BorderSide(color: _B.navy, width: 2)),
+                    prefixIcon: Icon(Icons.badge_outlined, size: 18, color: _B.textMid),
+                    contentPadding: const EdgeInsets.symmetric(horizontal: 18, vertical: 16),
                   ),
                   onSubmitted: (v) => Navigator.pop(ctx, v.trim()),
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 24),
                 Row(children: [
                   Expanded(
                     child: OutlinedButton(
                       onPressed: () => Navigator.pop(ctx, null),
                       style: OutlinedButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(vertical: 14),
-                        side: const BorderSide(color: _B.border),
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                        padding: const EdgeInsets.symmetric(vertical: 15),
+                        side: const BorderSide(color: _B.border, width: 1.5),
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
                       ),
-                      child: Text('İptal', style: GoogleFonts.roboto(color: _B.dim, fontWeight: FontWeight.w500)),
+                      child: Text('İptal', style: GoogleFonts.poppins(color: _B.textMid, fontWeight: FontWeight.w600)),
                     ),
                   ),
                   const SizedBox(width: 12),
                   Expanded(
-                    child: ElevatedButton(
-                      onPressed: () => Navigator.pop(ctx, ctrl.text.trim()),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: _B.navy,
-                        padding: const EdgeInsets.symmetric(vertical: 14),
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                        elevation: 0,
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        gradient: const LinearGradient(colors: [_B.navy, _B.orange], begin: Alignment.centerLeft, end: Alignment.centerRight),
+                        borderRadius: BorderRadius.circular(100),
+                        boxShadow: [BoxShadow(color: _B.orange.withValues(alpha: 0.3), blurRadius: 16, offset: const Offset(0, 6))],
                       ),
-                      child: Text('Oluştur', style: GoogleFonts.roboto(color: Colors.white, fontWeight: FontWeight.bold)),
+                      child: ElevatedButton(
+                        onPressed: () => Navigator.pop(ctx, ctrl.text.trim()),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.transparent,
+                          shadowColor: Colors.transparent,
+                          padding: const EdgeInsets.symmetric(vertical: 15),
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
+                          elevation: 0,
+                        ),
+                        child: Text('Oluştur', style: GoogleFonts.poppins(color: Colors.white, fontWeight: FontWeight.bold)),
+                      ),
                     ),
                   ),
                 ]),
@@ -232,7 +251,7 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: _B.cream,
+      backgroundColor: _B.bg,
       body: Column(children: [
         _buildHeader(),
         _buildTabBar(),
@@ -254,114 +273,122 @@ class _HomeScreenState extends State<HomeScreen>
   // ─── Header ───────────────────────────────────────────────────────────────
   Widget _buildHeader() {
     final total = _all.where((u) => u.level == _level).length;
+    final fieldCount = _fields.length > 1 ? _fields.length - 1 : 0;
     return Container(
       decoration: const BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: [Color(0xFF0A1628), Color(0xFF0D1F3C), Color(0xFF15305A)],
-          stops: [0.0, 0.5, 1.0],
+          colors: [
+            Color(0xFF0F2057),
+            Color(0xFF1E3A8A),
+            Color(0xFFE87040),
+          ],
+          stops: [0.0, 0.55, 1.0],
         ),
       ),
       child: SafeArea(
         bottom: false,
-        child: Column(children: [
-          // Top bar: logo + title + clear button
-          Padding(
-            padding: const EdgeInsets.fromLTRB(20, 14, 16, 0),
-            child: Row(children: [
-              // Logo or brand mark
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(20, 18, 20, 22),
+          child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            // Top row: logo + title + clear
+            Row(children: [
+              // Logo / brand
               if (_logo != null)
-                SizedBox(width: 44, height: 44, child: _logo)
+                SizedBox(width: 42, height: 42, child: _logo)
               else
-                _brandMark(),
+                Container(
+                  width: 42, height: 42,
+                  decoration: BoxDecoration(
+                    color: Colors.white.withValues(alpha: 0.15),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: const Icon(Icons.school_rounded, color: Colors.white, size: 22),
+                ),
               const SizedBox(width: 14),
               Expanded(
                 child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                  Text('MYEDUCOACH',
-                    style: GoogleFonts.roboto(
-                      color: Colors.white, fontSize: 16,
-                      fontWeight: FontWeight.w900, letterSpacing: 2.5)),
+                  Text('MYEDU COACH',
+                    style: GoogleFonts.poppins(
+                      color: Colors.white,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w800,
+                      letterSpacing: 1.5,
+                    )),
                   Text('Üniversite Seçici',
-                    style: GoogleFonts.playfairDisplay(
-                      color: const Color(0xFFC9A84C),
-                      fontSize: 13, fontStyle: FontStyle.italic)),
+                    style: GoogleFonts.poppins(
+                      color: Colors.white.withValues(alpha: 0.7),
+                      fontSize: 11,
+                      fontWeight: FontWeight.w400,
+                    )),
                 ]),
               ),
               if (_selected.isNotEmpty)
                 GestureDetector(
                   onTap: () => setState(() => _selected.clear()),
                   child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
+                    padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
                     decoration: BoxDecoration(
-                      color: Colors.white.withValues(alpha: 0.08),
-                      borderRadius: BorderRadius.circular(8),
-                      border: Border.all(color: Colors.white.withValues(alpha: 0.15)),
+                      color: Colors.white.withValues(alpha: 0.12),
+                      borderRadius: BorderRadius.circular(100),
+                      border: Border.all(color: Colors.white.withValues(alpha: 0.2)),
                     ),
-                    child: Row(children: [
-                      const Icon(Icons.close, size: 13, color: Colors.white54),
+                    child: Row(mainAxisSize: MainAxisSize.min, children: [
+                      Icon(Icons.close_rounded, size: 13, color: Colors.white.withValues(alpha: 0.8)),
                       const SizedBox(width: 5),
-                      Text('Temizle', style: GoogleFonts.roboto(color: Colors.white54, fontSize: 11)),
+                      Text('Temizle',
+                        style: GoogleFonts.poppins(color: Colors.white.withValues(alpha: 0.8), fontSize: 11, fontWeight: FontWeight.w600)),
                     ]),
                   ),
                 ),
             ]),
-          ),
-          // Stats banner
-          Padding(
-            padding: const EdgeInsets.fromLTRB(20, 14, 20, 16),
-            child: Row(children: [
-              _statChip(Icons.school_outlined, '$total Program'),
-              const SizedBox(width: 8),
-              _statChip(Icons.category_outlined, '${_fields.length > 1 ? _fields.length - 1 : 0} Alan'),
-              const Spacer(),
-              if (_field != 'Tümü')
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                  decoration: BoxDecoration(
-                    color: _B.crimson.withValues(alpha: 0.7),
-                    borderRadius: BorderRadius.circular(6),
-                  ),
-                  child: Row(children: [
-                    Text(_field, style: GoogleFonts.roboto(color: Colors.white, fontSize: 11, fontWeight: FontWeight.bold)),
-                    const SizedBox(width: 6),
-                    GestureDetector(
-                      onTap: () { setState(() { _field = 'Tümü'; }); _applyFilter(); },
-                      child: const Icon(Icons.close, size: 12, color: Colors.white70),
+            const SizedBox(height: 20),
+            // Stat pills
+            Row(children: [
+              _statPill(Icons.school_outlined, '$total Program'),
+              const SizedBox(width: 10),
+              _statPill(Icons.category_outlined, '$fieldCount Alan'),
+              if (_field != 'Tümü') ...[
+                const SizedBox(width: 10),
+                GestureDetector(
+                  onTap: () { setState(() => _field = 'Tümü'); _applyFilter(); },
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                    decoration: BoxDecoration(
+                      color: _B.orange.withValues(alpha: 0.25),
+                      borderRadius: BorderRadius.circular(100),
+                      border: Border.all(color: _B.orange.withValues(alpha: 0.5)),
                     ),
-                  ]),
+                    child: Row(mainAxisSize: MainAxisSize.min, children: [
+                      Text(_field,
+                        style: GoogleFonts.poppins(color: Colors.white, fontSize: 11, fontWeight: FontWeight.w600)),
+                      const SizedBox(width: 6),
+                      const Icon(Icons.close_rounded, size: 12, color: Colors.white70),
+                    ]),
+                  ),
                 ),
+              ],
             ]),
-          ),
-        ]),
+          ]),
+        ),
       ),
     );
   }
 
-  Widget _brandMark() {
+  Widget _statPill(IconData icon, String label) {
     return Container(
-      width: 44, height: 44,
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       decoration: BoxDecoration(
-        gradient: const LinearGradient(colors: [_B.navyMid, _B.crimson], begin: Alignment.topLeft, end: Alignment.bottomRight),
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.white.withValues(alpha: 0.2)),
-      ),
-      child: const Icon(Icons.school, color: Colors.white, size: 22),
-    );
-  }
-
-  Widget _statChip(IconData icon, String label) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-      decoration: BoxDecoration(
-        color: Colors.white.withValues(alpha: 0.08),
-        borderRadius: BorderRadius.circular(6),
-        border: Border.all(color: Colors.white.withValues(alpha: 0.12)),
+        color: Colors.white.withValues(alpha: 0.12),
+        borderRadius: BorderRadius.circular(100),
+        border: Border.all(color: Colors.white.withValues(alpha: 0.18)),
       ),
       child: Row(mainAxisSize: MainAxisSize.min, children: [
-        Icon(icon, size: 12, color: const Color(0xFFC9A84C)),
-        const SizedBox(width: 5),
-        Text(label, style: GoogleFonts.roboto(color: Colors.white70, fontSize: 11, fontWeight: FontWeight.w500)),
+        Icon(icon, size: 12, color: _B.orangeLight),
+        const SizedBox(width: 6),
+        Text(label,
+          style: GoogleFonts.poppins(color: Colors.white, fontSize: 11, fontWeight: FontWeight.w500)),
       ]),
     );
   }
@@ -369,21 +396,17 @@ class _HomeScreenState extends State<HomeScreen>
   // ─── Tab Bar ─────────────────────────────────────────────────────────────
   Widget _buildTabBar() {
     return Container(
-      decoration: const BoxDecoration(
-        color: _B.white,
-        border: Border(bottom: BorderSide(color: _B.border)),
-        boxShadow: [BoxShadow(color: Color(0x0A000000), blurRadius: 8, offset: Offset(0, 2))],
-      ),
+      color: _B.white,
       child: TabBar(
         controller: _tab,
-        indicator: const BoxDecoration(
-          border: Border(bottom: BorderSide(color: _B.navy, width: 3)),
+        indicator: BoxDecoration(
+          border: Border(bottom: BorderSide(color: _B.orange, width: 3)),
         ),
-        labelPadding: const EdgeInsets.symmetric(horizontal: 24),
-        labelStyle: GoogleFonts.roboto(fontWeight: FontWeight.bold, fontSize: 13, letterSpacing: 0.5),
-        unselectedLabelStyle: GoogleFonts.roboto(fontSize: 13, fontWeight: FontWeight.w400),
+        labelPadding: const EdgeInsets.symmetric(horizontal: 28),
+        labelStyle: GoogleFonts.poppins(fontWeight: FontWeight.w700, fontSize: 12.5, letterSpacing: 0.3),
+        unselectedLabelStyle: GoogleFonts.poppins(fontSize: 12.5, fontWeight: FontWeight.w400),
         labelColor: _B.navy,
-        unselectedLabelColor: _B.dim,
+        unselectedLabelColor: _B.textMid,
         tabs: const [Tab(text: 'LİSANS'), Tab(text: 'YÜKSEK LİSANS')],
       ),
     );
@@ -394,29 +417,29 @@ class _HomeScreenState extends State<HomeScreen>
     return Container(
       color: _B.white,
       child: Column(children: [
-        // Search
+        // Search field
         Padding(
-          padding: const EdgeInsets.fromLTRB(16, 14, 16, 10),
+          padding: const EdgeInsets.fromLTRB(16, 16, 16, 10),
           child: TextField(
             controller: _searchCtrl,
             onChanged: (v) { _search = v; _applyFilter(); },
-            style: GoogleFonts.roboto(fontSize: 14, color: _B.navy),
+            style: GoogleFonts.poppins(fontSize: 13.5, color: _B.textDark),
             decoration: InputDecoration(
               hintText: 'Okul, bölüm veya şehir ara…',
-              hintStyle: GoogleFonts.roboto(color: _B.dim, fontSize: 13),
-              prefixIcon: const Icon(Icons.search_rounded, color: _B.dim, size: 20),
+              hintStyle: GoogleFonts.poppins(color: _B.textLight, fontSize: 13),
+              prefixIcon: Icon(Icons.search_rounded, color: _B.textLight, size: 20),
               suffixIcon: _search.isNotEmpty
                   ? IconButton(
-                      icon: const Icon(Icons.close_rounded, size: 17, color: _B.dim),
+                      icon: Icon(Icons.close_rounded, size: 17, color: _B.textMid),
                       onPressed: () { _searchCtrl.clear(); _search = ''; _applyFilter(); },
                     )
                   : null,
               filled: true,
-              fillColor: _B.cream,
-              contentPadding: const EdgeInsets.symmetric(vertical: 0, horizontal: 16),
-              border: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: const BorderSide(color: _B.border)),
-              enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: const BorderSide(color: _B.border)),
-              focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: const BorderSide(color: _B.navyMid, width: 1.5)),
+              fillColor: _B.bg,
+              contentPadding: const EdgeInsets.symmetric(vertical: 0, horizontal: 18),
+              border: OutlineInputBorder(borderRadius: BorderRadius.circular(100), borderSide: const BorderSide(color: _B.border)),
+              enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(100), borderSide: const BorderSide(color: _B.border)),
+              focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(100), borderSide: const BorderSide(color: _B.navy, width: 1.5)),
             ),
           ),
         ),
@@ -427,7 +450,7 @@ class _HomeScreenState extends State<HomeScreen>
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.fromLTRB(16, 4, 16, 8),
             itemCount: _fields.length,
-            separatorBuilder: (_, __) => const SizedBox(width: 6),
+            separatorBuilder: (_, __) => const SizedBox(width: 8),
             itemBuilder: (_, i) {
               final f = _fields[i];
               final sel = f == _field;
@@ -436,34 +459,38 @@ class _HomeScreenState extends State<HomeScreen>
                 onTap: () { setState(() => _field = f); _applyFilter(); },
                 child: AnimatedContainer(
                   duration: const Duration(milliseconds: 150),
-                  padding: const EdgeInsets.symmetric(horizontal: 13, vertical: 0),
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0),
                   decoration: BoxDecoration(
                     color: sel ? fc : Colors.transparent,
-                    borderRadius: BorderRadius.circular(6),
-                    border: Border.all(color: sel ? fc : _B.border, width: 1.2),
+                    borderRadius: BorderRadius.circular(100),
+                    border: Border.all(color: sel ? fc : _B.border, width: 1.3),
+                    boxShadow: sel ? [BoxShadow(color: fc.withValues(alpha: 0.25), blurRadius: 8, offset: const Offset(0, 3))] : [],
                   ),
                   child: Center(
                     child: Text(f,
-                      style: GoogleFonts.roboto(
+                      style: GoogleFonts.poppins(
                         fontSize: 11.5,
-                        fontWeight: sel ? FontWeight.bold : FontWeight.w400,
-                        color: sel ? Colors.white : _B.dim,
-                        letterSpacing: 0.2)),
+                        fontWeight: sel ? FontWeight.w700 : FontWeight.w400,
+                        color: sel ? Colors.white : _B.textMid,
+                      )),
                   ),
                 ),
               );
             },
           ),
         ),
-        // Result count
+        // Result count bar
         Container(
-          color: _B.smoke,
-          padding: const EdgeInsets.fromLTRB(16, 6, 16, 7),
+          color: _B.bg,
+          padding: const EdgeInsets.fromLTRB(20, 8, 20, 8),
           child: Row(children: [
-            Container(width: 3, height: 12, decoration: BoxDecoration(color: _B.navy, borderRadius: BorderRadius.circular(2))),
-            const SizedBox(width: 8),
-            Text('${_filtered.length} program listeleniyor',
-              style: GoogleFonts.roboto(fontSize: 11, color: _B.dim, letterSpacing: 0.3)),
+            Container(width: 3, height: 12, decoration: BoxDecoration(
+              gradient: const LinearGradient(colors: [_B.navy, _B.orange]),
+              borderRadius: BorderRadius.circular(2),
+            )),
+            const SizedBox(width: 10),
+            Text('${_filtered.length} program',
+              style: GoogleFonts.poppins(fontSize: 11, color: _B.textMid, fontWeight: FontWeight.w500)),
           ]),
         ),
         const Divider(height: 1, color: _B.border),
@@ -476,23 +503,22 @@ class _HomeScreenState extends State<HomeScreen>
     if (_filtered.isEmpty) {
       return Center(
         child: Column(mainAxisSize: MainAxisSize.min, children: [
-          Icon(Icons.search_off_rounded, size: 52, color: _B.dim.withValues(alpha: 0.3)),
-          const SizedBox(height: 14),
+          Icon(Icons.search_off_rounded, size: 56, color: _B.textLight),
+          const SizedBox(height: 16),
           Text('Sonuç bulunamadı',
-            style: GoogleFonts.roboto(color: _B.dim, fontSize: 15, fontWeight: FontWeight.w500)),
+            style: GoogleFonts.poppins(color: _B.textMid, fontSize: 15, fontWeight: FontWeight.w600)),
           const SizedBox(height: 6),
           Text('Arama terimini değiştirin',
-            style: GoogleFonts.roboto(color: _B.dim.withValues(alpha: 0.6), fontSize: 12)),
+            style: GoogleFonts.poppins(color: _B.textLight, fontSize: 12)),
         ]),
       );
     }
     return ListView.builder(
-      padding: const EdgeInsets.fromLTRB(14, 12, 14, 110),
+      padding: const EdgeInsets.fromLTRB(16, 16, 16, 120),
       itemCount: _filtered.length,
       itemBuilder: (_, i) => _UniCard(
         university: _filtered[i],
         isSelected: _selected.contains(_filtered[i].id),
-        index: i,
         onTap: () => _toggle(_filtered[i].id),
       ),
     );
@@ -504,82 +530,78 @@ class _HomeScreenState extends State<HomeScreen>
     return Container(
       decoration: BoxDecoration(
         color: _B.white,
-        border: const Border(top: BorderSide(color: _B.border)),
-        boxShadow: [BoxShadow(color: _B.navy.withValues(alpha: 0.08), blurRadius: 24, offset: const Offset(0, -6))],
+        boxShadow: [
+          BoxShadow(color: Colors.black.withValues(alpha: 0.06), blurRadius: 24, offset: const Offset(0, -8)),
+        ],
       ),
-      padding: const EdgeInsets.fromLTRB(16, 12, 16, 24),
+      padding: const EdgeInsets.fromLTRB(20, 14, 20, 28),
       child: Row(children: [
-        // Counter block
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 11),
+        // Counter pill
+        AnimatedContainer(
+          duration: const Duration(milliseconds: 200),
+          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 13),
           decoration: BoxDecoration(
-            color: count == 0 ? _B.cream : _B.navy,
-            borderRadius: BorderRadius.circular(12),
+            color: count == 0 ? _B.bg : _B.navy,
+            borderRadius: BorderRadius.circular(100),
             border: Border.all(color: count == 0 ? _B.border : _B.navy),
           ),
           child: Row(mainAxisSize: MainAxisSize.min, children: [
-            Icon(Icons.school_outlined, size: 16, color: count == 0 ? _B.dim : Colors.white),
+            Icon(Icons.school_outlined, size: 16, color: count == 0 ? _B.textLight : Colors.white),
             const SizedBox(width: 8),
-            Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisSize: MainAxisSize.min, children: [
-              Text(count == 0 ? 'Seçim yok' : '$count / 8',
-                style: GoogleFonts.roboto(
-                  fontSize: 13, fontWeight: FontWeight.bold,
-                  color: count == 0 ? _B.dim : Colors.white)),
-              if (count > 0)
-                Text('okul seçildi',
-                  style: GoogleFonts.roboto(fontSize: 10, color: Colors.white60)),
-            ]),
+            Text(
+              count == 0 ? '0 / 8' : '$count / 8',
+              style: GoogleFonts.poppins(
+                fontSize: 13, fontWeight: FontWeight.w700,
+                color: count == 0 ? _B.textLight : Colors.white,
+              ),
+            ),
           ]),
         ),
         const SizedBox(width: 12),
-        // PDF Button
+        // PDF Button — pill, gradient
         Expanded(
-          child: Material(
-            color: Colors.transparent,
-            child: InkWell(
-              onTap: count == 0 ? null : _generatePdf,
-              borderRadius: BorderRadius.circular(12),
-              child: AnimatedContainer(
-                duration: const Duration(milliseconds: 200),
-                padding: const EdgeInsets.symmetric(vertical: 15),
-                decoration: BoxDecoration(
-                  gradient: count == 0
-                      ? null
-                      : const LinearGradient(
-                          colors: [Color(0xFF0A1628), Color(0xFF1A3A6B)],
-                          begin: Alignment.topLeft, end: Alignment.bottomRight),
-                  color: count == 0 ? _B.smoke : null,
-                  borderRadius: BorderRadius.circular(12),
-                  boxShadow: count == 0 ? [] : [
-                    BoxShadow(color: _B.navy.withValues(alpha: 0.35), blurRadius: 12, offset: const Offset(0, 4)),
-                  ],
-                ),
-                child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                  Icon(Icons.picture_as_pdf_outlined, size: 18,
-                    color: count == 0 ? _B.dim : Colors.white),
-                  const SizedBox(width: 8),
-                  Text('PDF Oluştur',
-                    style: GoogleFonts.roboto(
-                      fontSize: 14, fontWeight: FontWeight.bold,
-                      color: count == 0 ? _B.dim : Colors.white,
-                      letterSpacing: 0.5)),
-                  if (count > 0) ...[
-                    const SizedBox(width: 10),
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-                      decoration: BoxDecoration(
-                        color: const Color(0xFFC9A84C).withValues(alpha: 0.25),
-                        borderRadius: BorderRadius.circular(6),
-                        border: Border.all(color: const Color(0xFFC9A84C).withValues(alpha: 0.4)),
+          child: GestureDetector(
+            onTap: count == 0 ? null : _generatePdf,
+            child: AnimatedContainer(
+              duration: const Duration(milliseconds: 200),
+              padding: const EdgeInsets.symmetric(vertical: 15),
+              decoration: BoxDecoration(
+                gradient: count == 0
+                    ? null
+                    : const LinearGradient(
+                        colors: [_B.navy, _B.orange],
+                        begin: Alignment.centerLeft,
+                        end: Alignment.centerRight,
                       ),
-                      child: Text('$count',
-                        style: GoogleFonts.roboto(
-                          fontSize: 11, fontWeight: FontWeight.bold,
-                          color: const Color(0xFFC9A84C))),
-                    ),
-                  ],
-                ]),
+                color: count == 0 ? _B.bg : null,
+                borderRadius: BorderRadius.circular(100),
+                border: count == 0 ? Border.all(color: _B.border) : null,
+                boxShadow: count == 0
+                    ? []
+                    : [BoxShadow(color: _B.orange.withValues(alpha: 0.35), blurRadius: 16, offset: const Offset(0, 6))],
               ),
+              child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                Icon(Icons.picture_as_pdf_outlined, size: 18, color: count == 0 ? _B.textLight : Colors.white),
+                const SizedBox(width: 8),
+                Text('PDF Oluştur',
+                  style: GoogleFonts.poppins(
+                    fontSize: 13.5, fontWeight: FontWeight.w700,
+                    color: count == 0 ? _B.textLight : Colors.white,
+                    letterSpacing: 0.3,
+                  )),
+                if (count > 0) ...[
+                  const SizedBox(width: 10),
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 3),
+                    decoration: BoxDecoration(
+                      color: Colors.white.withValues(alpha: 0.2),
+                      borderRadius: BorderRadius.circular(100),
+                    ),
+                    child: Text('$count',
+                      style: GoogleFonts.poppins(fontSize: 11, fontWeight: FontWeight.w800, color: Colors.white)),
+                  ),
+                ],
+              ]),
             ),
           ),
         ),
@@ -589,17 +611,14 @@ class _HomeScreenState extends State<HomeScreen>
 }
 
 // ─── University Card ──────────────────────────────────────────────────────────
-
 class _UniCard extends StatelessWidget {
   final University university;
   final bool isSelected;
-  final int index;
   final VoidCallback onTap;
 
   const _UniCard({
     required this.university,
     required this.isSelected,
-    required this.index,
     required this.onTap,
   });
 
@@ -618,127 +637,114 @@ class _UniCard extends StatelessWidget {
       onTap: onTap,
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
-        margin: const EdgeInsets.only(bottom: 8),
+        margin: const EdgeInsets.only(bottom: 12),
         decoration: BoxDecoration(
-          color: isSelected ? const Color(0xFFECF0F8) : _B.white,
-          borderRadius: BorderRadius.circular(14),
+          color: _B.white,
+          borderRadius: BorderRadius.circular(20),
           border: Border.all(
-            color: isSelected ? const Color(0xFF1A3A6B) : _B.border,
-            width: isSelected ? 1.8 : 1,
+            color: isSelected ? _B.orange.withValues(alpha: 0.6) : Colors.transparent,
+            width: 1.8,
           ),
           boxShadow: [
             BoxShadow(
-              color: _B.navy.withValues(alpha: isSelected ? 0.08 : 0.04),
-              blurRadius: isSelected ? 16 : 6,
-              offset: const Offset(0, 3),
+              color: isSelected
+                  ? _B.orange.withValues(alpha: 0.12)
+                  : Colors.black.withValues(alpha: 0.05),
+              blurRadius: 20,
+              offset: const Offset(0, 10),
             ),
           ],
         ),
         child: Padding(
-          padding: EdgeInsets.zero,
-          child: Row(children: [
-            // Field color bar — no IntrinsicHeight needed
-            Container(
-              width: 5,
-              height: 90,
+          padding: const EdgeInsets.all(16),
+          child: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+            // Avatar circle with initials
+            AnimatedContainer(
+              duration: const Duration(milliseconds: 200),
+              width: 48, height: 48,
               decoration: BoxDecoration(
-                color: isSelected ? const Color(0xFF1A3A6B) : fc.withValues(alpha: 0.7),
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(13),
-                  bottomLeft: Radius.circular(13),
+                color: isSelected ? _B.navy : fc.withValues(alpha: 0.1),
+                borderRadius: BorderRadius.circular(14),
+                boxShadow: isSelected
+                    ? [BoxShadow(color: _B.navy.withValues(alpha: 0.25), blurRadius: 10, offset: const Offset(0, 4))]
+                    : [],
+              ),
+              child: Center(
+                child: Text(
+                  _initials(university.name),
+                  style: GoogleFonts.poppins(
+                    fontSize: 13, fontWeight: FontWeight.w800,
+                    color: isSelected ? Colors.white : fc,
+                    letterSpacing: 0.3,
+                  ),
                 ),
               ),
             ),
-            // Content
+            const SizedBox(width: 14),
+            // Info block
             Expanded(
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(12, 13, 10, 13),
-                child: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
-                  // Avatar
-                  AnimatedContainer(
-                    duration: const Duration(milliseconds: 200),
-                    width: 44, height: 44,
-                    decoration: BoxDecoration(
-                      color: isSelected ? const Color(0xFF1A3A6B) : fc.withValues(alpha: 0.08),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Center(
-                      child: Text(
-                        _initials(university.name),
-                        style: GoogleFonts.roboto(
-                          fontSize: 13, fontWeight: FontWeight.bold,
-                          color: isSelected ? Colors.white : fc,
-                          letterSpacing: 0.5),
-                      ),
-                    ),
+              child: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisSize: MainAxisSize.min, children: [
+                Text(university.name,
+                  style: GoogleFonts.poppins(
+                    fontSize: 13.5, fontWeight: FontWeight.w700,
+                    color: _B.textDark, height: 1.2,
                   ),
-                  const SizedBox(width: 12),
-                  // Info
-                  Expanded(
-                    child: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisSize: MainAxisSize.min, children: [
-                      Text(university.name,
-                        style: GoogleFonts.roboto(
-                          fontSize: 13.5,
-                          fontWeight: FontWeight.bold,
-                          color: isSelected ? const Color(0xFF0D1F3C) : const Color(0xFF1A1A2E),
-                          height: 1.2,
-                        ),
-                        maxLines: 1, overflow: TextOverflow.ellipsis),
-                      const SizedBox(height: 4),
-                      Text(university.program,
-                        style: GoogleFonts.roboto(
-                          fontSize: 11.5,
-                          fontStyle: FontStyle.italic,
-                          color: _B.dim, height: 1.35),
-                        maxLines: 2, overflow: TextOverflow.ellipsis),
-                      const SizedBox(height: 8),
-                      Row(children: [
-                        // Field tag
-                        Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 3),
-                          decoration: BoxDecoration(
-                            color: fc.withValues(alpha: 0.09),
-                            borderRadius: BorderRadius.circular(5),
-                            border: Border.all(color: fc.withValues(alpha: 0.2)),
-                          ),
-                          child: Text(university.field,
-                            style: GoogleFonts.roboto(
-                              fontSize: 10, color: fc,
-                              fontWeight: FontWeight.w700, letterSpacing: 0.2),
-                            maxLines: 1, overflow: TextOverflow.ellipsis),
-                        ),
-                        const SizedBox(width: 6),
-                        // City tag
-                        Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 3),
-                          decoration: BoxDecoration(
-                            color: _B.smoke,
-                            borderRadius: BorderRadius.circular(5),
-                          ),
-                          child: Text('📍 ${university.city}',
-                            style: GoogleFonts.roboto(fontSize: 10, color: _B.dim, fontWeight: FontWeight.w500)),
-                        ),
-                      ]),
-                    ]),
+                  maxLines: 1, overflow: TextOverflow.ellipsis),
+                const SizedBox(height: 3),
+                Text(university.program,
+                  style: GoogleFonts.poppins(
+                    fontSize: 11.5, fontWeight: FontWeight.w400,
+                    color: _B.textMid, height: 1.35,
                   ),
-                  // Checkbox
-                  const SizedBox(width: 8),
-                  AnimatedContainer(
-                    duration: const Duration(milliseconds: 180),
-                    width: 22, height: 22,
+                  maxLines: 2, overflow: TextOverflow.ellipsis),
+                const SizedBox(height: 8),
+                Row(children: [
+                  // Field pill
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 3),
                     decoration: BoxDecoration(
-                      color: isSelected ? const Color(0xFF0D1F3C) : Colors.transparent,
-                      borderRadius: BorderRadius.circular(6),
-                      border: Border.all(
-                        color: isSelected ? const Color(0xFF0D1F3C) : _B.border,
-                        width: 1.5),
+                      color: fc.withValues(alpha: 0.1),
+                      borderRadius: BorderRadius.circular(100),
                     ),
-                    child: isSelected
-                        ? const Icon(Icons.check_rounded, color: Colors.white, size: 14)
-                        : null,
+                    child: Text(university.field,
+                      style: GoogleFonts.poppins(
+                        fontSize: 9.5, color: fc,
+                        fontWeight: FontWeight.w700, letterSpacing: 0.2),
+                      maxLines: 1, overflow: TextOverflow.ellipsis),
+                  ),
+                  const SizedBox(width: 6),
+                  // City pill
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 3),
+                    decoration: BoxDecoration(
+                      color: _B.bg,
+                      borderRadius: BorderRadius.circular(100),
+                    ),
+                    child: Text('📍 ${university.city}',
+                      style: GoogleFonts.poppins(fontSize: 9.5, color: _B.textMid, fontWeight: FontWeight.w500)),
                   ),
                 ]),
+              ]),
+            ),
+            const SizedBox(width: 12),
+            // Check circle
+            AnimatedContainer(
+              duration: const Duration(milliseconds: 180),
+              width: 24, height: 24,
+              decoration: BoxDecoration(
+                gradient: isSelected
+                    ? const LinearGradient(colors: [_B.navy, _B.orange], begin: Alignment.topLeft, end: Alignment.bottomRight)
+                    : null,
+                color: isSelected ? null : Colors.transparent,
+                shape: BoxShape.circle,
+                border: Border.all(
+                  color: isSelected ? Colors.transparent : _B.border,
+                  width: 1.5,
+                ),
               ),
+              child: isSelected
+                  ? const Icon(Icons.check_rounded, color: Colors.white, size: 14)
+                  : null,
             ),
           ]),
         ),

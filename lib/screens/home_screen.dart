@@ -636,7 +636,8 @@ class _UniCard extends StatelessWidget {
         ),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(14),
-          child: Row(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+          child: IntrinsicHeight(
+            child: Row(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
             // Field color bar
             AnimatedContainer(
               duration: const Duration(milliseconds: 200),
@@ -735,6 +736,7 @@ class _UniCard extends StatelessWidget {
               ),
             ),
           ]),
+          ), // IntrinsicHeight
         ),
       ),
     );

@@ -11,8 +11,8 @@ class _B {
   // Core
   static const navy      = Color(0xFF0F2057);
   static const navyLight = Color(0xFF1A3A6B);
-  static const orange    = Color(0xFFE87040);
-  static const orangeLight = Color(0xFFF4A27A);
+  static const orange    = Color(0xFF8B1A4A);
+  static const orangeLight = Color(0xFFB85478);
   static const bg        = Color(0xFFF5F7FA);
   static const white     = Colors.white;
   static const textDark  = Color(0xFF1A1A2E);

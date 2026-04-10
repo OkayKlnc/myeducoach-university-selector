@@ -634,15 +634,20 @@ class _UniCard extends StatelessWidget {
             ),
           ],
         ),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(14),
-          child: IntrinsicHeight(
-            child: Row(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-            // Field color bar
-            AnimatedContainer(
-              duration: const Duration(milliseconds: 200),
+        child: Padding(
+          padding: EdgeInsets.zero,
+          child: Row(children: [
+            // Field color bar — no IntrinsicHeight needed
+            Container(
               width: 5,
-              color: isSelected ? const Color(0xFF1A3A6B) : fc.withValues(alpha: 0.7),
+              height: 90,
+              decoration: BoxDecoration(
+                color: isSelected ? const Color(0xFF1A3A6B) : fc.withValues(alpha: 0.7),
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(13),
+                  bottomLeft: Radius.circular(13),
+                ),
+              ),
             ),
             // Content
             Expanded(
@@ -736,7 +741,6 @@ class _UniCard extends StatelessWidget {
               ),
             ),
           ]),
-          ), // IntrinsicHeight
         ),
       ),
     );

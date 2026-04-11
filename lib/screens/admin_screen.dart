@@ -403,7 +403,7 @@ class _AdminScreenState extends State<AdminScreen> {
   }
 
   Widget _eventTile(PdfEvent e) {
-    final fmt = DateFormat('dd MMM yyyy · HH:mm', 'tr_TR');
+    final fmt = DateFormat('dd.MM.yyyy · HH:mm');
     return Container(
       margin: const EdgeInsets.fromLTRB(12, 0, 12, 8),
       padding: const EdgeInsets.all(14),

@@ -644,8 +644,9 @@ class _UniCard extends StatelessWidget {
     try {
       final host = Uri.parse(url).host;
       if (host.isEmpty) return '';
-      // Google favicon API — CORS destekli, Flutter web'de çalışır
-      return 'https://www.google.com/s2/favicons?domain=$host&sz=64';
+      // www. öneki olmadan Clearbit logo API — gerçek üniversite logoları
+      final domain = host.replaceFirst(RegExp(r'^www\.'), '');
+      return 'https://logo.clearbit.com/$domain?size=128';
     } catch (_) {
       return '';
     }
@@ -686,11 +687,13 @@ class _UniCard extends StatelessWidget {
               duration: const Duration(milliseconds: 200),
               width: 48, height: 48,
               decoration: BoxDecoration(
-                color: isSelected ? _B.navy : fc.withValues(alpha: 0.08),
+                // Logo gösterilirken beyaz arka plan, seçiliyken navy
+                color: isSelected ? _B.navy : Colors.white,
                 borderRadius: BorderRadius.circular(14),
+                border: isSelected ? null : Border.all(color: _B.border, width: 1),
                 boxShadow: isSelected
                     ? [BoxShadow(color: _B.navy.withValues(alpha: 0.25), blurRadius: 10, offset: const Offset(0, 4))]
-                    : [],
+                    : [BoxShadow(color: Colors.black.withValues(alpha: 0.04), blurRadius: 6, offset: const Offset(0, 2))],
               ),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(14),
@@ -699,7 +702,21 @@ class _UniCard extends StatelessWidget {
                         logoUrl,
                         width: 48, height: 48,
                         fit: BoxFit.contain,
-                        errorBuilder: (_, __, _x) => Center(
+                        // Yüklenirken baş harfleri göster
+                        loadingBuilder: (_, child, progress) =>
+                            progress == null
+                                ? child
+                                : Center(
+                                    child: Text(
+                                      _initials(university.name),
+                                      style: GoogleFonts.poppins(
+                                        fontSize: 13, fontWeight: FontWeight.w800,
+                                        color: isSelected ? Colors.white : fc,
+                                        letterSpacing: 0.3,
+                                      ),
+                                    ),
+                                  ),
+                        errorBuilder: (_, __, ___) => Center(
                           child: Text(
                             _initials(university.name),
                             style: GoogleFonts.poppins(

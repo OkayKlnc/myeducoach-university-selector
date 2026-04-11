@@ -163,39 +163,37 @@ class PdfService {
           final i   = entry.key + 1;
           final uni = entry.value;
           return pw.Padding(
-            // 8pt alt boşluk — 8 satır × ~52pt = ~416pt, başlık ~30pt, toplam ~446pt
-            padding: const pw.EdgeInsets.only(bottom: 8),
+            padding: const pw.EdgeInsets.only(bottom: 14),
             child: pw.Row(
               crossAxisAlignment: pw.CrossAxisAlignment.start,
               children: [
-                // Numara dairesi — küçültüldü
                 pw.Container(
-                  width: 18, height: 18,
+                  width: 22, height: 22,
                   decoration: const pw.BoxDecoration(
                     color: _navy, shape: pw.BoxShape.circle,
                   ),
                   alignment: pw.Alignment.center,
                   child: pw.Text('$i',
-                    style: pw.TextStyle(font: bold, fontSize: 8,
+                    style: pw.TextStyle(font: bold, fontSize: 9,
                         color: PdfColors.white)),
                 ),
-                pw.SizedBox(width: 8),
+                pw.SizedBox(width: 10),
                 pw.Expanded(
                   child: pw.Column(
                     crossAxisAlignment: pw.CrossAxisAlignment.start,
                     children: [
                       pw.Text(uni.name,
-                        style: pw.TextStyle(font: bold, fontSize: 11,
+                        style: pw.TextStyle(font: bold, fontSize: 12.5,
                             color: _navy)),
-                      pw.SizedBox(height: 1),
+                      pw.SizedBox(height: 2),
                       pw.Text(uni.program,
-                        style: pw.TextStyle(font: regular, fontSize: 9.5,
+                        style: pw.TextStyle(font: regular, fontSize: 11,
                             color: PdfColors.black)),
-                      pw.SizedBox(height: 1),
+                      pw.SizedBox(height: 2),
                       pw.UrlLink(
                         destination: uni.url,
                         child: pw.Text(uni.url,
-                          style: pw.TextStyle(font: regular, fontSize: 7.5,
+                          style: pw.TextStyle(font: regular, fontSize: 8.5,
                               color: _navy,
                               decoration: pw.TextDecoration.underline)),
                       ),

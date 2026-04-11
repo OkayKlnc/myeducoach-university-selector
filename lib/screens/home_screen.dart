@@ -5,9 +5,6 @@ import 'package:printing/printing.dart';
 import '../models/university.dart';
 import '../services/data_service.dart';
 import '../services/pdf_service.dart';
-// ignore: avoid_web_libraries_in_flutter
-import 'dart:html' as html;
-import 'dart:ui_web' as ui_web;
 
 // ─── Brand ───────────────────────────────────────────────────────────────────
 class _B {
@@ -647,9 +644,11 @@ class _UniCard extends StatelessWidget {
     try {
       final host = Uri.parse(url).host;
       if (host.isEmpty) return '';
-      // www. öneki olmadan Clearbit logo API — gerçek üniversite logoları
-      final domain = host.replaceFirst(RegExp(r'^www\.'), '');
-      return 'https://logo.clearbit.com/$domain?size=128';
+      // CORS proxy + Google favicon: en güvenilir yöntem
+      // corsproxy.io → CORS header ekler → Image.network çalışır
+      final faviconUrl =
+          'https://www.google.com/s2/favicons?domain=$host&sz=128';
+      return 'https://corsproxy.io/?${Uri.encodeComponent(faviconUrl)}';
     } catch (_) {
       return '';
     }
@@ -698,23 +697,42 @@ class _UniCard extends StatelessWidget {
                     ? [BoxShadow(color: _B.navy.withValues(alpha: 0.25), blurRadius: 10, offset: const Offset(0, 4))]
                     : [BoxShadow(color: Colors.black.withValues(alpha: 0.04), blurRadius: 6, offset: const Offset(0, 2))],
               ),
-              child: isSelected
-                  // Seçiliyken: beyaz baş harfler
-                  ? Center(
-                      child: Text(
-                        initials,
-                        style: GoogleFonts.poppins(
-                          fontSize: 13, fontWeight: FontWeight.w800,
-                          color: Colors.white, letterSpacing: 0.3,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(13),
+                child: logoUrl.isNotEmpty
+                    ? Image.network(
+                        logoUrl,
+                        width: 48, height: 48,
+                        fit: BoxFit.contain,
+                        loadingBuilder: (_, child, progress) =>
+                            progress == null
+                                ? child
+                                : Center(
+                                    child: Text(initials,
+                                      style: GoogleFonts.poppins(
+                                        fontSize: 13, fontWeight: FontWeight.w800,
+                                        color: isSelected ? Colors.white : fc,
+                                        letterSpacing: 0.3,
+                                      )),
+                                  ),
+                        errorBuilder: (_, __, ___) => Center(
+                          child: Text(initials,
+                            style: GoogleFonts.poppins(
+                              fontSize: 13, fontWeight: FontWeight.w800,
+                              color: isSelected ? Colors.white : fc,
+                              letterSpacing: 0.3,
+                            )),
                         ),
+                      )
+                    : Center(
+                        child: Text(initials,
+                          style: GoogleFonts.poppins(
+                            fontSize: 13, fontWeight: FontWeight.w800,
+                            color: isSelected ? Colors.white : fc,
+                            letterSpacing: 0.3,
+                          )),
                       ),
-                    )
-                  // Seçili değilken: HTML img (CORS yok)
-                  : _UniLogoWidget(
-                      logoUrl: logoUrl,
-                      initials: initials,
-                      initialsColor: fc,
-                    ),
+              ),
             ),
             const SizedBox(width: 14),
             // Info block
@@ -789,96 +807,3 @@ class _UniCard extends StatelessWidget {
   }
 }
 
-// ─── Üniversite Logo Widget ───────────────────────────────────────────────────
-// HtmlElementView kullanır → tarayıcının <img> tag'i → CORS kısıtlaması yok
-class _UniLogoWidget extends StatefulWidget {
-  final String logoUrl;
-  final String initials;
-  final Color initialsColor;
-
-  const _UniLogoWidget({
-    required this.logoUrl,
-    required this.initials,
-    required this.initialsColor,
-  });
-
-  @override
-  State<_UniLogoWidget> createState() => _UniLogoWidgetState();
-}
-
-class _UniLogoWidgetState extends State<_UniLogoWidget> {
-  static final _registered = <String>{};
-  String? _viewId;
-
-  @override
-  void initState() {
-    super.initState();
-    if (widget.logoUrl.isEmpty) return;
-
-    final id = 'unilogo-${widget.logoUrl.hashCode.abs()}';
-    _viewId = id;
-
-    if (_registered.contains(id)) return;
-    _registered.add(id);
-
-    final logoUrl    = widget.logoUrl;
-    final initials   = widget.initials;
-    final colorHex   =
-        '#${widget.initialsColor.value.toRadixString(16).padLeft(8, '0').substring(2)}';
-
-    ui_web.platformViewRegistry.registerViewFactory(id, (_) {
-      // Dış kapsayıcı
-      final container = html.DivElement()
-        ..style.width       = '100%'
-        ..style.height      = '100%'
-        ..style.display     = 'flex'
-        ..style.alignItems  = 'center'
-        ..style.justifyContent = 'center'
-        ..style.overflow    = 'hidden';
-
-      // Yüklenirken gösterilecek baş harf metni
-      final text = html.SpanElement()
-        ..text                   = initials
-        ..style.fontFamily       = 'Arial, sans-serif'
-        ..style.fontWeight       = '800'
-        ..style.fontSize         = '13px'
-        ..style.color            = colorHex
-        ..style.letterSpacing    = '0.3px';
-
-      // Logo resmi (başta gizli)
-      final img = html.ImageElement()
-        ..src               = logoUrl
-        ..style.width       = '76%'
-        ..style.height      = '76%'
-        ..style.objectFit   = 'contain'
-        ..style.display     = 'none';
-
-      // Resim yüklenince: metni gizle, resmi göster
-      img.onLoad.listen((_) {
-        text.style.display = 'none';
-        img.style.display  = 'block';
-      });
-      // Resim hata verirse: metin zaten görünüyor, ekstra işlem yok
-
-      container.append(text);
-      container.append(img);
-      return container;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    if (_viewId == null) {
-      return Center(
-        child: Text(
-          widget.initials,
-          style: GoogleFonts.poppins(
-            fontSize: 13, fontWeight: FontWeight.w800,
-            color: widget.initialsColor, letterSpacing: 0.3,
-          ),
-        ),
-      );
-    }
-    return HtmlElementView(viewType: _viewId!);
-  }
-}

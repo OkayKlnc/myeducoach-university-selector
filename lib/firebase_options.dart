@@ -1,7 +1,7 @@
 // Bu dosyayı Firebase Console'dan aldığınız config ile doldurun.
 // Adımlar için README veya mesajları okuyun.
 import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
-import 'package:flutter/foundation.dart' show defaultTargetPlatform, kIsWeb, TargetPlatform;
+import 'package:flutter/foundation.dart' show kIsWeb;
 
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
@@ -11,11 +11,11 @@ class DefaultFirebaseOptions {
 
   // ↓↓↓ Firebase Console → Project Settings → Your apps → Web app config ↓↓↓
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey:            'FIREBASE_API_KEY',
-    authDomain:        'FIREBASE_AUTH_DOMAIN',
-    projectId:         'FIREBASE_PROJECT_ID',
-    storageBucket:     'FIREBASE_STORAGE_BUCKET',
-    messagingSenderId: 'FIREBASE_MESSAGING_SENDER_ID',
-    appId:             'FIREBASE_APP_ID',
+    apiKey:            'AIzaSyBBt2-x7I1FWnWSKROOnn4PzRpfe_njkFk',
+    authDomain:        'myeducoach-6389a.firebaseapp.com',
+    projectId:         'myeducoach-6389a',
+    storageBucket:     'myeducoach-6389a.firebasestorage.app',
+    messagingSenderId: '452157463225',
+    appId:             '1:452157463225:web:198189f440c94fa04c9968',
   );
 }

@@ -283,7 +283,7 @@ class _HomeScreenState extends State<HomeScreen>
           colors: [
             Color(0xFF0F2057),
             Color(0xFF1E3A8A),
-            Color(0xFFE87040),
+            Color(0xFF8B1A4A),
           ],
           stops: [0.0, 0.55, 1.0],
         ),
@@ -496,7 +496,7 @@ class _HomeScreenState extends State<HomeScreen>
           padding: const EdgeInsets.fromLTRB(20, 8, 20, 8),
           child: Row(children: [
             Container(width: 3, height: 12, decoration: BoxDecoration(
-              gradient: const LinearGradient(colors: [_B.navy, _B.orange]),
+              color: _B.navy,
               borderRadius: BorderRadius.circular(2),
             )),
             const SizedBox(width: 10),
@@ -640,9 +640,20 @@ class _UniCard extends StatelessWidget {
     return '${words[0][0]}${words[1][0]}'.toUpperCase();
   }
 
+  static String _logoUrl(String url) {
+    try {
+      final host = Uri.parse(url).host;
+      return 'https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON'
+          '&fallback_opts=TYPE,SIZE,URL&url=https://$host&size=128';
+    } catch (_) {
+      return '';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final fc = _B.fieldColor(university.field);
+    final logoUrl = _logoUrl(university.url);
 
     return GestureDetector(
       onTap: onTap,
@@ -669,26 +680,45 @@ class _UniCard extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
-            // Avatar circle with initials
+            // Logo avatar — network image with initials fallback
             AnimatedContainer(
               duration: const Duration(milliseconds: 200),
               width: 48, height: 48,
               decoration: BoxDecoration(
-                color: isSelected ? _B.navy : fc.withValues(alpha: 0.1),
+                color: isSelected ? _B.navy : fc.withValues(alpha: 0.08),
                 borderRadius: BorderRadius.circular(14),
                 boxShadow: isSelected
                     ? [BoxShadow(color: _B.navy.withValues(alpha: 0.25), blurRadius: 10, offset: const Offset(0, 4))]
                     : [],
               ),
-              child: Center(
-                child: Text(
-                  _initials(university.name),
-                  style: GoogleFonts.poppins(
-                    fontSize: 13, fontWeight: FontWeight.w800,
-                    color: isSelected ? Colors.white : fc,
-                    letterSpacing: 0.3,
-                  ),
-                ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(14),
+                child: logoUrl.isNotEmpty
+                    ? Image.network(
+                        logoUrl,
+                        width: 48, height: 48,
+                        fit: BoxFit.contain,
+                        errorBuilder: (_, __, ___) => Center(
+                          child: Text(
+                            _initials(university.name),
+                            style: GoogleFonts.poppins(
+                              fontSize: 13, fontWeight: FontWeight.w800,
+                              color: isSelected ? Colors.white : fc,
+                              letterSpacing: 0.3,
+                            ),
+                          ),
+                        ),
+                      )
+                    : Center(
+                        child: Text(
+                          _initials(university.name),
+                          style: GoogleFonts.poppins(
+                            fontSize: 13, fontWeight: FontWeight.w800,
+                            color: isSelected ? Colors.white : fc,
+                            letterSpacing: 0.3,
+                          ),
+                        ),
+                      ),
               ),
             ),
             const SizedBox(width: 14),

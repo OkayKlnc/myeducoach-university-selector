@@ -95,7 +95,8 @@ class _HomeScreenState extends State<HomeScreen>
             u.program.toLowerCase().contains(q) ||
             u.city.toLowerCase().contains(q);
         return m && (_field == 'Tümü' || u.field == _field);
-      }).toList();
+      }).toList()
+        ..sort((a, b) => a.name.toLowerCase().compareTo(b.name.toLowerCase()));
     });
   }
 

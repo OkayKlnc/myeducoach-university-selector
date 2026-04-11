@@ -3,8 +3,11 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:printing/printing.dart';
 import '../models/university.dart';
+import '../models/user_profile.dart';
+import '../services/auth_service.dart';
 import '../services/data_service.dart';
 import '../services/pdf_service.dart';
+import '../services/stats_service.dart';
 
 // ─── Brand ───────────────────────────────────────────────────────────────────
 class _B {
@@ -36,7 +39,8 @@ class _B {
 
 // ─── HomeScreen ──────────────────────────────────────────────────────────────
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  final UserProfile profile;
+  const HomeScreen({super.key, required this.profile});
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -134,6 +138,12 @@ class _HomeScreenState extends State<HomeScreen>
       final bytes = await PdfService.generatePdf(studentName: name, selected: list);
       final fn = name.isNotEmpty ? '${name}_universiteler.pdf' : 'myeducoach_liste.pdf';
       await Printing.sharePdf(bytes: bytes, filename: fn);
+      // Log PDF event for admin stats
+      await StatsService.logPdfEvent(
+        user: widget.profile,
+        studentName: name,
+        universities: list.map((u) => '${u.name} — ${u.program}').toList(),
+      );
     } catch (e) {
       if (mounted) _snack('PDF oluşturulamadı: $e');
     }
@@ -330,28 +340,45 @@ class _HomeScreenState extends State<HomeScreen>
                     ]),
                   ],
                 ),
-                // ── Clear button pinned to the right ──
-                if (_selected.isNotEmpty)
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: GestureDetector(
-                      onTap: () => setState(() => _selected.clear()),
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
-                        decoration: BoxDecoration(
-                          color: Colors.white.withValues(alpha: 0.12),
-                          borderRadius: BorderRadius.circular(100),
-                          border: Border.all(color: Colors.white.withValues(alpha: 0.2)),
+                // ── Right side: clear or logout button ──
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: _selected.isNotEmpty
+                    ? GestureDetector(
+                        onTap: () => setState(() => _selected.clear()),
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+                          decoration: BoxDecoration(
+                            color: Colors.white.withValues(alpha: 0.12),
+                            borderRadius: BorderRadius.circular(100),
+                            border: Border.all(color: Colors.white.withValues(alpha: 0.2)),
+                          ),
+                          child: Row(mainAxisSize: MainAxisSize.min, children: [
+                            Icon(Icons.close_rounded, size: 13, color: Colors.white.withValues(alpha: 0.8)),
+                            const SizedBox(width: 5),
+                            Text('Temizle',
+                              style: GoogleFonts.poppins(color: Colors.white.withValues(alpha: 0.8), fontSize: 11, fontWeight: FontWeight.w600)),
+                          ]),
                         ),
-                        child: Row(mainAxisSize: MainAxisSize.min, children: [
-                          Icon(Icons.close_rounded, size: 13, color: Colors.white.withValues(alpha: 0.8)),
-                          const SizedBox(width: 5),
-                          Text('Temizle',
-                            style: GoogleFonts.poppins(color: Colors.white.withValues(alpha: 0.8), fontSize: 11, fontWeight: FontWeight.w600)),
-                        ]),
+                      )
+                    : GestureDetector(
+                        onTap: AuthService.signOut,
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+                          decoration: BoxDecoration(
+                            color: Colors.white.withValues(alpha: 0.10),
+                            borderRadius: BorderRadius.circular(100),
+                            border: Border.all(color: Colors.white.withValues(alpha: 0.18)),
+                          ),
+                          child: Row(mainAxisSize: MainAxisSize.min, children: [
+                            Icon(Icons.logout_rounded, size: 13, color: Colors.white.withValues(alpha: 0.8)),
+                            const SizedBox(width: 5),
+                            Text('Çıkış',
+                              style: GoogleFonts.poppins(color: Colors.white.withValues(alpha: 0.8), fontSize: 11, fontWeight: FontWeight.w600)),
+                          ]),
+                        ),
                       ),
-                    ),
-                  ),
+                ),
               ],
             ),
             const SizedBox(height: 20),

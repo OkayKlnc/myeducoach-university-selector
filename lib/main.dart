@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+// ignore: avoid_web_libraries_in_flutter
+import 'dart:html' as html;
 import 'screens/login_screen.dart';
 import 'screens/home_screen.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  final prefs = await SharedPreferences.getInstance();
-  final isLoggedIn = prefs.getBool('isLoggedIn') ?? false;
+void main() {
+  final isLoggedIn = html.window.localStorage['isLoggedIn'] == 'true';
   runApp(MyeducoachApp(isLoggedIn: isLoggedIn));
 }
 

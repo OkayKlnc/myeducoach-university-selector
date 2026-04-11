@@ -8,25 +8,30 @@ import 'package:printing/printing.dart';
 import '../models/university.dart';
 
 class PdfService {
-  // ─── Renkler (letterhead'den alındı) ─────────────────────────────────────
+  // ─── Renkler ──────────────────────────────────────────────────────────────
   static const _navy    = PdfColor.fromInt(0xFF1E3A6E);
   static const _crimson = PdfColor.fromInt(0xFFC0293A);
-  // Açık pembe filigran rengi
-  static const _watermarkPink = PdfColor.fromInt(0xFFE8B0B8);
+  static const _watermarkPink = PdfColor.fromInt(0xFFDDA8B0);
+
+  // A4 nokta boyutları
+  static const _pageW = 595.28;
+  static const _pageH = 841.89;
 
   // ─── Logo önbelleği ───────────────────────────────────────────────────────
-  static Uint8List? _cachedLogo;
+  static ui.Image? _cachedImage;
+  static pw.MemoryImage? _cachedLogo;
 
-  static Future<Uint8List?> _loadLogo() async {
+  static Future<pw.MemoryImage?> _loadLogo() async {
     if (_cachedLogo != null) return _cachedLogo;
     try {
       final raw   = await rootBundle.load('assets/images/logo.png');
       final bytes = raw.buffer.asUint8List();
       final codec = await ui.instantiateImageCodec(bytes, targetWidth: 260);
       final frame = await codec.getNextFrame();
+      _cachedImage = frame.image;
       final resized = await frame.image.toByteData(format: ui.ImageByteFormat.png);
       if (resized == null) return null;
-      _cachedLogo = resized.buffer.asUint8List();
+      _cachedLogo = pw.MemoryImage(resized.buffer.asUint8List());
       return _cachedLogo;
     } catch (_) {
       return null;
@@ -40,9 +45,7 @@ class PdfService {
   }) async {
     final bold    = await PdfGoogleFonts.robotoBold();
     final regular = await PdfGoogleFonts.robotoRegular();
-
-    final logoBytes = await _loadLogo();
-    final logo = logoBytes != null ? pw.MemoryImage(logoBytes) : null;
+    final logo    = await _loadLogo();
 
     final pdf = pw.Document(compress: true);
 
@@ -50,8 +53,8 @@ class PdfService {
       pw.MultiPage(
         pageTheme: pw.PageTheme(
           pageFormat: PdfPageFormat.a4,
-          // Sol kenar: filigran + çizgi için geniş marjin
-          margin: const pw.EdgeInsets.fromLTRB(68, 110, 38, 130),
+          // Sol kenar: filigran + çizgi için 65pt
+          margin: const pw.EdgeInsets.fromLTRB(65, 108, 38, 125),
           buildBackground: (context) => _buildBackground(bold),
         ),
         header: (_) => _buildHeader(logo, bold, regular),
@@ -63,85 +66,95 @@ class PdfService {
     return pdf.save();
   }
 
-  // ─── SAYFA ARKA PLANI (filigran + çizgi + sağ alt köşe) ──────────────────
+  // ─── ARKA PLAN: filigran + sol çizgi + sağ alt köşe ──────────────────────
+  //
+  // buildBackground koordinatları SAYFA KÖKENLİ (0,0 = sol üst köşe).
+  // Stack overflow: visible → negatif left ile sayfa marjin alanına yerleştirme.
+  //
   static pw.Widget _buildBackground(pw.Font bold) {
-    // A4 nokta boyutları
-    const pageW = 595.28;
-    const pageH = 841.89;
+    // "MYEDUCOACH" @ fontSize 58, Roboto Bold tahmini genişlik ≈ 370pt
+    // 90° saat yönü dönüş sonrası: genişlik ≈ 70pt, yükseklik ≈ 370pt
+    // İstenen merkez: x=33 (65pt sol marjinin ortası), y=420 (sayfa ortası)
+    // Positioned left = merkez_x - metin_genişliği/2 = 33 - 185 = -152
+    // Positioned top  = merkez_y - metin_yüksekliği/2 = 420 - 35 = 385
+    const double wmFontSize = 58;
+    const double wmEstWidth = 370; // tahmini yatay genişlik
+    const double wmEstHeight = 70; // tahmini yükseklik (cap height)
+    const double wmCenterX = 33;
+    const double wmCenterY = _pageH / 2;
+    const double wmLeft = wmCenterX - wmEstWidth / 2; // ≈ -152
+    const double wmTop  = wmCenterY - wmEstHeight / 2; // ≈ 386
 
-    return pw.Stack(
-      children: [
-        // ── İnce dikey navy çizgi (sol kenara yakın) ──
-        pw.Positioned(
-          left: 30,
-          top: 0,
-          child: pw.Container(
-            width: 1.5,
-            height: pageH,
-            color: _navy,
+    return pw.SizedBox(
+      width: _pageW,
+      height: _pageH,
+      child: pw.Stack(
+        overflow: pw.Overflow.visible, // negatif koordinatları kırpmaz
+        children: [
+
+          // ── 1. Sol ince navy dikey çizgi ──────────────────────────────────
+          pw.Positioned(
+            left: 28,
+            top: 0,
+            child: pw.Container(
+              width: 1.5,
+              height: _pageH,
+              color: _navy,
+            ),
           ),
-        ),
 
-        // ── MYEDUCOACH dikey filigran ──
-        // Rotated metin: normal soldan-sağa yazı, 90° döndürülünce
-        // aşağıdan yukarıya okunur (M altta, H üstte)
-        pw.Positioned(
-          left: -168,          // döndürüldükten sonra merkezi sol kenarda kalır
-          top: pageH / 2 - 12, // dikey merkez
-          child: pw.Transform.rotateBox(
-            angle: -math.pi / 2,   // 90° saat yönünde döndür → aşağıdan yukarıya
-            child: pw.Text(
-              'MYEDUCOACH',
-              style: pw.TextStyle(
-                font: bold,
-                fontSize: 52,
-                color: _watermarkPink,
-                letterSpacing: 3,
+          // ── 2. MYEDUCOACH dikey filigran ──────────────────────────────────
+          pw.Positioned(
+            left: wmLeft,
+            top: wmTop,
+            child: pw.Transform.rotateBox(
+              angle: -math.pi / 2, // 90° saat yönü → aşağıdan yukarıya okunur
+              child: pw.Text(
+                'MYEDUCOACH',
+                style: pw.TextStyle(
+                  font: bold,
+                  fontSize: wmFontSize,
+                  color: _watermarkPink,
+                  letterSpacing: 4,
+                ),
               ),
             ),
           ),
-        ),
 
-        // ── Sağ alt köşe dekorasyon: navy dikdörtgen + kırmızı üçgen ──
-        pw.Positioned(
-          right: 0,
-          bottom: 0,
-          child: pw.CustomPaint(
-            size: const PdfPoint(95, 58),
-            painter: (canvas, size) {
-              // Navy dikdörtgen (sol bölüm)
-              canvas.setFillColor(_navy);
-              canvas.drawRect(0, 0, 68, size.y);
-              canvas.fillPath();
+          // ── 3. Sağ alt köşe dekorasyon ────────────────────────────────────
+          // Orijinal antetli kağıtta: navy + kırmızı geometrik şekil
+          pw.Positioned(
+            right: 0,
+            bottom: 0,
+            child: pw.CustomPaint(
+              size: const PdfPoint(95, 58),
+              painter: (canvas, size) {
+                final w = size.x;
+                final h = size.y;
 
-              // Kırmızı/crimson üçgen (sağ bölüm)
-              canvas.setFillColor(_crimson);
-              canvas.moveTo(68, 0);
-              canvas.lineTo(size.x, 0);
-              canvas.lineTo(size.x, size.y);
-              canvas.lineTo(68, size.y);
-              canvas.closePath();
-              canvas.fillPath();
+                // PDF koordinatı: y=0 altta, y=h üstte.
+                // Positioned(bottom:0) → bu widget sayfanın alt-sağına yapışık.
 
-              // Üçgen şeklinde kesi: navy üstünde kırmızı köşegen çizgisi
-              canvas.setFillColor(_crimson);
-              canvas.moveTo(0, size.y);
-              canvas.lineTo(68, size.y);
-              canvas.lineTo(68, 0);
-              canvas.closePath();
-              canvas.fillPath();
+                // Navy üçgen (alt-sol)
+                canvas.setFillColor(_navy);
+                canvas.moveTo(0, 0);       // sol alt
+                canvas.lineTo(w, 0);       // sağ alt
+                canvas.lineTo(0, h);       // sol üst
+                canvas.closePath();
+                canvas.fillPath();
 
-              // Tekrar navy (sol üçgen)
-              canvas.setFillColor(_navy);
-              canvas.moveTo(0, 0);
-              canvas.lineTo(68, 0);
-              canvas.lineTo(0, size.y);
-              canvas.closePath();
-              canvas.fillPath();
-            },
+                // Crimson üçgen (üst-sağ)
+                canvas.setFillColor(_crimson);
+                canvas.moveTo(w, 0);       // sağ alt
+                canvas.lineTo(w, h);       // sağ üst
+                canvas.lineTo(0, h);       // sol üst
+                canvas.closePath();
+                canvas.fillPath();
+              },
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 
@@ -154,38 +167,33 @@ class PdfService {
     return pw.Column(
       crossAxisAlignment: pw.CrossAxisAlignment.start,
       children: [
-        // Adresler (sol) + Logo (sağ)
         pw.Row(
           crossAxisAlignment: pw.CrossAxisAlignment.start,
           children: [
-            // Sol: iki ofis adresi
+            // Sol: ofis adresleri
             pw.Expanded(
               child: pw.Padding(
-                padding: const pw.EdgeInsets.only(top: 4),
+                padding: const pw.EdgeInsets.only(top: 6),
                 child: pw.Column(
                   crossAxisAlignment: pw.CrossAxisAlignment.start,
                   children: [
                     pw.Text(
                       '1479 Sk. No:16, Kat:2, D:5, Kenet Sitesi, Alsancak / İzmir',
-                      style: pw.TextStyle(
-                        font: regular, fontSize: 7.5, color: _navy,
-                      ),
+                      style: pw.TextStyle(font: regular, fontSize: 7.5, color: _navy),
                     ),
                     pw.SizedBox(height: 2),
                     pw.Text(
                       'Mühürdar Cad. Yücel Apt. No:51/4 Kat:3 Kadıköy / İstanbul',
-                      style: pw.TextStyle(
-                        font: regular, fontSize: 7.5, color: _navy,
-                      ),
+                      style: pw.TextStyle(font: regular, fontSize: 7.5, color: _navy),
                     ),
                   ],
                 ),
               ),
             ),
-            pw.SizedBox(width: 12),
-            // Sağ: Logo
+            pw.SizedBox(width: 10),
+            // Sağ: logo
             if (logo != null)
-              pw.Image(logo, height: 58, fit: pw.BoxFit.contain)
+              pw.Image(logo, height: 62, fit: pw.BoxFit.contain)
             else
               pw.Column(
                 crossAxisAlignment: pw.CrossAxisAlignment.end,
@@ -193,68 +201,72 @@ class PdfService {
                   pw.Text('MYEDU COACH',
                     style: pw.TextStyle(font: bold, fontSize: 18, color: _navy)),
                   pw.Text('YURTDIŞI EĞİTİM',
-                    style: pw.TextStyle(font: regular, fontSize: 9,
+                    style: pw.TextStyle(font: regular, fontSize: 8,
                         color: _navy, letterSpacing: 1.5)),
                 ],
               ),
           ],
         ),
         pw.SizedBox(height: 10),
-        // Ayraç çizgisi (navy, kalınca)
         pw.Divider(color: _navy, thickness: 1.0),
       ],
     );
   }
 
   // ─── FOOTER ───────────────────────────────────────────────────────────────
+  // Unicode ikon karakterleri (✉ ☎ vb.) Roboto'da yok → düz metin kullan
   static pw.Widget _buildFooter(pw.Font regular, pw.Font bold) {
     const fs = 7.5;
+    final style = pw.TextStyle(font: regular, fontSize: fs, color: _navy);
+    final boldStyle = pw.TextStyle(font: bold, fontSize: fs, color: _navy);
 
     return pw.Column(
       crossAxisAlignment: pw.CrossAxisAlignment.start,
       children: [
         pw.Divider(color: _navy, thickness: 0.6),
-        pw.SizedBox(height: 8),
+        pw.SizedBox(height: 7),
         pw.Row(
-          crossAxisAlignment: pw.CrossAxisAlignment.center,
+          crossAxisAlignment: pw.CrossAxisAlignment.start,
           children: [
-            // ── E-posta ve web ──
+            // Sol sütun: e-posta + web
             pw.Column(
               crossAxisAlignment: pw.CrossAxisAlignment.start,
               children: [
-                _footerRow(regular, '✉', 'info@myeducoach.com', fs),
-                pw.SizedBox(height: 5),
-                _footerRow(regular, '⊕', 'www.myeducoach.com', fs),
+                pw.RichText(text: pw.TextSpan(children: [
+                  pw.TextSpan(text: 'E: ', style: boldStyle),
+                  pw.TextSpan(text: 'info@myeducoach.com', style: style),
+                ])),
+                pw.SizedBox(height: 4),
+                pw.RichText(text: pw.TextSpan(children: [
+                  pw.TextSpan(text: 'W: ', style: boldStyle),
+                  pw.TextSpan(text: 'www.myeducoach.com', style: style),
+                ])),
               ],
             ),
-            pw.SizedBox(width: 32),
-            // ── Telefon numaraları ──
+            pw.SizedBox(width: 36),
+            // Sağ sütun: telefon numaraları
             pw.Column(
               crossAxisAlignment: pw.CrossAxisAlignment.start,
               children: [
-                _footerRow(regular, '☎', '+90 (552) 441 13 38', fs),
-                pw.SizedBox(height: 3),
-                _footerRow(regular, '☎', '+90 (216) 441 13 38', fs),
-                pw.SizedBox(height: 3),
-                _footerRow(regular, '☎', '+90 (232) 441 13 38', fs),
+                pw.RichText(text: pw.TextSpan(children: [
+                  pw.TextSpan(text: 'T: ', style: boldStyle),
+                  pw.TextSpan(text: '+90 (552) 441 13 38', style: style),
+                ])),
+                pw.SizedBox(height: 4),
+                pw.RichText(text: pw.TextSpan(children: [
+                  pw.TextSpan(text: 'T: ', style: boldStyle),
+                  pw.TextSpan(text: '+90 (216) 441 13 38', style: style),
+                ])),
+                pw.SizedBox(height: 4),
+                pw.RichText(text: pw.TextSpan(children: [
+                  pw.TextSpan(text: 'T: ', style: boldStyle),
+                  pw.TextSpan(text: '+90 (232) 441 13 38', style: style),
+                ])),
               ],
             ),
             pw.Expanded(child: pw.Container()),
           ],
         ),
-      ],
-    );
-  }
-
-  static pw.Widget _footerRow(pw.Font font, String icon, String text, double fs) {
-    return pw.Row(
-      mainAxisSize: pw.MainAxisSize.min,
-      children: [
-        pw.Text(icon,
-          style: pw.TextStyle(font: font, fontSize: fs + 1, color: _navy)),
-        pw.SizedBox(width: 5),
-        pw.Text(text,
-          style: pw.TextStyle(font: font, fontSize: fs, color: _navy)),
       ],
     );
   }
@@ -269,7 +281,6 @@ class PdfService {
     return pw.Column(
       crossAxisAlignment: pw.CrossAxisAlignment.start,
       children: [
-        // Başlık
         pw.Text(
           studentName.isNotEmpty
               ? '$studentName — Üniversite Tavsiye Listesi'
@@ -280,7 +291,6 @@ class PdfService {
         pw.Divider(color: _navy, thickness: 0.5),
         pw.SizedBox(height: 14),
 
-        // Üniversite listesi
         ...selected.asMap().entries.map((entry) {
           final index = entry.key + 1;
           final uni   = entry.value;
@@ -297,43 +307,28 @@ class PdfService {
                     shape: pw.BoxShape.circle,
                   ),
                   alignment: pw.Alignment.center,
-                  child: pw.Text(
-                    '$index',
-                    style: pw.TextStyle(
-                      font: bold, fontSize: 9, color: PdfColors.white,
-                    ),
-                  ),
+                  child: pw.Text('$index',
+                    style: pw.TextStyle(font: bold, fontSize: 9, color: PdfColors.white)),
                 ),
                 pw.SizedBox(width: 10),
-                // Üniversite bilgileri
                 pw.Expanded(
                   child: pw.Column(
                     crossAxisAlignment: pw.CrossAxisAlignment.start,
                     children: [
-                      pw.Text(
-                        uni.name,
-                        style: pw.TextStyle(
-                          font: bold, fontSize: 11.5, color: _navy,
-                        ),
-                      ),
+                      pw.Text(uni.name,
+                        style: pw.TextStyle(font: bold, fontSize: 11.5, color: _navy)),
                       pw.SizedBox(height: 2),
-                      pw.Text(
-                        uni.program,
-                        style: pw.TextStyle(
-                          font: regular, fontSize: 10.5,
-                          color: PdfColors.black,
-                        ),
-                      ),
+                      pw.Text(uni.program,
+                        style: pw.TextStyle(font: regular, fontSize: 10.5,
+                            color: PdfColors.black)),
                       pw.SizedBox(height: 3),
                       pw.UrlLink(
                         destination: uni.url,
-                        child: pw.Text(
-                          uni.url,
+                        child: pw.Text(uni.url,
                           style: pw.TextStyle(
                             font: regular, fontSize: 8.5, color: _navy,
                             decoration: pw.TextDecoration.underline,
-                          ),
-                        ),
+                          )),
                       ),
                     ],
                   ),

@@ -32,6 +32,7 @@ class PdfService {
   }
 
   // ─── Ana üretim fonksiyonu ────────────────────────────────────────────────
+  // Marjinler küçültüldü → 8 üniversite tek sayfaya sığsın
   static Future<Uint8List> generatePdf({
     required String studentName,
     required List<University> selected,
@@ -46,9 +47,10 @@ class PdfService {
       pw.MultiPage(
         pageTheme: pw.PageTheme(
           pageFormat: PdfPageFormat.a4,
-          margin: const pw.EdgeInsets.fromLTRB(50, 100, 50, 110),
+          // Üst/alt marjin küçültüldü — header ve footer yer açmak için
+          margin: const pw.EdgeInsets.fromLTRB(48, 68, 48, 72),
         ),
-        header: (_) => _buildHeader(logo, bold, regular),
+        header: (_) => _buildHeader(logo, bold),
         footer: (_) => _buildFooter(regular, bold),
         build: (_) => [_buildContent(studentName, selected, bold, regular)],
       ),
@@ -57,57 +59,52 @@ class PdfService {
     return pdf.save();
   }
 
-  // ─── HEADER — sadece logo ortada ──────────────────────────────────────────
-  static pw.Widget _buildHeader(
-    pw.MemoryImage? logo,
-    pw.Font bold,
-    pw.Font regular,
-  ) {
+  // ─── HEADER — sadece logo ortada, kompakt ─────────────────────────────────
+  static pw.Widget _buildHeader(pw.MemoryImage? logo, pw.Font bold) {
     return pw.Column(
       crossAxisAlignment: pw.CrossAxisAlignment.center,
       children: [
         pw.Center(
           child: logo != null
-              ? pw.Image(logo, height: 60, fit: pw.BoxFit.contain)
+              ? pw.Image(logo, height: 46, fit: pw.BoxFit.contain)
               : pw.Text(
                   'MYEDUCOACH',
-                  style: pw.TextStyle(font: bold, fontSize: 22, color: _navy),
+                  style: pw.TextStyle(font: bold, fontSize: 18, color: _navy),
                 ),
         ),
-        pw.SizedBox(height: 10),
-        pw.Divider(color: _navy, thickness: 1.0),
+        pw.SizedBox(height: 8),
+        pw.Divider(color: _navy, thickness: 0.8),
         pw.SizedBox(height: 2),
       ],
     );
   }
 
-  // ─── FOOTER — iki sütun ofis bilgisi ──────────────────────────────────────
+  // ─── FOOTER — iki sütun ofis bilgisi, kompakt ────────────────────────────
   static pw.Widget _buildFooter(pw.Font regular, pw.Font bold) {
-    const fs = 7.5;
+    const fs = 7.0;
     final s = pw.TextStyle(font: regular, fontSize: fs, color: _navy);
     final b = pw.TextStyle(font: bold,    fontSize: fs, color: _navy);
 
     return pw.Column(
       crossAxisAlignment: pw.CrossAxisAlignment.start,
       children: [
-        pw.Divider(color: _navy, thickness: 0.6),
-        pw.SizedBox(height: 6),
+        pw.Divider(color: _navy, thickness: 0.5),
+        pw.SizedBox(height: 5),
         pw.Row(
           crossAxisAlignment: pw.CrossAxisAlignment.start,
           children: [
-            // ── İstanbul Ofisi ──
+            // ── İstanbul ──
             pw.Expanded(
               child: pw.Column(
                 crossAxisAlignment: pw.CrossAxisAlignment.start,
                 children: [
                   pw.Text('Istanbul Office', style: b),
-                  pw.SizedBox(height: 3),
+                  pw.SizedBox(height: 2),
                   pw.Text(
-                    'Muhurdar Cad. Yucel Apt. No:51/4 Kat:3',
+                    'Muhurdar Cad. Yucel Apt. No:51/4 Kat:3  Kadikoy / Istanbul',
                     style: s,
                   ),
-                  pw.Text('Kadikoy / Istanbul', style: s),
-                  pw.SizedBox(height: 3),
+                  pw.SizedBox(height: 2),
                   pw.RichText(text: pw.TextSpan(children: [
                     pw.TextSpan(text: 'Tel: ', style: b),
                     pw.TextSpan(text: '+90 (216) 441 13 38', style: s),
@@ -115,20 +112,19 @@ class PdfService {
                 ],
               ),
             ),
-            pw.SizedBox(width: 24),
-            // ── İzmir Ofisi ──
+            pw.SizedBox(width: 20),
+            // ── İzmir ──
             pw.Expanded(
               child: pw.Column(
                 crossAxisAlignment: pw.CrossAxisAlignment.start,
                 children: [
                   pw.Text('Izmir Office', style: b),
-                  pw.SizedBox(height: 3),
+                  pw.SizedBox(height: 2),
                   pw.Text(
-                    '1479 Sk. No:16, Kat:2, D:5, Kenet Sitesi',
+                    '1479 Sk. No:16, Kat:2, D:5, Kenet Sitesi  Alsancak / Izmir',
                     style: s,
                   ),
-                  pw.Text('Alsancak / Izmir', style: s),
-                  pw.SizedBox(height: 3),
+                  pw.SizedBox(height: 2),
                   pw.RichText(text: pw.TextSpan(children: [
                     pw.TextSpan(text: 'Tel: ', style: b),
                     pw.TextSpan(text: '+90 (232) 441 13 38   ', style: s),
@@ -144,7 +140,7 @@ class PdfService {
     );
   }
 
-  // ─── İÇERİK ───────────────────────────────────────────────────────────────
+  // ─── İÇERİK — kompakt, 8 üniversite tek sayfaya sığar ───────────────────
   static pw.Widget _buildContent(
     String studentName,
     List<University> selected,
@@ -158,45 +154,48 @@ class PdfService {
           studentName.isNotEmpty
               ? '$studentName — Universite Tavsiye Listesi'
               : 'Universite Tavsiye Listesi',
-          style: pw.TextStyle(font: bold, fontSize: 13, color: _navy),
+          style: pw.TextStyle(font: bold, fontSize: 12, color: _navy),
         ),
-        pw.SizedBox(height: 5),
+        pw.SizedBox(height: 4),
         pw.Divider(color: _crimson, thickness: 0.5),
-        pw.SizedBox(height: 14),
+        pw.SizedBox(height: 10),
         ...selected.asMap().entries.map((entry) {
           final i   = entry.key + 1;
           final uni = entry.value;
           return pw.Padding(
-            padding: const pw.EdgeInsets.only(bottom: 16),
+            // 8pt alt boşluk — 8 satır × ~52pt = ~416pt, başlık ~30pt, toplam ~446pt
+            padding: const pw.EdgeInsets.only(bottom: 8),
             child: pw.Row(
               crossAxisAlignment: pw.CrossAxisAlignment.start,
               children: [
+                // Numara dairesi — küçültüldü
                 pw.Container(
-                  width: 22, height: 22,
+                  width: 18, height: 18,
                   decoration: const pw.BoxDecoration(
-                    color: _navy, shape: pw.BoxShape.circle),
+                    color: _navy, shape: pw.BoxShape.circle,
+                  ),
                   alignment: pw.Alignment.center,
                   child: pw.Text('$i',
-                    style: pw.TextStyle(font: bold, fontSize: 9,
+                    style: pw.TextStyle(font: bold, fontSize: 8,
                         color: PdfColors.white)),
                 ),
-                pw.SizedBox(width: 10),
+                pw.SizedBox(width: 8),
                 pw.Expanded(
                   child: pw.Column(
                     crossAxisAlignment: pw.CrossAxisAlignment.start,
                     children: [
                       pw.Text(uni.name,
-                        style: pw.TextStyle(font: bold, fontSize: 11.5,
+                        style: pw.TextStyle(font: bold, fontSize: 11,
                             color: _navy)),
-                      pw.SizedBox(height: 2),
+                      pw.SizedBox(height: 1),
                       pw.Text(uni.program,
-                        style: pw.TextStyle(font: regular, fontSize: 10.5,
+                        style: pw.TextStyle(font: regular, fontSize: 9.5,
                             color: PdfColors.black)),
-                      pw.SizedBox(height: 3),
+                      pw.SizedBox(height: 1),
                       pw.UrlLink(
                         destination: uni.url,
                         child: pw.Text(uni.url,
-                          style: pw.TextStyle(font: regular, fontSize: 8.5,
+                          style: pw.TextStyle(font: regular, fontSize: 7.5,
                               color: _navy,
                               decoration: pw.TextDecoration.underline)),
                       ),

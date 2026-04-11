@@ -643,8 +643,9 @@ class _UniCard extends StatelessWidget {
   static String _logoUrl(String url) {
     try {
       final host = Uri.parse(url).host;
-      return 'https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON'
-          '&fallback_opts=TYPE,SIZE,URL&url=https://$host&size=128';
+      if (host.isEmpty) return '';
+      // Google favicon API — CORS destekli, Flutter web'de çalışır
+      return 'https://www.google.com/s2/favicons?domain=$host&sz=64';
     } catch (_) {
       return '';
     }
@@ -698,7 +699,7 @@ class _UniCard extends StatelessWidget {
                         logoUrl,
                         width: 48, height: 48,
                         fit: BoxFit.contain,
-                        errorBuilder: (_, __, ___) => Center(
+                        errorBuilder: (_, __, _x) => Center(
                           child: Text(
                             _initials(university.name),
                             style: GoogleFonts.poppins(

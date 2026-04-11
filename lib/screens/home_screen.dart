@@ -699,39 +699,30 @@ class _UniCard extends StatelessWidget {
               ),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(13),
-                child: logoUrl.isNotEmpty
-                    ? Image.network(
-                        logoUrl,
-                        width: 48, height: 48,
-                        fit: BoxFit.contain,
-                        loadingBuilder: (_, child, progress) =>
-                            progress == null
-                                ? child
-                                : Center(
-                                    child: Text(initials,
-                                      style: GoogleFonts.poppins(
-                                        fontSize: 13, fontWeight: FontWeight.w800,
-                                        color: isSelected ? Colors.white : fc,
-                                        letterSpacing: 0.3,
-                                      )),
-                                  ),
-                        errorBuilder: (_, __, ___) => Center(
-                          child: Text(initials,
-                            style: GoogleFonts.poppins(
-                              fontSize: 13, fontWeight: FontWeight.w800,
-                              color: isSelected ? Colors.white : fc,
-                              letterSpacing: 0.3,
-                            )),
+                child: Stack(
+                  fit: StackFit.expand,
+                  children: [
+                    // Arka kat: her zaman görünür baş harfler
+                    Center(
+                      child: Text(
+                        initials,
+                        style: GoogleFonts.poppins(
+                          fontSize: 13, fontWeight: FontWeight.w800,
+                          color: isSelected ? Colors.white : fc,
+                          letterSpacing: 0.3,
                         ),
-                      )
-                    : Center(
-                        child: Text(initials,
-                          style: GoogleFonts.poppins(
-                            fontSize: 13, fontWeight: FontWeight.w800,
-                            color: isSelected ? Colors.white : fc,
-                            letterSpacing: 0.3,
-                          )),
                       ),
+                    ),
+                    // Üst kat: logo (yüklenirse kaplar, yüklenemezse şeffaf kalır)
+                    if (logoUrl.isNotEmpty)
+                      Image.network(
+                        logoUrl,
+                        fit: BoxFit.contain,
+                        // Hata durumunda şeffaf bırak → baş harfler görünür
+                        errorBuilder: (_, __, ___) => const SizedBox.shrink(),
+                      ),
+                  ],
+                ),
               ),
             ),
             const SizedBox(width: 14),

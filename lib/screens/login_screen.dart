@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -39,6 +40,8 @@ class _LoginScreenState extends State<LoginScreen> {
     final input = _ctrl.text;
     if (input == _password) {
       setState(() { _loading = true; _error = false; });
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setBool('isLoggedIn', true);
       await Future.delayed(const Duration(milliseconds: 300));
       if (!mounted) return;
       Navigator.of(context).pushReplacement(

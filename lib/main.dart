@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'screens/login_screen.dart';
+import 'screens/home_screen.dart';
 
-void main() {
-  runApp(const MyeducoachApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final prefs = await SharedPreferences.getInstance();
+  final isLoggedIn = prefs.getBool('isLoggedIn') ?? false;
+  runApp(MyeducoachApp(isLoggedIn: isLoggedIn));
 }
 
 class MyeducoachApp extends StatelessWidget {
-  const MyeducoachApp({super.key});
+  final bool isLoggedIn;
+  const MyeducoachApp({super.key, required this.isLoggedIn});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +25,7 @@ class MyeducoachApp extends StatelessWidget {
         useMaterial3: true,
         textTheme: GoogleFonts.robotoTextTheme(),
       ),
-      home: const LoginScreen(),
+      home: isLoggedIn ? const HomeScreen() : const LoginScreen(),
     );
   }
 }

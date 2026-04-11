@@ -640,24 +640,10 @@ class _UniCard extends StatelessWidget {
     return '${words[0][0]}${words[1][0]}'.toUpperCase();
   }
 
-  static String _logoUrl(String url) {
-    try {
-      final host = Uri.parse(url).host;
-      if (host.isEmpty) return '';
-      // CORS proxy + Google favicon: en güvenilir yöntem
-      // corsproxy.io → CORS header ekler → Image.network çalışır
-      final faviconUrl =
-          'https://www.google.com/s2/favicons?domain=$host&sz=128';
-      return 'https://corsproxy.io/?${Uri.encodeComponent(faviconUrl)}';
-    } catch (_) {
-      return '';
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
     final fc = _B.fieldColor(university.field);
-    final logoUrl = _logoUrl(university.url);
     final initials = _initials(university.name);
 
     return GestureDetector(
@@ -685,43 +671,25 @@ class _UniCard extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
-            // Logo avatar — HtmlElementView ile CORS engeli olmadan yüklenir
+            // Renkli baş harf avatarı
             AnimatedContainer(
               duration: const Duration(milliseconds: 200),
               width: 48, height: 48,
               decoration: BoxDecoration(
-                color: isSelected ? _B.navy : Colors.white,
+                color: isSelected ? _B.navy : fc.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(14),
-                border: isSelected ? null : Border.all(color: _B.border, width: 1),
                 boxShadow: isSelected
                     ? [BoxShadow(color: _B.navy.withValues(alpha: 0.25), blurRadius: 10, offset: const Offset(0, 4))]
-                    : [BoxShadow(color: Colors.black.withValues(alpha: 0.04), blurRadius: 6, offset: const Offset(0, 2))],
+                    : [],
               ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(13),
-                child: Stack(
-                  fit: StackFit.expand,
-                  children: [
-                    // Arka kat: her zaman görünür baş harfler
-                    Center(
-                      child: Text(
-                        initials,
-                        style: GoogleFonts.poppins(
-                          fontSize: 13, fontWeight: FontWeight.w800,
-                          color: isSelected ? Colors.white : fc,
-                          letterSpacing: 0.3,
-                        ),
-                      ),
-                    ),
-                    // Üst kat: logo (yüklenirse kaplar, yüklenemezse şeffaf kalır)
-                    if (logoUrl.isNotEmpty)
-                      Image.network(
-                        logoUrl,
-                        fit: BoxFit.contain,
-                        // Hata durumunda şeffaf bırak → baş harfler görünür
-                        errorBuilder: (_, __, ___) => const SizedBox.shrink(),
-                      ),
-                  ],
+              child: Center(
+                child: Text(
+                  initials,
+                  style: GoogleFonts.poppins(
+                    fontSize: 13, fontWeight: FontWeight.w800,
+                    color: isSelected ? Colors.white : fc,
+                    letterSpacing: 0.3,
+                  ),
                 ),
               ),
             ),

@@ -292,61 +292,71 @@ class _HomeScreenState extends State<HomeScreen>
         bottom: false,
         child: Padding(
           padding: const EdgeInsets.fromLTRB(20, 18, 20, 22),
-          child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            // Top row: logo + title + clear
-            Row(children: [
-              // Logo / brand
-              if (_logo != null)
-                SizedBox(width: 42, height: 42, child: _logo)
-              else
-                Container(
-                  width: 42, height: 42,
-                  decoration: BoxDecoration(
-                    color: Colors.white.withValues(alpha: 0.15),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: const Icon(Icons.school_rounded, color: Colors.white, size: 22),
-                ),
-              const SizedBox(width: 14),
-              Expanded(
-                child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                  Text('MYEDU COACH',
-                    style: GoogleFonts.poppins(
-                      color: Colors.white,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w800,
-                      letterSpacing: 1.5,
-                    )),
-                  Text('Üniversite Seçici',
-                    style: GoogleFonts.poppins(
-                      color: Colors.white.withValues(alpha: 0.7),
-                      fontSize: 11,
-                      fontWeight: FontWeight.w400,
-                    )),
-                ]),
-              ),
-              if (_selected.isNotEmpty)
-                GestureDetector(
-                  onTap: () => setState(() => _selected.clear()),
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
-                    decoration: BoxDecoration(
-                      color: Colors.white.withValues(alpha: 0.12),
-                      borderRadius: BorderRadius.circular(100),
-                      border: Border.all(color: Colors.white.withValues(alpha: 0.2)),
+          child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+            // Top row: centered brand + optional clear on right
+            Stack(
+              alignment: Alignment.center,
+              children: [
+                // ── Centered logo + title ──
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    // White logo
+                    SizedBox(
+                      width: 52, height: 52,
+                      child: Image.asset(
+                        'assets/images/logo.png',
+                        fit: BoxFit.contain,
+                        color: Colors.white,
+                        colorBlendMode: BlendMode.srcIn,
+                      ),
                     ),
-                    child: Row(mainAxisSize: MainAxisSize.min, children: [
-                      Icon(Icons.close_rounded, size: 13, color: Colors.white.withValues(alpha: 0.8)),
-                      const SizedBox(width: 5),
-                      Text('Temizle',
-                        style: GoogleFonts.poppins(color: Colors.white.withValues(alpha: 0.8), fontSize: 11, fontWeight: FontWeight.w600)),
+                    const SizedBox(width: 12),
+                    Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                      Text('MYEDUCOACH',
+                        style: GoogleFonts.poppins(
+                          color: Colors.white,
+                          fontSize: 17,
+                          fontWeight: FontWeight.w800,
+                          letterSpacing: 1.2,
+                        )),
+                      Text('Üniversite Seçici',
+                        style: GoogleFonts.poppins(
+                          color: Colors.white.withValues(alpha: 0.7),
+                          fontSize: 11,
+                          fontWeight: FontWeight.w400,
+                        )),
                     ]),
-                  ),
+                  ],
                 ),
-            ]),
+                // ── Clear button pinned to the right ──
+                if (_selected.isNotEmpty)
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: GestureDetector(
+                      onTap: () => setState(() => _selected.clear()),
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+                        decoration: BoxDecoration(
+                          color: Colors.white.withValues(alpha: 0.12),
+                          borderRadius: BorderRadius.circular(100),
+                          border: Border.all(color: Colors.white.withValues(alpha: 0.2)),
+                        ),
+                        child: Row(mainAxisSize: MainAxisSize.min, children: [
+                          Icon(Icons.close_rounded, size: 13, color: Colors.white.withValues(alpha: 0.8)),
+                          const SizedBox(width: 5),
+                          Text('Temizle',
+                            style: GoogleFonts.poppins(color: Colors.white.withValues(alpha: 0.8), fontSize: 11, fontWeight: FontWeight.w600)),
+                        ]),
+                      ),
+                    ),
+                  ),
+              ],
+            ),
             const SizedBox(height: 20),
-            // Stat pills
-            Row(children: [
+            // Stat pills — centered
+            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
               _statPill(Icons.school_outlined, '$total Program'),
               const SizedBox(width: 10),
               _statPill(Icons.category_outlined, '$fieldCount Alan'),

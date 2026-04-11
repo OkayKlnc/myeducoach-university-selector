@@ -10,8 +10,24 @@ import 'screens/admin_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  runApp(const MyeducoachApp());
+  try {
+    await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+    runApp(const MyeducoachApp());
+  } catch (e, st) {
+    runApp(MaterialApp(
+      home: Scaffold(
+        body: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(24),
+            child: SelectableText(
+              'HATA:\n$e\n\n$st',
+              style: const TextStyle(fontSize: 11, color: Colors.red),
+            ),
+          ),
+        ),
+      ),
+    ));
+  }
 }
 
 class MyeducoachApp extends StatelessWidget {

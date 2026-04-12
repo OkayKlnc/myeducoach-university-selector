@@ -1,7 +1,12 @@
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core_web/firebase_core_web.dart';
+import 'package:firebase_auth_web/firebase_auth_web.dart';
+import 'package:cloud_firestore_web/cloud_firestore_web.dart';
+import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'firebase_options.dart';
 import 'services/auth_service.dart';
 import 'screens/login_screen.dart';
@@ -10,6 +15,12 @@ import 'screens/admin_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  // Manuel Firebase web plugin kaydı
+  if (kIsWeb) {
+    FirebaseCoreWeb.registerWith(webPluginRegistrar);
+    FirebaseAuthWeb.registerWith(webPluginRegistrar);
+    FirebaseFirestoreWeb.registerWith(webPluginRegistrar);
+  }
   try {
     await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
     runApp(const MyeducoachApp());
